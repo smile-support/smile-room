@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>入居までの流れ｜スマイルームおゆみ野</title>
+<meta name="description" content="お問い合わせから入居までの流れをご案内します。ゆっくりとご検討いただける、6つのステップ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.steps {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.step {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 28px;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  border: 1px solid var(--line-soft);
+  position: relative;
+}
+.step-num {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.step-num .ring {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, var(--pink-100), var(--pink-300));
+  display: grid; place-items: center;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+  color: white;
+  font-size: 34px;
+  box-shadow: 0 6px 16px oklch(0.75 0.1 25 / 0.3);
+}
+.step-num .lbl {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--pink-600);
+  font-weight: 600;
+}
+.step h3 { font-size: 22px; margin-bottom: 8px; }
+.step p { color: var(--ink-soft); line-height: 1.95; margin: 0 0 12px; }
+.step .meta {
+  font-family: "Zen Maru Gothic";
+  font-size: 13px;
+  color: var(--pink-600);
+  background: var(--pink-50);
+  padding: 6px 14px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.step::after {
+  /* connector arrow */
+  content: "↓";
+  position: absolute;
+  bottom: -30px;
+  left: 60px;
+  font-size: 22px;
+  color: var(--pink-300);
+  font-weight: bold;
+  z-index: 1;
+}
+.step:last-child::after { display: none; }
+
+@media (max-width: 700px) {
+  .step { grid-template-columns: 1fr; padding: 24px; }
+  .step-num { flex-direction: row; }
+  .step-num .ring { width: 56px; height: 56px; font-size: 24px; }
+  .step::after { left: 30px; }
+}
+
+.docs-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+@media (max-width: 700px) { .docs-list { grid-template-columns: 1fr; } }
+.doc {
+  display: flex; gap: 12px; align-items: center;
+  padding: 16px 18px;
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--line-soft);
+  font-size: 14.5px;
+}
+.doc::before {
+  content: "";
+  width: 26px; height: 26px;
+  background: var(--pink-100);
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23b04d68' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+<div data-site-header></div>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">ホーム</a><span>›</span>入居までの流れ</nav>
+    <span class="eyebrow">PROCESS <span class="jp">／ 入居までの流れ</span></span>
+    <h1 class="section-title" style="font-size:clamp(32px,5vw,48px);margin-bottom:8px;">ゆっくりと、ご検討ください。</h1>
+    <p style="font-size:17px;color:var(--ink-soft);max-width:680px;">お問い合わせから入居までの流れを、6つのステップでご案内します。ご不安な点があれば、いつでもご相談ください。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:900px;">
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">
+          <div class="ring">1</div>
+          <div class="lbl">STEP 01</div>
+        </div>
+        <div>
+          <h3>お問い合わせ</h3>
+          <p>お電話・お問い合わせフォーム・資料請求のいずれかでご連絡ください。施設の概要や、現在のご状況についてお伺いします。</p>
+          <span class="meta">所要時間：15分程度</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">
+          <div class="ring">2</div>
+          <div class="lbl">STEP 02</div>
+        </div>
+        <div>
+          <h3>資料送付・電話相談</h3>
+          <p>ご希望の方には、パンフレット・料金表・間取り図を郵送いたします。資料をご覧いただきながら、お電話でのご相談も承ります。</p>
+          <span class="meta">2〜3日でお届け</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">
+          <div class="ring">3</div>
+          <div class="lbl">STEP 03</div>
+        </div>
+        <div>
+          <h3>見学・館内ご案内</h3>
+          <p>実際の居室・共有スペースをご見学いただきます。スタッフが館内をご案内し、設備や暮らしの様子について丁寧にご説明します。ご家族とご一緒にお越しください。</p>
+          <span class="meta">所要時間：約60分</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">
+          <div class="ring">4</div>
+          <div class="lbl">STEP 04</div>
+        </div>
+        <div>
+          <h3>ご面談・ヒアリング</h3>
+          <p>ご本人さまの現在のご状況、生活のご希望、ご家族のご要望などを丁寧にお伺いします。介護サービスのご相談にも対応します。</p>
+          <span class="meta">所要時間：約60分</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">
+          <div class="ring">5</div>
+          <div class="lbl">STEP 05</div>
+        </div>
+        <div>
+          <h3>お申し込み・契約手続き</h3>
+          <p>ご納得いただけましたら、お申し込み手続きにお進みください。必要書類をご準備いただき、賃貸借契約を取り交わします。</p>
+          <span class="meta">必要書類：下記参照</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">
+          <div class="ring">6</div>
+          <div class="lbl">STEP 06</div>
+        </div>
+        <div>
+          <h3>ご入居</h3>
+          <p>お引っ越し当日は、スタッフがお迎えして、お部屋へご案内します。新しい暮らしのスタートを、私たちもお手伝いいたします。</p>
+          <span class="meta">入居後のご相談もお気軽に</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-warm);">
+  <div class="container" style="max-width:900px;">
+    <h2 class="section-title" style="font-size:26px;">ご契約時に必要な書類</h2>
+    <p class="section-lede mb-6">下記の書類をご準備ください。ご不明な点はスタッフがサポートします。</p>
+
+    <div class="docs-list">
+      <div class="doc">入居申込書（当方でご用意）</div>
+      <div class="doc">健康診断書（直近6ヶ月以内）</div>
+      <div class="doc">介護保険証のコピー（お持ちの方）</div>
+      <div class="doc">身分証明書のコピー</div>
+      <div class="doc">住民票</div>
+      <div class="doc">緊急連絡先のご記入</div>
+      <div class="doc">連帯保証人さまの同意書</div>
+      <div class="doc">敷金（家賃の2ヶ月分）</div>
+    </div>
+    <p class="mt-3" style="font-size:13.5px;color:var(--ink-mute);">※ 必要書類はご状況により変更となる場合があります。お申し込み時にご案内します。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-block">
+      <div>
+        <h2>まずは、お気軽にお問い合わせください。</h2>
+        <p style="margin:0;color:var(--ink-soft);">すぐにご決断いただく必要はありません。資料請求やお電話でのご相談から、お気軽にどうぞ。</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="contact.html">資料を請求する</a>
+        <a class="btn btn-secondary" href="contact.html">見学を予約する</a>
+        <div class="cta-tel">
+          <small>お電話でのお問い合わせ</small>
+          <a class="num" href="tel:05020302851">050-2030-2851</a>
+          <div class="hours">受付時間 9:00 - 18:00（年中無休）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="js/shared.js"></script>
+</body>
+</html>

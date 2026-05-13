@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>よくあるご質問｜スマイルームおゆみ野</title>
+<meta name="description" content="入居前によくいただくご質問にお答えします。介護施設との違い、料金、ご家族の面会など。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.faq-cats {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.faq-cat-btn {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-family: "Zen Maru Gothic";
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .2s;
+  color: var(--ink-soft);
+}
+.faq-cat-btn:hover { border-color: var(--pink-300); color: var(--pink-600); }
+.faq-cat-btn.active {
+  background: var(--pink-500); color: white; border-color: var(--pink-500);
+}
+
+.faq-section { margin-bottom: 50px; }
+.faq-section h2 {
+  font-size: 22px;
+  color: var(--pink-600);
+  margin-bottom: 18px;
+  display: flex; align-items: center; gap: 10px;
+}
+.faq-section h2::before {
+  content: ""; width: 6px; height: 24px;
+  background: var(--pink-400); border-radius: 100px;
+}
+
+.faq-item {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--line-soft);
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: box-shadow .15s;
+}
+.faq-item:hover { box-shadow: var(--shadow-sm); }
+.faq-q {
+  width: 100%;
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 20px 24px;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  font-family: "Zen Maru Gothic";
+  font-weight: 700;
+  font-size: 16.5px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.faq-q .q-mark {
+  display: grid; place-items: center;
+  width: 30px; height: 30px;
+  background: var(--pink-500); color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.faq-q .chev {
+  margin-left: auto;
+  width: 22px; height: 22px;
+  background: var(--pink-50);
+  color: var(--pink-600);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  transition: transform .25s;
+  flex-shrink: 0;
+}
+.faq-item.open .faq-q .chev { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+}
+.faq-item.open .faq-a { max-height: 500px; }
+.faq-a-inner {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 0 24px 22px;
+  font-size: 14.5px; color: var(--ink-soft); line-height: 1.95;
+}
+.faq-a-inner .a-mark {
+  display: grid; place-items: center;
+  width: 30px; height: 30px;
+  background: oklch(0.95 0.04 145); color: oklch(0.45 0.12 145);
+  border-radius: 8px;
+  font-family: "Zen Maru Gothic"; font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+<div data-site-header></div>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">ホーム</a><span>›</span>よくあるご質問</nav>
+    <span class="eyebrow">FAQ <span class="jp">／ よくあるご質問</span></span>
+    <h1 class="section-title" style="font-size:clamp(32px,5vw,48px);margin-bottom:8px;">気になる、を解消します。</h1>
+    <p style="font-size:17px;color:var(--ink-soft);max-width:680px;">入居前によくいただくご質問をまとめました。ここに記載のないご質問も、お気軽にお問い合わせください。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:880px;">
+
+    <div class="faq-cats">
+      <button class="faq-cat-btn active" data-cat="all">すべて</button>
+      <button class="faq-cat-btn" data-cat="basic">基本</button>
+      <button class="faq-cat-btn" data-cat="care">介護・医療</button>
+      <button class="faq-cat-btn" data-cat="life">暮らし</button>
+      <button class="faq-cat-btn" data-cat="cost">費用</button>
+      <button class="faq-cat-btn" data-cat="contract">契約</button>
+    </div>
+
+    <div class="faq-section" data-cat="basic">
+      <h2>基本について</h2>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>介護施設との違いは何ですか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>スマイルームおゆみ野は「賃貸住宅」です。介護施設のような決められた集団生活ではなく、ご自身のペースで自由に暮らせます。賃貸借契約に基づいてご入居いただき、介護が必要なときは外部の事業者から自由にお選びいただけます。「ご自分の家として暮らしながら、安心の見守りもある」のが特徴です。</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>どんな方が入居されていますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>主に60代後半から90代の方までご入居いただいています。お一人暮らしの方、ご夫婦でご入居の方、要介護の方、お元気な方など、さまざまな方がご自身のペースで暮らしていらっしゃいます。</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>見学はできますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>はい、いつでも見学を受け付けております。お電話または見学予約フォームから、ご希望の日時をご相談ください。所要時間は約60分です。ご家族とご一緒のご見学も歓迎です。</p></div></div>
+      </div>
+    </div>
+
+    <div class="faq-section" data-cat="care">
+      <h2>介護・医療について</h2>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>要介護でも入居できますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>はい、介護度に関わらずご入居いただけます。要介護の方には外部の訪問介護サービスや通所介護サービスをご活用いただいています。お一人おひとりの状況をうかがって、最適な暮らし方をご提案します。</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>介護サービスはどうやって選びますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>外部のケアマネジャーや訪問介護事業者などを自由にお選びいただけます。スタッフがご紹介することも可能ですので、お気軽にご相談ください。介護保険の自己負担分のみのご負担で、追加料金は発生しません。</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>看護師は常駐していますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>看護師は常駐しておりませんが、近隣の医療機関と連携しています。日常的な健康管理は見守りスタッフが行い、医療が必要な際には近隣の病院や訪問看護サービスとご連携します。</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>通院のサポートはありますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>近隣の医療機関への通院に、必要に応じてスタッフが付き添いいたします。詳細は施設までご相談ください。</p></div></div>
+      </div>
+    </div>
+
+    <div class="faq-section" data-cat="life">
+      <h2>暮らしについて</h2>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>家族はいつでも面会できますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>はい、ご家族の面会は時間を気にせず自由にお越しいただけます。ご家族と一緒に食堂でお食事をしたり、お部屋でゆっくりお過ごしいただくこともできます。お孫さんのご訪問も大歓迎です。</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>家具や荷物を持ち込めますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>もちろんです。ベッド・タンス・テレビなど、これまで使われていた家具を持ち込んでいただけます。慣れ親しんだ環境のまま、新しい住まいでお過ごしいただけます。</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>外出はできますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>はい、賃貸住宅ですので、外出は自由です。ご家族とのお買い物、ご通院、お散歩など、ご自身のペースでお出かけいただけます。徒歩1分のレストランや徒歩3分のコンビニも便利です。</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>お食事は毎日提供されますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>お食事プランをお選びの方には、朝・昼・夕の3食（または昼夕のみ）を共有食堂でご提供します。栄養士監修の献立で、刻み食・減塩食などにも対応します。ご自身で外食やデリバリーをご利用される方もいらっしゃいます。</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>ペットは飼えますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>申し訳ございません、ペットの飼育はお断りしております。アレルギーをお持ちの方への配慮のためご了承ください。</p></div></div>
+      </div>
+    </div>
+
+    <div class="faq-section" data-cat="cost">
+      <h2>費用について</h2>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>月額費用はどのくらいですか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>Aタイプは月額59,800円〜（家賃・管理費・共益費すべて込み）です。Bタイプ（広めの個室）は68,000円〜となります。お食事や介護サービスはオプションとなり、必要な分だけご利用いただけます。</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>入居時の初期費用はいくらですか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>敷金として家賃の2ヶ月分を申し受けます。礼金・更新料はかかりません。詳細はお問い合わせください。</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>料金以外に追加でかかる費用はありますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>月額費用には家賃・管理費・共益費（光熱費を含む）が含まれます。追加でご利用いただくものとしては、お食事プラン、洗濯・清掃サービス、外部の介護サービス費用などがあります。</p></div></div>
+      </div>
+    </div>
+
+    <div class="faq-section" data-cat="contract">
+      <h2>契約について</h2>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>連帯保証人は必要ですか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>はい、連帯保証人さまをお立ていただいています。ご親族でのご対応が難しい場合は、保証会社のご利用も可能ですのでご相談ください。</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>退去時の手続きはどうなりますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>1ヶ月前にお申し出いただきます。賃貸借契約に基づき、退去時の手続きを進めます。お引っ越しのご相談も承ります。</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span>契約は誰の名義になりますか？<span class="chev">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="a-mark">A</span><p>ご入居される方ご本人さまの名義となります。ご本人さまでの契約手続きが難しい場合は、ご家族の方による代理契約も可能ですのでご相談ください。</p></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-block">
+      <div>
+        <h2>他にもご質問がございましたら。</h2>
+        <p style="margin:0;color:var(--ink-soft);">ここに記載のないご質問も、お気軽にお問い合わせください。スタッフが丁寧にお答えします。</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="contact.html">お問い合わせフォーム</a>
+        <div class="cta-tel">
+          <small>お電話でのお問い合わせ</small>
+          <a class="num" href="tel:05020302851">050-2030-2851</a>
+          <div class="hours">受付時間 9:00 - 18:00（年中無休）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="js/shared.js"></script>
+<script>
+// FAQ accordion
+document.querySelectorAll(".faq-q").forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.closest(".faq-item").classList.toggle("open");
+  });
+});
+// Category filter
+document.querySelectorAll(".faq-cat-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".faq-cat-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const cat = btn.dataset.cat;
+    document.querySelectorAll(".faq-section").forEach(s => {
+      s.style.display = (cat === "all" || s.dataset.cat === cat) ? "" : "none";
+    });
+  });
+});
+</script>
+</body>
+</html>

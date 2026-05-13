@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>料金プラン｜スマイルームおゆみ野</title>
+<meta name="description" content="月額59,800円〜。家賃・管理費・共益費込みの定額制。介護サービスは必要な分だけ自由に選べます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.price-hero-num {
+  font-family: "Zen Maru Gothic";
+  font-size: clamp(56px, 9vw, 110px);
+  font-weight: 700;
+  color: var(--pink-600);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.price-hero-num .yen { font-size: 0.4em; }
+.price-hero-num .from { font-size: 0.3em; color: var(--ink-soft); margin-left: 8px;}
+.plan-detail {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 30px;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  border: 1px solid var(--line-soft);
+  margin-bottom: 24px;
+}
+.plan-detail.featured { border: 2px solid var(--pink-400); }
+.plan-detail h3 { font-size: 24px; margin-bottom: 6px; }
+.plan-detail .img-placeholder { aspect-ratio: 4/3; }
+@media (max-width: 760px) { .plan-detail { grid-template-columns: 1fr; } }
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+}
+.price-table th, .price-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 15px;
+}
+.price-table th {
+  background: var(--pink-50);
+  font-family: "Zen Maru Gothic";
+  font-weight: 700;
+  color: var(--pink-600);
+  width: 36%;
+}
+.price-table tr:last-child td, .price-table tr:last-child th { border-bottom: 0; }
+.price-table .amt { font-family: "Zen Maru Gothic"; font-weight: 700; }
+.price-table .note { font-size: 12.5px; color: var(--ink-mute); }
+.price-table tfoot td {
+  background: var(--pink-50);
+  font-family: "Zen Maru Gothic";
+  font-weight: 700;
+  color: var(--pink-600);
+  font-size: 18px;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 30px;
+}
+@media (max-width: 760px) { .option-grid { grid-template-columns: 1fr; } }
+.option {
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.option h4 { font-size: 16px; margin-bottom: 4px; }
+.option .price { font-family: "Zen Maru Gothic"; color: var(--pink-600); font-weight: 700; font-size: 18px; margin-bottom: 8px; }
+.option p { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
+</style>
+</head>
+<body>
+
+<div data-site-header></div>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">ホーム</a><span>›</span>料金プラン</nav>
+    <span class="eyebrow">PRICING <span class="jp">／ 月額費用・料金プラン</span></span>
+    <h1 class="section-title" style="font-size:clamp(32px,5vw,48px);margin-bottom:8px;">わかりやすい、定額制の月額プラン</h1>
+    <p style="font-size:17px;color:var(--ink-soft);max-width:680px;">家賃・管理費・共益費がすべて込みの定額制。介護サービスは必要な分だけ、ご自身でお選びいただけます。</p>
+
+    <div style="margin-top:36px;display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;">
+      <div>
+        <small style="font-size:13px;letter-spacing:0.1em;color:var(--ink-mute);display:block;">Aタイプ月額</small>
+        <span class="price-hero-num">59,800<span class="yen">円</span><span class="from">〜</span></span>
+      </div>
+      <span class="tag" style="font-size:14px;padding:8px 14px;">家賃・管理費・共益費すべて込み</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title" style="font-size:28px;margin-bottom:30px;">プラン一覧</h2>
+
+    <div class="plan-detail">
+      <div>
+        <div class="img-placeholder">[ Aタイプ 居室写真<br>4:3 ]</div>
+      </div>
+      <div>
+        <span class="tag">Aタイプ・スタンダード</span>
+        <h3 class="mt-2">スタンダード個室</h3>
+        <div class="price-hero-num" style="font-size:54px;margin:8px 0;">59,800<span class="yen">円</span><span class="from">/月〜</span></div>
+        <p style="color:var(--ink-soft);margin-bottom:18px;">家賃・管理費・共益費を含んだ定額制。プライベートを保ちながら、共有スペースもご利用いただけます。</p>
+        <ul class="plan-list">
+          <li>個室（約9畳）・エアコン完備</li>
+          <li>専用トイレ・洗面台</li>
+          <li>共有浴室・食堂利用</li>
+          <li>24時間の見守りサポート</li>
+          <li>共用ラウンジ・談話スペース利用</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="plan-detail featured">
+      <div>
+        <div class="img-placeholder">[ Bタイプ 居室写真<br>4:3 ]</div>
+      </div>
+      <div>
+        <span class="tag" style="background:var(--pink-500);color:white;">Bタイプ・人気プラン</span>
+        <h3 class="mt-2">ゆったり個室</h3>
+        <div class="price-hero-num" style="font-size:54px;margin:8px 0;">68,000<span class="yen">円</span><span class="from">/月〜</span></div>
+        <p style="color:var(--ink-soft);margin-bottom:18px;">広めの個室で、ご夫婦やお荷物の多い方にも安心。南向きの窓から、たっぷりの日差しが差し込みます。</p>
+        <ul class="plan-list">
+          <li>広めの個室（約12畳）</li>
+          <li>南向きの窓・収納たっぷり</li>
+          <li>専用トイレ・洗面台</li>
+          <li>共有浴室・食堂利用</li>
+          <li>24時間の見守りサポート</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-warm);">
+  <div class="container">
+    <h2 class="section-title" style="font-size:28px;margin-bottom:30px;">料金の内訳（Aタイプ）</h2>
+    <table class="price-table">
+      <tbody>
+        <tr>
+          <th>家賃</th>
+          <td><span class="amt">39,800円</span> <span class="note">/ 月</span></td>
+        </tr>
+        <tr>
+          <th>管理費</th>
+          <td><span class="amt">15,000円</span> <span class="note">/ 月（光熱費含む）</span></td>
+        </tr>
+        <tr>
+          <th>共益費</th>
+          <td><span class="amt">5,000円</span> <span class="note">/ 月（共有部分の維持管理）</span></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>月額合計</td>
+          <td>59,800円〜</td>
+        </tr>
+      </tfoot>
+    </table>
+    <p class="mt-3" style="font-size:13.5px;color:var(--ink-mute);">※ 入居時には敷金（家賃の2ヶ月分）を申し受けます。礼金・更新料はかかりません。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">OPTIONS <span class="jp">／ オプションサービス</span></span>
+    <h2 class="section-title" style="font-size:28px;">必要なものを、必要な分だけ。</h2>
+    <p class="section-lede">お食事や介護サービスは、ご本人の生活スタイルに合わせて自由にお選びいただけます。</p>
+
+    <div class="option-grid">
+      <div class="option">
+        <h4>お食事プラン（1日3食）</h4>
+        <div class="price">+45,000円 / 月</div>
+        <p>栄養士監修の朝・昼・夕食を食堂でご提供。体調に合わせたお食事の対応も可能です。</p>
+      </div>
+      <div class="option">
+        <h4>お食事プラン（昼・夕のみ）</h4>
+        <div class="price">+32,000円 / 月</div>
+        <p>朝はお部屋でご自身で、昼夕は食堂で。柔軟にお選びいただけます。</p>
+      </div>
+      <div class="option">
+        <h4>洗濯サービス</h4>
+        <div class="price">+8,000円 / 月</div>
+        <p>週2回の洗濯代行サービス。シーツ・タオル類も対応します。</p>
+      </div>
+      <div class="option">
+        <h4>居室清掃</h4>
+        <div class="price">+6,000円 / 月</div>
+        <p>週1回のお部屋のお掃除サービス。お気軽にご依頼いただけます。</p>
+      </div>
+      <div class="option">
+        <h4>外部介護サービス</h4>
+        <div class="price">介護保険適用</div>
+        <p>訪問介護・通所介護・訪問看護など、外部事業者から自由にお選びいただけます。自己負担分のみのご負担です。</p>
+      </div>
+      <div class="option">
+        <h4>通院サポート</h4>
+        <div class="price">要相談</div>
+        <p>近隣の医療機関への通院に、必要に応じてスタッフが付き添います。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-block">
+      <div>
+        <h2>料金について、もっと詳しく。</h2>
+        <p style="margin:0;color:var(--ink-soft);">お一人おひとりのご状況に合わせた、見積もりをご案内します。お気軽にお問い合わせください。</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="contact.html">見学・お見積り依頼</a>
+        <div class="cta-tel">
+          <small>お電話でのお問い合わせ</small>
+          <a class="num" href="tel:05020302851">050-2030-2851</a>
+          <div class="hours">受付時間 9:00 - 18:00（年中無休）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="js/shared.js"></script>
+</body>
+</html>

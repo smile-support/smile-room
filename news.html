@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お知らせ・ブログ｜スマイルームおゆみ野</title>
+<meta name="description" content="スマイルームおゆみ野からのお知らせやイベント情報、入居者さまの声をお届けします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.news-cats {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.news-cat-btn {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-family: "Zen Maru Gothic";
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  transition: all .15s;
+}
+.news-cat-btn.active { background: var(--pink-500); color: white; border-color: var(--pink-500); }
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+@media (max-width: 880px) { .news-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .news-grid { grid-template-columns: 1fr; } }
+
+.news-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  transition: transform .2s, box-shadow .2s;
+  display: flex; flex-direction: column;
+}
+.news-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.news-card .thumb {
+  aspect-ratio: 16 / 10;
+}
+.news-card .body { padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+.news-card .top {
+  display: flex; gap: 10px; align-items: center;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+  font-family: "JetBrains Mono", monospace;
+}
+.news-card .cat {
+  background: var(--pink-100);
+  color: var(--pink-600);
+  font-family: "Noto Sans JP";
+  font-weight: 600;
+  font-size: 11.5px;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+.news-card .cat.event { background: oklch(0.92 0.06 60); color: oklch(0.45 0.12 60); }
+.news-card .cat.blog { background: oklch(0.92 0.05 145); color: oklch(0.4 0.1 145); }
+.news-card h3 { font-size: 16.5px; line-height: 1.55; }
+.news-card .excerpt { font-size: 13.5px; color: var(--ink-soft); margin: 0; line-height: 1.75; }
+.news-card .more { font-size: 13px; color: var(--pink-600); margin-top: auto; font-weight: 600; }
+
+.pagination {
+  display: flex; gap: 8px;
+  justify-content: center;
+  margin-top: 60px;
+}
+.pagination a {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: grid; place-items: center;
+  background: var(--card);
+  border: 1px solid var(--line);
+  font-family: "Zen Maru Gothic"; font-weight: 700;
+  color: var(--ink-soft);
+}
+.pagination a.active, .pagination a:hover {
+  background: var(--pink-500); color: white; border-color: var(--pink-500);
+}
+</style>
+</head>
+<body>
+<div data-site-header></div>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">ホーム</a><span>›</span>お知らせ・ブログ</nav>
+    <span class="eyebrow">NEWS <span class="jp">／ お知らせ・ブログ</span></span>
+    <h1 class="section-title" style="font-size:clamp(32px,5vw,48px);margin-bottom:8px;">日々の出来事と、暮らしの声。</h1>
+    <p style="font-size:17px;color:var(--ink-soft);max-width:680px;">施設からのお知らせ、季節のイベント、入居者さまの声を、月に数回お届けしています。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="news-cats">
+      <button class="news-cat-btn active">すべて</button>
+      <button class="news-cat-btn">お知らせ</button>
+      <button class="news-cat-btn">イベント</button>
+      <button class="news-cat-btn">ブログ</button>
+    </div>
+
+    <div class="news-grid">
+      <a class="news-card" href="#">
+        <div class="thumb img-placeholder">[ 体操教室の様子 ]</div>
+        <div class="body">
+          <div class="top"><span class="cat event">イベント</span><span>2026.05.10</span></div>
+          <h3>5月の体操教室・お花見会のご案内</h3>
+          <p class="excerpt">今月の体操教室と、近くの公園でのお花見会の予定をお知らせします。ご家族さまのご参加も大歓迎です。</p>
+          <span class="more">続きを読む →</span>
+        </div>
+      </a>
+
+      <a class="news-card" href="#">
+        <div class="thumb img-placeholder">[ ゴールデンウィーク ]</div>
+        <div class="body">
+          <div class="top"><span class="cat">お知らせ</span><span>2026.04.28</span></div>
+          <h3>ゴールデンウィーク期間中の見学受付について</h3>
+          <p class="excerpt">5月3日〜5日は通常通り見学を受け付けます。お電話・フォームよりご予約ください。</p>
+          <span class="more">続きを読む →</span>
+        </div>
+      </a>
+
+      <a class="news-card" href="#">
+        <div class="thumb img-placeholder">[ 入居者の声 ]</div>
+        <div class="body">
+          <div class="top"><span class="cat blog">ブログ</span><span>2026.04.15</span></div>
+          <h3>入居者さまの声：「ここでの暮らしが楽しい」</h3>
+          <p class="excerpt">ご入居から1年が経ったKさま（80代）に、暮らしのご感想をお伺いしました。「みんなとお話するのが楽しみ」とのこと。</p>
+          <span class="more">続きを読む →</span>
+        </div>
+      </a>
+
+      <a class="news-card" href="#">
+        <div class="thumb img-placeholder">[ 新年度ごあいさつ ]</div>
+        <div class="body">
+          <div class="top"><span class="cat">お知らせ</span><span>2026.04.01</span></div>
+          <h3>新年度のごあいさつとサービス改定について</h3>
+          <p class="excerpt">2026年度のごあいさつと、お食事プランの一部メニュー改定についてお知らせします。</p>
+          <span class="more">続きを読む →</span>
+        </div>
+      </a>
+
+      <a class="news-card" href="#">
+        <div class="thumb img-placeholder">[ 春の献立 ]</div>
+        <div class="body">
+          <div class="top"><span class="cat blog">ブログ</span><span>2026.03.20</span></div>
+          <h3>春のメニュー紹介：旬の食材を使った献立</h3>
+          <p class="excerpt">栄養士監修の3月メニューをご紹介。たけのこご飯、菜の花のおひたしなど、春の味覚をお楽しみいただいています。</p>
+          <span class="more">続きを読む →</span>
+        </div>
+      </a>
+
+      <a class="news-card" href="#">
+        <div class="thumb img-placeholder">[ ひな祭り会 ]</div>
+        <div class="body">
+          <div class="top"><span class="cat event">イベント</span><span>2026.03.03</span></div>
+          <h3>ひな祭り会を開催しました</h3>
+          <p class="excerpt">食堂でひな祭り会を開催。ちらし寿司を囲んで、入居者さまみなさまと楽しいひとときを過ごしました。</p>
+          <span class="more">続きを読む →</span>
+        </div>
+      </a>
+
+      <a class="news-card" href="#">
+        <div class="thumb img-placeholder">[ 健康講座 ]</div>
+        <div class="body">
+          <div class="top"><span class="cat event">イベント</span><span>2026.02.18</span></div>
+          <h3>健康講座「冬の感染症予防」を開催</h3>
+          <p class="excerpt">提携医療機関の看護師さまをお招きし、冬の感染症予防についての講座を開催しました。</p>
+          <span class="more">続きを読む →</span>
+        </div>
+      </a>
+
+      <a class="news-card" href="#">
+        <div class="thumb img-placeholder">[ 節分豆まき ]</div>
+        <div class="body">
+          <div class="top"><span class="cat event">イベント</span><span>2026.02.03</span></div>
+          <h3>節分の豆まきを行いました</h3>
+          <p class="excerpt">恵方巻きをいただきながら、施設内で豆まきを行いました。楽しい節分のひとときをご報告します。</p>
+          <span class="more">続きを読む →</span>
+        </div>
+      </a>
+
+      <a class="news-card" href="#">
+        <div class="thumb img-placeholder">[ 新年のごあいさつ ]</div>
+        <div class="body">
+          <div class="top"><span class="cat">お知らせ</span><span>2026.01.05</span></div>
+          <h3>新年のごあいさつ</h3>
+          <p class="excerpt">新年あけましておめでとうございます。本年もスマイルームおゆみ野をどうぞよろしくお願いいたします。</p>
+          <span class="more">続きを読む →</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="pagination">
+      <a class="active">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">›</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-block">
+      <div>
+        <h2>イベントへのご参加もお気軽に。</h2>
+        <p style="margin:0;color:var(--ink-soft);">外部の方でもご参加いただけるイベントもございます。ご興味があればお問い合わせください。</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="contact.html">お問い合わせ</a>
+        <div class="cta-tel">
+          <small>お電話でのお問い合わせ</small>
+          <a class="num" href="tel:05020302851">050-2030-2851</a>
+          <div class="hours">受付時間 9:00 - 18:00（年中無休）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="js/shared.js"></script>
+<script>
+document.querySelectorAll(".news-cat-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".news-cat-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+  });
+});
+</script>
+</body>
+</html>

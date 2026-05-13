@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一日の過ごし方｜スマイルームおゆみ野</title>
+<meta name="description" content="スマイルームおゆみ野での1日のリズム。自分らしいペースで過ごせる、暮らしのイメージをご紹介します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.day-large {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr;
+  gap: 30px;
+  padding: 36px 0;
+  border-bottom: 1px dashed var(--line);
+  align-items: start;
+}
+.day-large:last-child { border-bottom: 0; }
+.day-large .time {
+  font-family: "Zen Maru Gothic";
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--pink-600);
+  position: relative;
+  padding-left: 18px;
+}
+.day-large .time::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 8px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--pink-400);
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px var(--pink-200);
+}
+.day-large h3 { font-size: 22px; margin-bottom: 10px; }
+.day-large p { color: var(--ink-soft); margin: 0; line-height: 1.95; }
+.day-large .img-placeholder { aspect-ratio: 4/3; }
+
+@media (max-width: 800px) {
+  .day-large { grid-template-columns: 1fr; gap: 16px; padding: 28px 0; }
+  .day-large .time { font-size: 20px; }
+}
+
+.day-quote {
+  background:
+    radial-gradient(120% 100% at 80% 10%, oklch(0.95 0.04 60), transparent 60%),
+    var(--pink-50);
+  border-radius: var(--radius-lg);
+  padding: 50px 40px;
+  text-align: center;
+  position: relative;
+  margin-top: 60px;
+  border: 1px solid var(--pink-100);
+}
+.day-quote::before {
+  content: "“";
+  font-family: "Zen Maru Gothic";
+  font-size: 120px;
+  position: absolute;
+  top: 0; left: 30px;
+  color: var(--pink-200);
+  line-height: 1;
+}
+.day-quote p {
+  font-family: "Zen Maru Gothic";
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.8;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+.day-quote .who {
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--ink-mute);
+  letter-spacing: 0.06em;
+}
+</style>
+</head>
+<body>
+<div data-site-header></div>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">ホーム</a><span>›</span>一日の過ごし方</nav>
+    <span class="eyebrow">A DAY <span class="jp">／ 一日の過ごし方</span></span>
+    <h1 class="section-title" style="font-size:clamp(32px,5vw,48px);margin-bottom:8px;">朝のひかりから、夜のあかりまで。</h1>
+    <p style="font-size:17px;color:var(--ink-soft);max-width:680px;">スマイルームおゆみ野では、ご自身のペースで毎日をお過ごしいただけます。ここでは、ある日の暮らしの様子をご紹介します。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:980px;">
+
+    <div class="day-large">
+      <div class="time">7:00</div>
+      <div>
+        <span class="tag">起床・朝食</span>
+        <h3 class="mt-2">あたたかい朝ごはん</h3>
+        <p>朝の光が差し込む食堂で、ゆっくりと朝食を。栄養士監修の献立で、一日の始まりにふさわしい温かいお食事をご提供します。お部屋でゆっくり朝食をとられる方もいらっしゃいます。</p>
+      </div>
+      <div class="img-placeholder">[ 朝食シーン<br>食堂の様子 ]</div>
+    </div>
+
+    <div class="day-large">
+      <div class="time">10:00</div>
+      <div>
+        <span class="tag tag-leaf">アクティビティ</span>
+        <h3 class="mt-2">体操・お散歩タイム</h3>
+        <p>自由参加のラジオ体操やストレッチ。お天気のよい日には、近所をお散歩される方も。徒歩1分のレストラン前まで散策される方もいらっしゃいます。</p>
+      </div>
+      <div class="img-placeholder">[ 体操風景<br>みんなで一緒に ]</div>
+    </div>
+
+    <div class="day-large">
+      <div class="time">12:00</div>
+      <div>
+        <span class="tag">昼食</span>
+        <h3 class="mt-2">お昼ごはん</h3>
+        <p>食堂で温かいお食事をみんなで。お話に花が咲く時間でもあります。食事の好みや体調に合わせて、刻み食・減塩食などにも対応しています。</p>
+      </div>
+      <div class="img-placeholder">[ 昼食シーン<br>食堂 ]</div>
+    </div>
+
+    <div class="day-large">
+      <div class="time">14:00</div>
+      <div>
+        <span class="tag tag-leaf">自由時間</span>
+        <h3 class="mt-2">趣味の時間</h3>
+        <p>読書や手芸、テレビ鑑賞、ラウンジでのおしゃべり。お孫さんとビデオ通話を楽しまれる方も。ご家族の面会も自由に行っていただけます。</p>
+      </div>
+      <div class="img-placeholder">[ 趣味の時間<br>ラウンジでくつろぐ ]</div>
+    </div>
+
+    <div class="day-large">
+      <div class="time">17:00</div>
+      <div>
+        <span class="tag">入浴・夕食</span>
+        <h3 class="mt-2">ゆっくり入浴、そして夕食へ</h3>
+        <p>バスリフト付きの浴室で、ゆったりと湯船に浸かっていただけます。お風呂上がりは、温かい夕食を食堂で。一日の疲れがほどけるひとときです。</p>
+      </div>
+      <div class="img-placeholder">[ 浴室・夕食<br>くつろぎの時間 ]</div>
+    </div>
+
+    <div class="day-large">
+      <div class="time">21:00</div>
+      <div>
+        <span class="tag">就寝</span>
+        <h3 class="mt-2">おやすみなさい</h3>
+        <p>個室でゆっくりおやすみいただけます。夜間も見守りスタッフが常駐していますので、ご家族にも安心していただける環境です。</p>
+      </div>
+      <div class="img-placeholder">[ 個室・就寝<br>あたたかな照明 ]</div>
+    </div>
+
+    <div class="day-quote">
+      <p>朝起きて、おいしい朝ごはん。<br>あいさつを交わして、ちょっと体操。<br>そんな当たりまえの毎日が、いちばんしあわせ。</p>
+      <div class="who">— 入居者さま（80代女性）</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-warm);">
+  <div class="container">
+    <h2 class="section-title" style="font-size:28px;">月に一度のお楽しみ</h2>
+    <p class="section-lede">季節を感じるイベントを、入居者みなさまと一緒に楽しんでいます。ご家族のご参加も大歓迎です。</p>
+
+    <div class="grid-4 mt-6">
+      <div class="card-soft">
+        <div style="font-family:'Zen Maru Gothic';color:var(--pink-600);font-size:13px;letter-spacing:0.08em;margin-bottom:6px;">SPRING</div>
+        <h4 style="font-size:17px;margin-bottom:6px;">お花見会</h4>
+        <p style="font-size:13.5px;color:var(--ink-soft);margin:0;">近くの公園で桜を楽しみます</p>
+      </div>
+      <div class="card-soft">
+        <div style="font-family:'Zen Maru Gothic';color:var(--pink-600);font-size:13px;letter-spacing:0.08em;margin-bottom:6px;">SUMMER</div>
+        <h4 style="font-size:17px;margin-bottom:6px;">夏祭り・盆踊り</h4>
+        <p style="font-size:13.5px;color:var(--ink-soft);margin:0;">浴衣を着て、夏のひととき</p>
+      </div>
+      <div class="card-soft">
+        <div style="font-family:'Zen Maru Gothic';color:var(--pink-600);font-size:13px;letter-spacing:0.08em;margin-bottom:6px;">AUTUMN</div>
+        <h4 style="font-size:17px;margin-bottom:6px;">敬老会</h4>
+        <p style="font-size:13.5px;color:var(--ink-soft);margin:0;">ご家族をお招きしてお祝い</p>
+      </div>
+      <div class="card-soft">
+        <div style="font-family:'Zen Maru Gothic';color:var(--pink-600);font-size:13px;letter-spacing:0.08em;margin-bottom:6px;">WINTER</div>
+        <h4 style="font-size:17px;margin-bottom:6px;">クリスマス会・お正月</h4>
+        <p style="font-size:13.5px;color:var(--ink-soft);margin:0;">あたたかな冬のお祝い</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-block">
+      <div>
+        <h2>暮らしの様子を、実際にご覧ください。</h2>
+        <p style="margin:0;color:var(--ink-soft);">見学では、実際にお過ごしの様子もご案内します。お気軽にお越しください。</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="contact.html">見学を予約する</a>
+        <div class="cta-tel">
+          <small>お電話でのお問い合わせ</small>
+          <a class="num" href="tel:05020302851">050-2030-2851</a>
+          <div class="hours">受付時間 9:00 - 18:00（年中無休）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="js/shared.js"></script>
+</body>
+</html>
