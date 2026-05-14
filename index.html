@@ -542,6 +542,63 @@
   .news-cat { justify-self: start; }
 }
 
+/* =================== SNS =================== */
+.sns-section { background: var(--bg); }
+.sns-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 44px;
+}
+@media (max-width: 640px) { .sns-grid { grid-template-columns: 1fr; } }
+.sns-card {
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  border: 1px solid var(--line-soft);
+  transition: transform .25s, box-shadow .25s;
+  text-decoration: none;
+  color: inherit;
+}
+.sns-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.sns-card.youtube {
+  background: linear-gradient(135deg, #fff5f5 0%, #fff 60%);
+}
+.sns-card.instagram {
+  background: linear-gradient(135deg, #fff5f8 0%, #fff8f0 60%);
+}
+.sns-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.sns-card.youtube .sns-icon { background: #ff0000; color: #fff; }
+.sns-card.instagram .sns-icon {
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+}
+.sns-card-body { flex: 1; }
+.sns-card-body .sns-name { font-size: 12px; letter-spacing: 0.1em; color: var(--ink-mute); margin-bottom: 4px; }
+.sns-card-body h3 { font-size: 19px; margin-bottom: 6px; }
+.sns-card-body p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.7; }
+.sns-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-size: 14px; font-weight: 600; font-family: "Zen Maru Gothic";
+  transition: opacity .2s;
+}
+.sns-btn:hover { opacity: 0.85; }
+.sns-card.youtube .sns-btn { background: #ff0000; color: #fff; }
+.sns-card.instagram .sns-btn {
+  background: linear-gradient(90deg, #f09433, #dc2743, #bc1888);
+  color: #fff;
+}
+
 /* =================== FAQ プレビュー =================== */
 .faq-preview {
   display: grid;
@@ -1092,6 +1149,47 @@
         <span class="news-cat notice">お知らせ</span>
         <span class="news-title">新年度のごあいさつとサービス改定について</span>
         <span class="news-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SNS ========== -->
+<section class="section sns-section" data-screen-label="SNS">
+  <div class="container">
+    <div class="reveal" style="max-width:720px;">
+      <span class="eyebrow">SNS <span class="jp">／ 公式チャンネル</span></span>
+      <h2 class="section-title">日々の暮らしを、発信中。</h2>
+      <p class="section-lede">YouTubeとInstagramで、スマイルームおゆみ野のリアルな日常をご覧いただけます。</p>
+    </div>
+    <div class="sns-grid">
+      <a class="sns-card youtube reveal" href="https://www.youtube.com/@%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%AB%E3%83%BC%E3%83%A0-u5y" target="_blank" rel="noopener">
+        <div class="sns-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+        </div>
+        <div class="sns-card-body">
+          <div class="sns-name">YOUTUBE</div>
+          <h3>スマイルーム公式チャンネル</h3>
+          <p>施設の様子やイベントの動画を配信しています。入居前の参考にぜひご覧ください。</p>
+        </div>
+        <span class="sns-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+          チャンネルを見る
+        </span>
+      </a>
+      <a class="sns-card instagram reveal" href="https://www.instagram.com/smileroomchiba/" target="_blank" rel="noopener">
+        <div class="sns-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <div class="sns-card-body">
+          <div class="sns-name">INSTAGRAM</div>
+          <h3>@smileroomchiba</h3>
+          <p>入居者さまの笑顔やイベントの様子を毎日投稿中。フォローして日々の暮らしをチェック。</p>
+        </div>
+        <span class="sns-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          フォローする
+        </span>
       </a>
     </div>
   </div>
