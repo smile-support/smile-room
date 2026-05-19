@@ -66,6 +66,18 @@
       filter: brightness(0) invert(1);
       flex-shrink: 0;
     }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+    }
+    .header-name {
+      color: var(--white);
+      font-size: 4mm;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
     .header-right {
       display: flex;
       align-items: center;
@@ -444,9 +456,12 @@
 
   <!-- ヘッダー -->
   <header class="header">
-    <img class="header-logo" src="images/logo.png" alt="スマイルームおゆみ野">
+    <div class="header-left">
+      <img class="header-logo" src="images/logo.png" alt="スマイルームおゆみ野">
+      <span class="header-name">スマイルームおゆみ野</span>
+    </div>
     <div class="header-right">
-      <div class="header-badge">高齢者向け住宅</div>
+      <div class="header-badge">見学無料</div>
     </div>
   </header>
 
