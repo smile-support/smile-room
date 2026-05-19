@@ -494,6 +494,48 @@
     }
 
     /* ══════════════════════════════════════
+       ご家族へのメッセージ
+    ══════════════════════════════════════ */
+    .family-msg {
+      padding: 3mm 8mm 2.5mm;
+      background: var(--cream);
+    }
+    .family-msg-title {
+      text-align: center;
+      font-size: 4mm;
+      font-weight: 900;
+      color: var(--brown-dark);
+      letter-spacing: 0.08em;
+      margin-bottom: 2.5mm;
+    }
+    .family-msg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5mm;
+    }
+    .family-msg-card {
+      background: var(--white);
+      border-top: 2px solid var(--pink);
+      border-radius: 6px;
+      padding: 2.5mm 2mm;
+      text-align: center;
+    }
+    .family-msg-icon { font-size: 6mm; margin-bottom: 1mm; }
+    .family-msg-head {
+      font-size: 3.2mm;
+      font-weight: 900;
+      color: var(--brown-dark);
+      line-height: 1.35;
+      margin-bottom: 1.5mm;
+    }
+    .family-msg-body {
+      font-size: 2.7mm;
+      color: var(--brown-soft);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ══════════════════════════════════════
        印刷設定
     ══════════════════════════════════════ */
     @media print {
@@ -616,6 +658,28 @@
         </tr>
       </tbody>
     </table>
+  </section>
+
+  <!-- ご家族へのメッセージ -->
+  <section class="family-msg">
+    <p class="family-msg-title">ご家族の方へ — よくある気がかりに</p>
+    <div class="family-msg-grid">
+      <div class="family-msg-card">
+        <div class="family-msg-icon">🤝</div>
+        <div class="family-msg-head">介護は<br>自由に選べます</div>
+        <p class="family-msg-body">必要な分だけ外部の訪問・通所介護をご利用いただけます</p>
+      </div>
+      <div class="family-msg-card">
+        <div class="family-msg-icon">🏠</div>
+        <div class="family-msg-head">「住み替え」です<br>「預ける」ではない</div>
+        <p class="family-msg-body">一緒に選んだ新しい家。ご家族が安心すると、ご本人も笑顔が増えます</p>
+      </div>
+      <div class="family-msg-card">
+        <div class="family-msg-icon">🔑</div>
+        <div class="family-msg-head">ひとりでいたいときは<br>ひとりでいられる</div>
+        <p class="family-msg-body">全室個室。プライバシーを大切に。自然な交流は食堂やラウンジで</p>
+      </div>
+    </div>
   </section>
 
   <!-- 2カラム：料金 ＋ 周辺アクセス（ラベルなし・高さ揃え） -->
