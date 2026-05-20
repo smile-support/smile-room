@@ -29,7 +29,7 @@
     <header class="site-header">
       <div class="container">
         <a href="index.html" class="brand" aria-label="スマイルームおゆみ野 トップへ">
-          <img src="/images/logo.png" alt="スマイルームおゆみ野" class="brand-logo">
+          <img src="../images/logo.png" alt="スマイルームおゆみ野" class="brand-logo">
         </a>
         <nav class="site-nav" aria-label="メインナビゲーション">${navHtml}</nav>
         <div class="header-right">
@@ -57,7 +57,7 @@
             <div>
               <div class="footer-brand">
                 <a href="index.html" class="footer-logo-wrap" aria-label="スマイルームおゆみ野 トップへ">
-                  <img src="/images/logo.png" alt="スマイルームおゆみ野" class="brand-logo">
+                  <img src="../images/logo.png" alt="スマイルームおゆみ野" class="brand-logo">
                 </a>
               </div>
               <p style="color:oklch(0.8 0.01 30);margin:0 0 6px;">自分らしく暮らせる、<br>あたらしい住まいのかたち。</p>
@@ -95,8 +95,8 @@
             <div>
               <h4>系列施設</h4>
               <ul>
-                <li><a href="/">スマイルーム系列トップ</a></li>
-                <li><a href="/chiharadai/">スマイルームちはら台</a></li>
+                <li><a href="../">スマイルーム系列トップ</a></li>
+                <li><a href="../chiharadai/">スマイルームちはら台</a></li>
               </ul>
             </div>
           </div>
