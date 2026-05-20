@@ -665,6 +665,31 @@
 }
 .cta-tel:hover { opacity: .78; }
 .cta-hours { font-size: 13px; color: var(--ink-mute); }
+.cta-two-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 12px;
+}
+.cta-tel-col { text-align: center; }
+.cta-facility-name {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--pink-500);
+  margin-bottom: 4px;
+}
+.cta-tel-sep {
+  width: 1px;
+  height: 56px;
+  background: var(--line);
+  flex-shrink: 0;
+}
+@media (max-width: 480px) {
+  .cta-two-col { flex-direction: column; gap: 16px; }
+  .cta-tel-sep { width: 60px; height: 1px; }
+}
 .cta-links {
   display: flex;
   gap: 28px;
@@ -757,10 +782,6 @@
       <small>SMILE ROOM</small>
     </a>
     <div class="header-actions">
-      <a href="tel:0433107467" class="header-tel">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        043-310-7467
-      </a>
       <a href="oyumino/contact.html" class="header-btn">見学予約</a>
     </div>
   </div>
@@ -966,7 +987,17 @@
     <p class="cta-sub">見学予約・空室確認・資料請求、どんなご質問もお電話一本で。</p>
     <div class="cta-card">
       <div class="cta-tel-label">お電話でのご相談</div>
-      <a href="tel:0433107467" class="cta-tel">043-310-7467</a>
+      <div class="cta-two-col">
+        <div class="cta-tel-col">
+          <div class="cta-facility-name">おゆみ野</div>
+          <a href="tel:0433107467" class="cta-tel">043-310-7467</a>
+        </div>
+        <div class="cta-tel-sep"></div>
+        <div class="cta-tel-col">
+          <div class="cta-facility-name">ちはら台</div>
+          <a href="tel:0436633618" class="cta-tel">0436-63-3618</a>
+        </div>
+      </div>
       <p class="cta-hours">受付時間 9:00〜18:00（年中無休）</p>
     </div>
     <div class="cta-links">
