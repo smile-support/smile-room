@@ -321,12 +321,16 @@
     .meal-item-price { font-size: 3mm; font-weight: 700; color: var(--brown-mid); }
 
     .price-note {
-      font-size: 2.8mm; color: var(--brown-soft); font-weight: 500;
+      color: var(--brown-soft); font-weight: 500;
       background: var(--cream-mid); border-radius: 6px;
-      padding: 2mm 3mm; line-height: 1.65; flex: 1;
-      display: flex; flex-direction: column; justify-content: center;
+      padding: 2.5mm 3.5mm; flex: 1;
+      display: flex; flex-direction: column; justify-content: center; gap: 1.2mm;
     }
-    .price-note strong { color: var(--pink-dark); }
+    .pn-formula { font-size: 3.2mm; font-weight: 700; color: var(--brown-dark); line-height: 1.5; }
+    .pn-formula strong { color: var(--pink-dark); font-weight: 900; font-size: 3.2mm; }
+    .pn-sub { display: flex; justify-content: space-between; align-items: center; font-size: 2.7mm; color: var(--brown-soft); }
+    .pn-sub strong { color: var(--pink-dark); font-weight: 700; }
+    .pn-extras { display: flex; justify-content: space-between; font-size: 2.5mm; color: var(--brown-soft); padding-top: 1mm; border-top: 1px solid var(--pink-light); }
 
     /* ── アクセス列 ── */
     .access-col {
@@ -583,7 +587,7 @@
   <div class="pension-ribbon">
     <span class="pension-ribbon-main">🌸 年金で暮らせる</span>
     <span class="pension-ribbon-price">59,800円〜</span>
-    <span class="pension-ribbon-note">家賃・管理費・共益費すべて込み</span>
+    <span class="pension-ribbon-note">家賃・管理費・共益費すべて込み（食事別）</span>
   </div>
 
   <!-- 6つの安心 -->
@@ -593,7 +597,7 @@
       <div class="feature-card">
         <div class="feature-icon">🤝</div>
         <div class="feature-label">介護を自由に選べる</div>
-        <div class="feature-desc">外部の訪問・通所介護を必要な分だけ利用可。介護度の変化にも対応。</div>
+        <div class="feature-desc">外部の訪問・通所介護を必要な分だけ利用可。<br>介護度の変化にも対応。</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🏠</div>
@@ -613,7 +617,7 @@
       <div class="feature-card">
         <div class="feature-icon">🌸👨‍👩‍👧</div>
         <div class="feature-label">自由な暮らし・家族も安心</div>
-        <div class="feature-desc">完全プライベート個室で自分らしく。面会・訪問はいつでも大歓迎。</div>
+        <div class="feature-desc">完全プライベート個室で自分らしく。<br>面会・訪問はいつでも大歓迎。</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🍱</div>
@@ -661,7 +665,7 @@
 
   <!-- ご家族へのメッセージ -->
   <section class="family-msg">
-    <p class="family-msg-title">ご家族の方へ — よくある気がかりに</p>
+    <p class="family-msg-title">ご本人様・ご家族様へ — よくある気がかりに</p>
     <div class="family-msg-grid">
       <div class="family-msg-card">
         <div class="family-msg-icon">🤝</div>
@@ -671,12 +675,12 @@
       <div class="family-msg-card">
         <div class="family-msg-icon">🏠</div>
         <div class="family-msg-head">「住み替え」です<br>「預ける」ではない</div>
-        <p class="family-msg-body">一緒に選んだ新しい家。ご家族が安心すると、ご本人も笑顔が増えます</p>
+        <p class="family-msg-body">一緒に選んだ新しい家。<br>ご家族が安心すると、ご本人も笑顔が増えます</p>
       </div>
       <div class="family-msg-card">
         <div class="family-msg-icon">🔑</div>
         <div class="family-msg-head">ひとりでいたいときは<br>ひとりでいられる</div>
-        <p class="family-msg-body">全室個室。プライバシーを大切に。自然な交流は食堂やラウンジで</p>
+        <p class="family-msg-body">全室個室。プライバシーを大切に。<br>自然な交流は食堂やラウンジで</p>
       </div>
     </div>
   </section>
@@ -716,7 +720,16 @@
       </div>
 
       <div class="price-note">
-        <strong>家賃＋管理費（光熱費込）＋共益費</strong>の定額制。礼金・更新料なし。<br>※敷金：家賃の2ヶ月分
+        <div class="pn-formula">家賃 ＋ 管理費（水道・共用光熱費込） ＋ 共益費　の　<strong>定額制</strong></div>
+        <div class="pn-sub">
+          <strong>礼金・更新料なし</strong>
+          <span>※敷金：家賃の2ヶ月分</span>
+        </div>
+        <div class="pn-extras">
+          <span>初期費用 5万円</span>
+          <span>居室電気代 別途</span>
+          <span>火災保険 1万円/2年</span>
+        </div>
       </div>
     </div>
 
