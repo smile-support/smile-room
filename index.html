@@ -459,6 +459,69 @@
 }
 .prep-tel:hover { opacity: .8; }
 
+/* ===== MAP ===== */
+.map-section {
+  padding: clamp(64px, 9vw, 100px) 0;
+  background: var(--bg-warm);
+  border-top: 1px solid var(--line-soft);
+}
+.map-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.map-item {}
+.map-name {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.map-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.map-dot.pink { background: var(--pink-500); }
+.map-dot.gray { background: oklch(0.72 0.01 0); }
+.map-addr {
+  font-size: 13px;
+  color: var(--ink-mute);
+  margin-bottom: 14px;
+  padding-left: 18px;
+}
+.map-frame {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+}
+.map-frame iframe {
+  display: block;
+  width: 100%;
+  height: 260px;
+  border: 0;
+}
+.map-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pink-600);
+  text-decoration: none;
+  padding-left: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap .2s;
+}
+.map-link:hover { gap: 8px; }
+@media (max-width: 768px) {
+  .map-grid { grid-template-columns: 1fr; }
+}
+
 /* ===== FEATURES ===== */
 .features {
   padding: clamp(72px, 10vw, 120px) 0;
@@ -718,7 +781,7 @@
       <span class="badge-dot"></span>
       千葉・市原エリア &nbsp;2施設運営中
     </div>
-    <h1 class="a2">自分らしく、<em>安心して</em>。<br>新しい住まいの選択肢。</h1>
+    <h1 class="a2">自分らしく、<em>安心して</em>。新しい住まいの選択肢。</h1>
     <p class="hero-sub a3">
       「スマイルーム」は、介護施設ではなく高齢者対応賃貸住宅です。<br>
       自由に介護サービスを選び、自分のペースで暮らせる場所を。
@@ -782,7 +845,7 @@
           <div class="f-name">スマイルームちはら台</div>
           <div class="f-address">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            市原市ちはら台エリア
+            〒290-0141 千葉県市原市ちはら台東8丁目3−1
           </div>
           <div class="f-divider"></div>
           <div class="prep-tel-box">
@@ -791,6 +854,41 @@
           </div>
           <a href="chiharadai/" class="f-btn outline">詳細ページへ（準備中）</a>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+  <div class="wrap">
+    <div class="sec-label">ACCESS</div>
+    <div class="sec-title">施設へのアクセス</div>
+    <div class="map-grid">
+
+      <div class="map-item">
+        <div class="map-name">
+          <span class="map-dot pink"></span>
+          スマイルームおゆみ野
+        </div>
+        <div class="map-addr">〒266-0005 千葉県千葉市緑区誉田町1-659-1</div>
+        <div class="map-frame">
+          <iframe src="https://maps.google.com/maps?q=%E5%8D%83%E8%91%89%E7%9C%8C%E5%8D%83%E8%91%89%E5%B8%82%E7%B7%91%E5%8C%BA%E8%AA%89%E7%94%B0%E7%94%BA1-659-1&output=embed&hl=ja" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <a href="oyumino/access.html" class="map-link">アクセス詳細・周辺情報 →</a>
+      </div>
+
+      <div class="map-item">
+        <div class="map-name">
+          <span class="map-dot gray"></span>
+          スマイルームちはら台
+        </div>
+        <div class="map-addr">〒290-0141 千葉県市原市ちはら台東8丁目3−1</div>
+        <div class="map-frame">
+          <iframe src="https://maps.google.com/maps?q=%E5%8D%83%E8%91%89%E7%9C%8C%E5%B8%82%E5%8E%9F%E5%B8%82%E3%81%A1%E3%81%AF%E3%82%89%E5%8F%B0%E6%9D%B13-1&output=embed&hl=ja" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <a href="chiharadai/" class="map-link">ちはら台の詳細ページへ →</a>
       </div>
 
     </div>
