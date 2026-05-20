@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <link rel="stylesheet" href="css/styles.css">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1106,8 +1106,14 @@
 </div>
 
 <script>
-(function () {
-  var map = L.map('overview-map');
+window.addEventListener('load', function () {
+  var container = document.getElementById('overview-map');
+  if (!container || typeof L === 'undefined') {
+    if (container) container.style.display = 'none';
+    return;
+  }
+
+  var map = L.map(container);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -1146,7 +1152,7 @@
 
   var group = L.featureGroup([oyumino, chiharadai]);
   map.fitBounds(group.getBounds().pad(0.35));
-})();
+});
 </script>
 </body>
 </html>
