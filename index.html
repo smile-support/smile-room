@@ -1120,38 +1120,51 @@ window.addEventListener('load', function () {
     maxZoom: 18
   }).addTo(map);
 
-  function makeIcon(color) {
+  function makeMarker(color, name) {
+    var card =
+      '<div style="' +
+        'cursor:pointer;background:#fff;border:2px solid ' + color + ';' +
+        'border-radius:12px;padding:7px 14px 8px;text-align:center;' +
+        'box-shadow:0 4px 18px rgba(0,0,0,0.18);' +
+        'font-family:Noto Sans JP,sans-serif;white-space:nowrap;' +
+        'position:relative;margin-bottom:10px;' +
+      '">' +
+        '<div style="font-size:9px;color:#aaa;letter-spacing:0.08em;margin-bottom:3px;">高齢者対応賃貸住宅</div>' +
+        '<div style="display:flex;align-items:center;gap:5px;justify-content:center;margin-bottom:3px;">' +
+          '<span style="font-size:17px;line-height:1;">🏠</span>' +
+          '<span style="font-size:13px;font-weight:700;color:' + color + ';letter-spacing:0.03em;">スマイルーム</span>' +
+        '</div>' +
+        '<div style="font-size:12px;font-weight:700;color:#444;letter-spacing:0.06em;">' + name + '</div>' +
+        // 外側三角（ボーダー色）
+        '<div style="position:absolute;bottom:-13px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:13px solid ' + color + ';"></div>' +
+        // 内側三角（白抜き）
+        '<div style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid #fff;"></div>' +
+      '</div>' +
+      '<div style="width:12px;height:12px;background:' + color + ';border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.3);margin:0 auto;"></div>';
+
     return L.divIcon({
       className: '',
-      html: '<div style="width:16px;height:16px;background:' + color + ';border:2.5px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.28);"></div>',
-      iconSize: [16, 16],
-      iconAnchor: [8, 8],
-      popupAnchor: [0, -12]
+      html: card,
+      iconSize: [160, 96],
+      iconAnchor: [80, 96],
+      popupAnchor: [0, -100]
     });
   }
 
   var oyumino = L.marker(
     [35.553588017736416, 140.19303115246873],
-    { icon: makeIcon('#db2777') }
+    { icon: makeMarker('#db2777', 'おゆみ野') }
   ).addTo(map);
-  oyumino.bindPopup(
-    '<strong style="font-size:13px;">スマイルームおゆみ野</strong><br>' +
-    '<span style="font-size:12px;color:#666;">〒266-0005 千葉市緑区誉田町1-659-1</span><br>' +
-    '<a href="oyumino/" style="font-size:12px;color:#db2777;font-weight:700;">詳細を見る →</a>'
-  );
+  oyumino.on('click', function () { window.open('oyumino/', '_self'); });
 
   var chiharadai = L.marker(
     [35.54122598771486, 140.19911719112588],
-    { icon: makeIcon('#888888') }
+    { icon: makeMarker('#6b7280', 'ちはら台') }
   ).addTo(map);
-  chiharadai.bindPopup(
-    '<strong style="font-size:13px;">スマイルームちはら台</strong><br>' +
-    '<span style="font-size:12px;color:#666;">〒290-0141 千葉県市原市ちはら台東八丁目19番地7</span><br>' +
-    '<a href="chiharadai/" style="font-size:12px;color:#888;font-weight:700;">詳細を見る →</a>'
-  );
+  chiharadai.on('click', function () { window.open('chiharadai/', '_self'); });
 
   var group = L.featureGroup([oyumino, chiharadai]);
-  map.fitBounds(group.getBounds().pad(0.35));
+  map.fitBounds(group.getBounds().pad(0.45));
 });
 </script>
 </body>
