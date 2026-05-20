@@ -472,58 +472,69 @@
 .map-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 28px;
 }
-.map-item {}
-.map-name {
+.map-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--card);
+}
+.map-card-header {
+  padding: 20px 24px 18px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.map-card-header.pink { border-left: 5px solid var(--pink-500); }
+.map-card-header.gray { border-left: 5px solid #9ca3af; }
+.map-card-name {
   font-family: "Zen Maru Gothic", sans-serif;
-  font-weight: 700;
-  font-size: 17px;
+  font-weight: 900;
+  font-size: clamp(17px, 2vw, 21px);
   color: var(--ink);
-  margin-bottom: 4px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  margin-bottom: 6px;
 }
-.map-dot {
-  width: 10px; height: 10px;
+.map-card-dot {
+  width: 12px; height: 12px;
   border-radius: 50%;
   flex-shrink: 0;
 }
-.map-dot.pink { background: var(--pink-500); }
-.map-dot.gray { background: oklch(0.72 0.01 0); }
-.map-addr {
+.map-card-dot.pink { background: var(--pink-500); }
+.map-card-dot.gray { background: #9ca3af; }
+.map-card-addr {
   font-size: 13px;
   color: var(--ink-mute);
-  margin-bottom: 14px;
-  padding-left: 18px;
+  padding-left: 22px;
+  line-height: 1.7;
 }
-.map-frame {
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  margin-bottom: 12px;
-}
-.map-frame iframe {
+.map-card-frame iframe {
   display: block;
   width: 100%;
-  height: 260px;
+  height: 300px;
   border: 0;
 }
-.map-link {
+.map-card-footer {
+  padding: 12px 24px;
+  border-top: 1px solid var(--line-soft);
+  display: flex;
+  justify-content: flex-end;
+}
+.map-card-link {
   font-size: 13px;
   font-weight: 600;
   color: var(--pink-600);
   text-decoration: none;
-  padding-left: 18px;
   display: inline-flex;
   align-items: center;
   gap: 4px;
   transition: gap .2s;
 }
-.map-link:hover { gap: 8px; }
+.map-card-link:hover { gap: 8px; }
 @media (max-width: 768px) {
   .map-grid { grid-template-columns: 1fr; }
+  .map-card-frame iframe { height: 240px; }
 }
 
 /* ===== FEATURES ===== */
@@ -780,22 +791,6 @@
 .f-station-row strong { color: var(--pink-600); font-weight: 700; }
 .f-station-icon { flex-shrink: 0; font-style: normal; }
 
-/* ===== OVERVIEW MAP ===== */
-.overview-map-wrap {
-  margin-bottom: 40px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-.overview-map-wrap iframe {
-  display: block;
-  width: 100%;
-  height: 420px;
-  border: 0;
-}
-@media (max-width: 768px) {
-  .overview-map-wrap iframe { height: 260px; }
-}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -952,39 +947,44 @@
   <div class="wrap">
     <div class="sec-label">ACCESS</div>
     <div class="sec-title">施設へのアクセス</div>
-    <div class="overview-map-wrap">
-      <iframe
-        src="https://maps.google.com/maps?saddr=35.553588,140.193096&daddr=35.541296,140.198946&output=embed&hl=ja"
-        allowfullscreen
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="スマイルーム 2施設マップ">
-      </iframe>
-    </div>
     <div class="map-grid">
 
-      <div class="map-item">
-        <div class="map-name">
-          <span class="map-dot pink"></span>
-          スマイルームおゆみ野
+      <div class="map-card">
+        <div class="map-card-header pink">
+          <div class="map-card-name">
+            <span class="map-card-dot pink"></span>
+            スマイルームおゆみ野
+          </div>
+          <div class="map-card-addr">
+            〒266-0005 千葉県千葉市緑区誉田町1-659-1<br>
+            JR外房線「誉田」駅・「鎌取」駅 各 車で約5分
+          </div>
         </div>
-        <div class="map-addr">〒266-0005 千葉県千葉市緑区誉田町1-659-1</div>
-        <div class="map-frame">
-          <iframe src="https://maps.google.com/maps?q=%E5%8D%83%E8%91%89%E7%9C%8C%E5%8D%83%E8%91%89%E5%B8%82%E7%B7%91%E5%8C%BA%E8%AA%89%E7%94%B0%E7%94%BA1-659-1&output=embed&hl=ja" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-card-frame">
+          <iframe src="https://maps.google.com/maps?q=%E5%8D%83%E8%91%89%E7%9C%8C%E5%8D%83%E8%91%89%E5%B8%82%E7%B7%91%E5%8C%BA%E8%AA%89%E7%94%B0%E7%94%BA1-659-1&z=15&output=embed&hl=ja" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <a href="oyumino/access.html" class="map-link">アクセス詳細・周辺情報 →</a>
+        <div class="map-card-footer">
+          <a href="oyumino/access.html" class="map-card-link">アクセス詳細・周辺情報 →</a>
+        </div>
       </div>
 
-      <div class="map-item">
-        <div class="map-name">
-          <span class="map-dot gray"></span>
-          スマイルームちはら台
+      <div class="map-card">
+        <div class="map-card-header gray">
+          <div class="map-card-name">
+            <span class="map-card-dot gray"></span>
+            スマイルームちはら台
+          </div>
+          <div class="map-card-addr">
+            〒290-0141 千葉県市原市ちはら台東八丁目19番地7<br>
+            京成千原線「ちはら台」駅・JR外房線「誉田」駅 各 車で約8分
+          </div>
         </div>
-        <div class="map-addr">〒290-0141 千葉県市原市ちはら台東八丁目19番地7</div>
-        <div class="map-frame">
-          <iframe src="https://maps.google.com/maps?q=%E5%8D%83%E8%91%89%E7%9C%8C%E5%B8%82%E5%8E%9F%E5%B8%82%E3%81%A1%E3%81%AF%E3%82%89%E5%8F%B0%E6%9D%B1%E5%85%AB%E4%B8%81%E7%9B%AE19%E7%95%AA%E5%9C%B07&output=embed&hl=ja" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-card-frame">
+          <iframe src="https://maps.google.com/maps?q=%E5%8D%83%E8%91%89%E7%9C%8C%E5%B8%82%E5%8E%9F%E5%B8%82%E3%81%A1%E3%81%AF%E3%82%89%E5%8F%B0%E6%9D%B1%E5%85%AB%E4%B8%81%E7%9B%AE19%E7%95%AA%E5%9C%B07&z=15&output=embed&hl=ja" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <a href="chiharadai/" class="map-link">ちはら台の詳細ページへ →</a>
+        <div class="map-card-footer">
+          <a href="chiharadai/" class="map-card-link">ちはら台の詳細ページへ →</a>
+        </div>
       </div>
 
     </div>
