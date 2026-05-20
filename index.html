@@ -8,8 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <link rel="stylesheet" href="css/styles.css">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -786,15 +784,17 @@
 .overview-map-wrap {
   margin-bottom: 40px;
   border-radius: var(--radius);
+  overflow: hidden;
   box-shadow: var(--shadow);
-  position: relative;
 }
-#overview-map {
-  height: 340px;
+.overview-map-wrap iframe {
+  display: block;
   width: 100%;
+  height: 420px;
+  border: 0;
 }
 @media (max-width: 768px) {
-  #overview-map { height: 220px; }
+  .overview-map-wrap iframe { height: 260px; }
 }
 
 /* ===== RESPONSIVE ===== */
@@ -953,7 +953,13 @@
     <div class="sec-label">ACCESS</div>
     <div class="sec-title">施設へのアクセス</div>
     <div class="overview-map-wrap">
-      <div id="overview-map"></div>
+      <iframe
+        src="https://maps.google.com/maps?saddr=35.553588,140.193096&daddr=35.541296,140.198946&output=embed&hl=ja"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="スマイルーム 2施設マップ">
+      </iframe>
     </div>
     <div class="map-grid">
 
@@ -1108,86 +1114,6 @@
   © 2026 株式会社カイゴマン All Rights Reserved.
 </div>
 
-<script>
-window.addEventListener('load', function () {
-  var container = document.getElementById('overview-map');
-  if (!container || typeof L === 'undefined') {
-    if (container) container.style.display = 'none';
-    return;
-  }
 
-  var map = L.map(container);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom: 18
-  }).addTo(map);
-
-  // 施設マーカー（ロゴカード型）
-  function makeMarker(color, imgSrc, alt) {
-    var card =
-      '<div style="cursor:pointer;background:#fff;border:2px solid ' + color + ';border-radius:12px;padding:6px 10px 8px;text-align:center;box-shadow:0 4px 18px rgba(0,0,0,0.18);position:relative;margin-bottom:10px;">' +
-        '<img src="' + imgSrc + '" alt="' + alt + '" style="width:110px;height:auto;display:block;margin:0 auto;" />' +
-        '<div style="position:absolute;bottom:-13px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:13px solid ' + color + ';"></div>' +
-        '<div style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid #fff;"></div>' +
-      '</div>' +
-      '<div style="width:12px;height:12px;background:' + color + ';border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.3);margin:0 auto;"></div>';
-    return L.divIcon({ className: '', html: card, iconSize: [130, 114], iconAnchor: [65, 114] });
-  }
-
-  // ランドマークマーカー（ラベル型）
-  function makeLandmark(emoji, name, color) {
-    var html =
-      '<div style="display:flex;align-items:center;white-space:nowrap;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.22));">' +
-        '<div style="width:9px;height:9px;background:' + color + ';border:2px solid #fff;border-radius:50%;flex-shrink:0;"></div>' +
-        '<div style="margin-left:4px;background:#fff;padding:2px 7px 2px 5px;border-radius:4px;font-size:10px;font-weight:700;font-family:Noto Sans JP,sans-serif;color:#333;border-left:3px solid ' + color + ';">' +
-          emoji + ' ' + name +
-        '</div>' +
-      '</div>';
-    return L.divIcon({ className: '', html: html, iconAnchor: [5, 5], iconSize: null });
-  }
-
-  // 施設
-  var oyumino = L.marker([35.553588017736416, 140.19309552548532],
-    { icon: makeMarker('#db2777', 'images/logo.png', 'スマイルームおゆみ野') }).addTo(map);
-  oyumino.on('click', function () { window.open('oyumino/', '_self'); });
-
-  var chiharadai = L.marker([35.54129582789758, 140.19894552974827],
-    { icon: makeMarker('#6b7280', 'images/' + encodeURIComponent('スマイルームちはら台ロゴ.jpg'), 'スマイルームちはら台') }).addTo(map);
-  chiharadai.on('click', function () { window.open('chiharadai/', '_self'); });
-
-  // 駅（青）
-  var stationColor = '#2563eb';
-  L.marker([35.5470059, 140.2138166], { icon: makeLandmark('🚉', '誉田駅', stationColor) }).addTo(map);
-  L.marker([35.5626526, 140.1787359], { icon: makeLandmark('🚉', '鎌取駅', stationColor) }).addTo(map);
-  L.marker([35.5337768, 140.1702686], { icon: makeLandmark('🚉', 'ちはら台駅', stationColor) }).addTo(map);
-
-  // 病院（赤）
-  var hospitalColor = '#dc2626';
-  L.marker([35.540001,  140.1829186], { icon: makeLandmark('🏥', 'おゆみ野中央病院', hospitalColor) }).addTo(map);
-  L.marker([35.554359,  140.211698 ], { icon: makeLandmark('🏥', '千葉南病院', hospitalColor) }).addTo(map);
-  L.marker([35.5815628, 140.1612516], { icon: makeLandmark('🏥', '千葉県がんセンター', hospitalColor) }).addTo(map);
-
-  // スーパー（緑）
-  var superColor = '#16a34a';
-  L.marker([35.5614071, 140.177586 ], { icon: makeLandmark('🛒', 'イオン鎌取', superColor) }).addTo(map);
-  L.marker([35.5279351, 140.1716978], { icon: makeLandmark('🛒', 'ユニモちはら台', superColor) }).addTo(map);
-
-  // 全マーカーを包含してズーム
-  var all = L.featureGroup([
-    L.marker([35.553588017736416, 140.19309552548532]),
-    L.marker([35.54129582789758,  140.19894552974827]),
-    L.marker([35.5470059, 140.2138166]),
-    L.marker([35.5626526, 140.1787359]),
-    L.marker([35.5337768, 140.1702686]),
-    L.marker([35.540001,  140.1829186]),
-    L.marker([35.554359,  140.211698 ]),
-    L.marker([35.5815628, 140.1612516]),
-    L.marker([35.5614071, 140.177586 ]),
-    L.marker([35.5279351, 140.1716978])
-  ]);
-  map.fitBounds(all.getBounds().pad(0.12));
-});
-</script>
 </body>
 </html>
