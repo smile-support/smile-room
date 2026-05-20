@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 <link rel="stylesheet" href="css/styles.css">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -368,7 +370,7 @@
 .f-address {
   font-size: 13px;
   color: var(--ink-mute);
-  margin-bottom: 28px;
+  margin-bottom: 6px;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -758,6 +760,41 @@
   color: oklch(0.6 0.01 45);
 }
 
+/* ===== STATION INFO ===== */
+.f-station {
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin-bottom: 20px;
+  padding-left: 10px;
+  border-left: 2px solid var(--pink-300);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.f-station-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1.6;
+}
+.f-station-row strong { color: var(--pink-600); font-weight: 700; }
+.f-station-icon { flex-shrink: 0; font-style: normal; }
+
+/* ===== OVERVIEW MAP ===== */
+.overview-map-wrap {
+  margin-bottom: 40px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+#overview-map {
+  height: 340px;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  #overview-map { height: 220px; }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .f-grid, .feat-grid { grid-template-columns: 1fr; }
@@ -845,6 +882,16 @@
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             〒266-0005 千葉市緑区誉田町1-659-1
           </div>
+          <div class="f-station">
+            <div class="f-station-row">
+              <span class="f-station-icon">🚃</span>
+              <span>JR外房線「誉田」駅 <strong>車で約5分</strong></span>
+            </div>
+            <div class="f-station-row">
+              <span class="f-station-icon">🚃</span>
+              <span>JR外房線「鎌取」駅 <strong>車で約5分</strong></span>
+            </div>
+          </div>
           <div class="f-divider"></div>
           <div class="f-price">
             <span class="f-price-label">月額</span>
@@ -870,6 +917,16 @@
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             〒290-0141 千葉県市原市ちはら台東八丁目19番地7
           </div>
+          <div class="f-station">
+            <div class="f-station-row">
+              <span class="f-station-icon">🚃</span>
+              <span>京成千原線「ちはら台」駅 <strong>車で約8分</strong></span>
+            </div>
+            <div class="f-station-row">
+              <span class="f-station-icon">🚃</span>
+              <span>JR外房線「誉田」駅 <strong>車で約8分</strong></span>
+            </div>
+          </div>
           <div class="f-divider"></div>
           <div class="f-price">
             <span class="f-price-label">月額</span>
@@ -893,6 +950,9 @@
   <div class="wrap">
     <div class="sec-label">ACCESS</div>
     <div class="sec-title">施設へのアクセス</div>
+    <div class="overview-map-wrap">
+      <div id="overview-map"></div>
+    </div>
     <div class="map-grid">
 
       <div class="map-item">
@@ -1046,5 +1106,48 @@
   © 2026 株式会社カイゴマン All Rights Reserved.
 </div>
 
+<script>
+(function () {
+  var map = L.map('overview-map');
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18
+  }).addTo(map);
+
+  function makeIcon(color) {
+    return L.divIcon({
+      className: '',
+      html: '<div style="width:16px;height:16px;background:' + color + ';border:2.5px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.28);"></div>',
+      iconSize: [16, 16],
+      iconAnchor: [8, 8],
+      popupAnchor: [0, -12]
+    });
+  }
+
+  var oyumino = L.marker(
+    [35.553588017736416, 140.19303115246873],
+    { icon: makeIcon('#db2777') }
+  ).addTo(map);
+  oyumino.bindPopup(
+    '<strong style="font-size:13px;">スマイルームおゆみ野</strong><br>' +
+    '<span style="font-size:12px;color:#666;">〒266-0005 千葉市緑区誉田町1-659-1</span><br>' +
+    '<a href="oyumino/" style="font-size:12px;color:#db2777;font-weight:700;">詳細を見る →</a>'
+  );
+
+  var chiharadai = L.marker(
+    [35.54122598771486, 140.19911719112588],
+    { icon: makeIcon('#888888') }
+  ).addTo(map);
+  chiharadai.bindPopup(
+    '<strong style="font-size:13px;">スマイルームちはら台</strong><br>' +
+    '<span style="font-size:12px;color:#666;">〒290-0141 千葉県市原市ちはら台東八丁目19番地7</span><br>' +
+    '<a href="chiharadai/" style="font-size:12px;color:#888;font-weight:700;">詳細を見る →</a>'
+  );
+
+  var group = L.featureGroup([oyumino, chiharadai]);
+  map.fitBounds(group.getBounds().pad(0.35));
+})();
+</script>
 </body>
 </html>
