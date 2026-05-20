@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>スマイルーム｜高齢者対応賃貸住宅 千葉・市原</title>
+<meta name="description" content="千葉市・市原市の高齢者対応賃貸住宅「スマイルーム」系列。おゆみ野・ちはら台の2施設を運営。介護施設ではなく、自分らしく暮らせる住まいです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.series-header {
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  padding: 0;
+}
+.series-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.series-brand {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  color: var(--pink-600);
+  text-decoration: none;
+}
+.series-tel {
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+.hero-series {
+  background:
+    radial-gradient(60% 70% at 85% 15%, oklch(0.94 0.05 25), transparent 70%),
+    radial-gradient(50% 60% at 10% 90%, oklch(0.96 0.04 70), transparent 70%),
+    var(--bg);
+  padding: clamp(60px, 10vw, 120px) 0;
+  text-align: center;
+}
+.hero-series h1 {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: clamp(28px, 5vw, 52px);
+  color: var(--ink);
+  margin: 0 0 16px;
+  line-height: 1.4;
+}
+.hero-series h1 .accent { color: var(--pink-600); }
+.hero-series p {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--ink-soft);
+  margin: 0 0 40px;
+}
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.facility-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.facility-card-body {
+  padding: 28px 28px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.facility-tag {
+  display: inline-block;
+  background: var(--pink-100);
+  color: var(--pink-600);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+.facility-tag.coming {
+  background: oklch(0.93 0.01 0);
+  color: oklch(0.5 0.01 0);
+}
+.facility-name {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.facility-address {
+  font-size: 13px;
+  color: var(--ink-mute);
+  margin: 0 0 16px;
+}
+.facility-price {
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+.facility-price span {
+  font-size: 22px;
+  color: var(--pink-600);
+}
+.facility-card-footer {
+  padding: 0 28px 28px;
+}
+.btn-facility {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: opacity .15s;
+}
+.btn-facility:hover { opacity: .85; }
+.btn-facility.primary {
+  background: var(--pink-600);
+  color: #fff;
+}
+.btn-facility.secondary {
+  background: oklch(0.91 0.01 0);
+  color: oklch(0.45 0.01 0);
+  pointer-events: none;
+}
+.coming-overlay {
+  background: oklch(0.97 0.005 0);
+  border: 1.5px dashed oklch(0.80 0.01 0);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: oklch(0.5 0.01 0);
+  text-align: center;
+}
+.appeal-section {
+  background: var(--bg-warm);
+  padding: clamp(48px, 8vw, 80px) 24px;
+  text-align: center;
+}
+.appeal-section h2 {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: clamp(20px, 3vw, 28px);
+  color: var(--ink);
+  margin: 0 0 32px;
+}
+.appeal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.appeal-item {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 24px 16px;
+  box-shadow: var(--shadow-sm);
+}
+.appeal-icon { font-size: 32px; margin-bottom: 8px; }
+.appeal-item p { margin: 0; font-size: 14px; color: var(--ink-soft); font-weight: 600; }
+.cta-section {
+  background: var(--pink-600);
+  color: #fff;
+  padding: clamp(48px, 8vw, 80px) 24px;
+  text-align: center;
+}
+.cta-section h2 {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: clamp(20px, 3vw, 28px);
+  margin: 0 0 8px;
+}
+.cta-section p {
+  font-size: 15px;
+  margin: 0 0 32px;
+  opacity: .9;
+}
+.cta-tel-big {
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 700;
+  font-family: "Zen Maru Gothic", sans-serif;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+.cta-hours { font-size: 13px; opacity: .8; margin: 0; }
+.series-footer {
+  background: oklch(0.22 0.02 45);
+  color: oklch(0.7 0.01 45);
+  padding: 32px 24px;
+  text-align: center;
+  font-size: 13px;
+}
+.series-footer nav {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.series-footer a {
+  color: oklch(0.75 0.01 45);
+  text-decoration: none;
+}
+.series-footer a:hover { color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="series-header">
+  <div class="container">
+    <a href="/" class="series-brand">スマイルーム</a>
+    <a href="tel:0433107467" class="series-tel">📞 043-310-7467</a>
+  </div>
+</header>
+
+<!-- ヒーロー -->
+<section class="hero-series">
+  <div class="container">
+    <h1>介護を<span class="accent">自由に選べる</span>住まい。<br>あなたに合う施設が見つかります。</h1>
+    <p>千葉・市原エリアで2施設を運営する高齢者対応賃貸住宅「スマイルーム」系列</p>
+  </div>
+
+  <!-- 施設カード -->
+  <div class="facilities-grid">
+
+    <!-- おゆみ野 -->
+    <div class="facility-card">
+      <div class="facility-card-body">
+        <span class="facility-tag">入居受付中</span>
+        <div class="facility-name">スマイルームおゆみ野</div>
+        <div class="facility-address">📍 千葉市緑区誉田町1-659-1</div>
+        <div class="facility-price">月額 <span>59,800円</span>〜</div>
+      </div>
+      <div class="facility-card-footer">
+        <a href="/oyumino/" class="btn-facility primary">施設詳細を見る →</a>
+      </div>
+    </div>
+
+    <!-- ちはら台 -->
+    <div class="facility-card">
+      <div class="facility-card-body">
+        <span class="facility-tag coming">詳細ページ準備中</span>
+        <div class="facility-name">スマイルームちはら台</div>
+        <div class="facility-address">📍 市原市ちはら台エリア</div>
+        <div class="coming-overlay">
+          現在営業中です。<br>詳細はお電話でお気軽にどうぞ。
+        </div>
+      </div>
+      <div class="facility-card-footer">
+        <a href="/chiharadai/" class="btn-facility secondary">詳細準備中</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 共通アピール -->
+<section class="appeal-section">
+  <h2>スマイルーム系列 共通の強み</h2>
+  <div class="appeal-grid">
+    <div class="appeal-item">
+      <div class="appeal-icon">🏠</div>
+      <p>介護施設ではなく賃貸住宅。自分のペースで暮らせます</p>
+    </div>
+    <div class="appeal-item">
+      <div class="appeal-icon">🤝</div>
+      <p>介護サービスは自由に選択。今の事業者を継続できます</p>
+    </div>
+    <div class="appeal-item">
+      <div class="appeal-icon">👀</div>
+      <p>見守りサポート完備。ご家族も安心してお任せいただけます</p>
+    </div>
+    <div class="appeal-item">
+      <div class="appeal-icon">♿</div>
+      <p>車椅子対応。バリアフリー設計で安全に暮らせます</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>どちらの施設もお気軽にご相談ください</h2>
+  <p>見学予約・資料請求・空室確認、まずはお電話を</p>
+  <a href="tel:0433107467" class="cta-tel-big">043-310-7467</a>
+  <p class="cta-hours">受付時間 9:00〜18:00（年中無休）</p>
+</section>
+
+<!-- フッター -->
+<footer class="series-footer">
+  <nav>
+    <a href="/oyumino/">スマイルームおゆみ野</a>
+    <a href="/chiharadai/">スマイルームちはら台</a>
+    <a href="/oyumino/contact.html">お問い合わせ</a>
+  </nav>
+  <p>〒266-0005 千葉県千葉市緑区誉田町1-659-1</p>
+  <p>© 2026 株式会社カイゴマン All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
