@@ -93,9 +93,9 @@
               </ul>
             </div>
             <div>
-              <h4>系列施設</h4>
+              <h4>2施設</h4>
               <ul>
-                <li><a href="../">スマイルーム系列トップ</a></li>
+                <li><a href="../">スマイルームトップ</a></li>
                 <li><a href="../chiharadai/">スマイルームちはら台</a></li>
               </ul>
             </div>
