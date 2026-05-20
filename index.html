@@ -1120,24 +1120,16 @@ window.addEventListener('load', function () {
     maxZoom: 18
   }).addTo(map);
 
-  function makeMarker(color, name) {
+  function makeMarker(color, imgSrc, alt) {
     var card =
       '<div style="' +
         'cursor:pointer;background:#fff;border:2px solid ' + color + ';' +
-        'border-radius:12px;padding:7px 14px 8px;text-align:center;' +
+        'border-radius:12px;padding:6px 10px 8px;text-align:center;' +
         'box-shadow:0 4px 18px rgba(0,0,0,0.18);' +
-        'font-family:Noto Sans JP,sans-serif;white-space:nowrap;' +
         'position:relative;margin-bottom:10px;' +
       '">' +
-        '<div style="font-size:9px;color:#aaa;letter-spacing:0.08em;margin-bottom:3px;">高齢者対応賃貸住宅</div>' +
-        '<div style="display:flex;align-items:center;gap:5px;justify-content:center;margin-bottom:3px;">' +
-          '<span style="font-size:17px;line-height:1;">🏠</span>' +
-          '<span style="font-size:13px;font-weight:700;color:' + color + ';letter-spacing:0.03em;">スマイルーム</span>' +
-        '</div>' +
-        '<div style="font-size:12px;font-weight:700;color:#444;letter-spacing:0.06em;">' + name + '</div>' +
-        // 外側三角（ボーダー色）
+        '<img src="' + imgSrc + '" alt="' + alt + '" style="width:110px;height:auto;display:block;margin:0 auto;image-rendering:auto;" />' +
         '<div style="position:absolute;bottom:-13px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:13px solid ' + color + ';"></div>' +
-        // 内側三角（白抜き）
         '<div style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid #fff;"></div>' +
       '</div>' +
       '<div style="width:12px;height:12px;background:' + color + ';border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.3);margin:0 auto;"></div>';
@@ -1145,21 +1137,21 @@ window.addEventListener('load', function () {
     return L.divIcon({
       className: '',
       html: card,
-      iconSize: [160, 96],
-      iconAnchor: [80, 96],
-      popupAnchor: [0, -100]
+      iconSize: [130, 114],
+      iconAnchor: [65, 114],
+      popupAnchor: [0, -118]
     });
   }
 
   var oyumino = L.marker(
     [35.553588017736416, 140.19303115246873],
-    { icon: makeMarker('#db2777', 'おゆみ野') }
+    { icon: makeMarker('#db2777', 'images/logo.png', 'スマイルームおゆみ野') }
   ).addTo(map);
   oyumino.on('click', function () { window.open('oyumino/', '_self'); });
 
   var chiharadai = L.marker(
     [35.54122598771486, 140.19911719112588],
-    { icon: makeMarker('#6b7280', 'ちはら台') }
+    { icon: makeMarker('#6b7280', 'images/' + encodeURIComponent('スマイルームちはら台ロゴ.jpg'), 'スマイルームちはら台') }
   ).addTo(map);
   chiharadai.on('click', function () { window.open('chiharadai/', '_self'); });
 
