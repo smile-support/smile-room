@@ -66,15 +66,17 @@
   color: var(--pink-600);
   text-decoration: none;
   letter-spacing: 0.02em;
-  line-height: 1;
+  line-height: 1.15;
+  display: flex;
+  flex-direction: column;
 }
 .top-logo small {
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--ink-mute);
+  font-size: 9px;
+  font-weight: 600;
+  color: oklch(0.46 0.045 52);
   display: block;
-  letter-spacing: 0.14em;
-  margin-top: 3px;
+  letter-spacing: 0.16em;
+  margin-bottom: 2px;
   font-family: "Noto Sans JP", sans-serif;
 }
 .header-actions {
@@ -817,6 +819,7 @@
 <header class="top-header">
   <div class="inner">
     <a href="./" class="top-logo">
+      <small>高齢者対応賃貸住宅</small>
       スマイルーム
     </a>
     <div class="header-actions">
