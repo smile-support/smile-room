@@ -10,310 +10,905 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <style>
-.series-header {
-  background: var(--card);
-  border-bottom: 1px solid var(--line);
-  padding: 0;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-.series-header .container {
+@keyframes float1 {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-24px) scale(1.03); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translateY(0px); }
+  40% { transform: translateY(-16px); }
+  80% { transform: translateY(12px); }
+}
+@keyframes float3 {
+  0%, 100% { transform: translateY(0px); }
+  60% { transform: translateY(-18px); }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.a1 { animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both; }
+.a2 { animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
+.a3 { animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both; }
+.a4 { animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both; }
+
+/* ===== HEADER ===== */
+.top-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: oklch(0.99 0.005 50 / 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line-soft);
+}
+.top-header .inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 24px;
-  max-width: 1100px;
+  max-width: 1140px;
   margin: 0 auto;
+  padding: 14px 24px;
 }
-.series-brand {
+.top-logo {
   font-family: "Zen Maru Gothic", sans-serif;
-  font-size: clamp(18px, 3vw, 24px);
-  font-weight: 700;
-  color: var(--pink-600);
-  text-decoration: none;
-}
-.series-tel {
-  font-size: 15px;
-  color: var(--ink);
-  font-weight: 600;
-  text-decoration: none;
-}
-.hero-series {
-  background:
-    radial-gradient(60% 70% at 85% 15%, oklch(0.94 0.05 25), transparent 70%),
-    radial-gradient(50% 60% at 10% 90%, oklch(0.96 0.04 70), transparent 70%),
-    var(--bg);
-  padding: clamp(60px, 10vw, 120px) 0;
-  text-align: center;
-}
-.hero-series h1 {
-  font-family: "Zen Maru Gothic", sans-serif;
-  font-size: clamp(28px, 5vw, 52px);
-  color: var(--ink);
-  margin: 0 0 16px;
-  line-height: 1.4;
-}
-.hero-series h1 .accent { color: var(--pink-600); }
-.hero-series p {
-  font-size: clamp(15px, 2vw, 18px);
-  color: var(--ink-soft);
-  margin: 0 0 40px;
-}
-.facilities-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-.facility-card {
-  background: var(--card);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.facility-card-body {
-  padding: 28px 28px 24px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.facility-tag {
-  display: inline-block;
-  background: var(--pink-100);
-  color: var(--pink-600);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 100px;
-  margin-bottom: 12px;
-  letter-spacing: 0.05em;
-}
-.facility-tag.coming {
-  background: oklch(0.93 0.01 0);
-  color: oklch(0.5 0.01 0);
-}
-.facility-name {
-  font-family: "Zen Maru Gothic", sans-serif;
-  font-size: clamp(20px, 3vw, 26px);
-  font-weight: 700;
-  color: var(--ink);
-  margin: 0 0 8px;
-}
-.facility-address {
-  font-size: 13px;
-  color: var(--ink-mute);
-  margin: 0 0 16px;
-}
-.facility-price {
-  font-size: 15px;
-  color: var(--ink);
-  font-weight: 600;
-  margin: 0 0 20px;
-}
-.facility-price span {
+  font-weight: 900;
   font-size: 22px;
   color: var(--pink-600);
-}
-.facility-card-footer {
-  padding: 0 28px 28px;
-}
-.btn-facility {
-  display: block;
-  text-align: center;
-  padding: 14px;
-  border-radius: var(--radius);
-  font-weight: 700;
-  font-size: 15px;
   text-decoration: none;
-  transition: opacity .15s;
+  letter-spacing: 0.02em;
+  line-height: 1;
 }
-.btn-facility:hover { opacity: .85; }
-.btn-facility.primary {
+.top-logo small {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--ink-mute);
+  display: block;
+  letter-spacing: 0.14em;
+  margin-top: 3px;
+  font-family: "Noto Sans JP", sans-serif;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.header-tel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.header-tel:hover { color: var(--pink-600); }
+.header-btn {
   background: var(--pink-600);
   color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 20px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity .15s, transform .15s;
 }
-.btn-facility.secondary {
-  background: oklch(0.91 0.01 0);
-  color: oklch(0.45 0.01 0);
+.header-btn:hover { opacity: .88; transform: translateY(-1px); }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 24px 100px;
+  background:
+    radial-gradient(ellipse 80% 60% at 18% 20%, oklch(0.96 0.038 15 / 0.55), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 85% 80%, oklch(0.95 0.032 55 / 0.45), transparent 55%),
+    radial-gradient(ellipse 40% 35% at 65% 25%, oklch(0.97 0.020 30 / 0.35), transparent 60%),
+    var(--bg);
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
   pointer-events: none;
 }
-.coming-overlay {
-  background: oklch(0.97 0.005 0);
-  border: 1.5px dashed oklch(0.80 0.01 0);
-  border-radius: var(--radius);
-  padding: 12px;
-  margin-bottom: 16px;
-  font-size: 13px;
-  color: oklch(0.5 0.01 0);
-  text-align: center;
+.orb1 {
+  width: 420px; height: 420px;
+  top: -100px; right: -80px;
+  background: radial-gradient(circle, oklch(0.92 0.055 20 / 0.28), transparent 70%);
+  animation: float1 9s ease-in-out infinite;
 }
-.appeal-section {
-  background: var(--bg-warm);
-  padding: clamp(48px, 8vw, 80px) 24px;
-  text-align: center;
+.orb2 {
+  width: 280px; height: 280px;
+  bottom: 60px; left: -50px;
+  background: radial-gradient(circle, oklch(0.93 0.045 50 / 0.24), transparent 70%);
+  animation: float2 12s ease-in-out infinite;
 }
-.appeal-section h2 {
-  font-family: "Zen Maru Gothic", sans-serif;
-  font-size: clamp(20px, 3vw, 28px);
-  color: var(--ink);
-  margin: 0 0 32px;
+.orb3 {
+  width: 180px; height: 180px;
+  top: 32%; right: 14%;
+  background: radial-gradient(circle, oklch(0.90 0.060 18 / 0.18), transparent 70%);
+  animation: float3 7s ease-in-out infinite;
 }
-.appeal-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  max-width: 800px;
-  margin: 0 auto;
+.petals {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
-.appeal-item {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 24px 16px;
-  box-shadow: var(--shadow-sm);
+.petal {
+  position: absolute;
+  width: 12px; height: 16px;
+  background: oklch(0.88 0.070 15 / 0.16);
+  border-radius: 50% 0 50% 0;
 }
-.appeal-icon { font-size: 32px; margin-bottom: 8px; }
-.appeal-item p { margin: 0; font-size: 14px; color: var(--ink-soft); font-weight: 600; }
-.cta-section {
-  background: var(--pink-600);
-  color: #fff;
-  padding: clamp(48px, 8vw, 80px) 24px;
-  text-align: center;
-}
-.cta-section h2 {
-  font-family: "Zen Maru Gothic", sans-serif;
-  font-size: clamp(20px, 3vw, 28px);
-  margin: 0 0 8px;
-}
-.cta-section p {
-  font-size: 15px;
-  margin: 0 0 32px;
-  opacity: .9;
-}
-.cta-tel-big {
-  font-size: clamp(32px, 6vw, 52px);
+.petal:nth-child(1) { top: 16%; left: 11%; animation: float1 9s ease-in-out infinite; }
+.petal:nth-child(2) { top: 26%; right: 19%; animation: float2 12s ease-in-out 2s infinite; width: 8px; height: 11px; }
+.petal:nth-child(3) { top: 64%; left: 23%; animation: float3 8s ease-in-out 1s infinite; }
+.petal:nth-child(4) { top: 46%; right: 9%; animation: float1 10s ease-in-out 3s infinite; width: 10px; height: 14px; }
+.petal:nth-child(5) { top: 74%; right: 32%; animation: float2 9s ease-in-out 0.5s infinite; }
+
+.hero-content { position: relative; z-index: 2; max-width: 780px; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: oklch(0.99 0.005 50 / 0.78);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 6px 18px 6px 10px;
+  font-size: 12px;
   font-weight: 700;
+  color: var(--pink-600);
+  letter-spacing: 0.08em;
+  margin-bottom: 32px;
+}
+.badge-dot {
+  width: 8px; height: 8px;
+  background: var(--pink-400);
+  border-radius: 50%;
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+.hero h1 {
   font-family: "Zen Maru Gothic", sans-serif;
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  margin-bottom: 8px;
+  font-weight: 900;
+  font-size: clamp(36px, 7vw, 72px);
+  line-height: 1.28;
+  color: var(--ink);
+  margin-bottom: 22px;
+  letter-spacing: -0.01em;
 }
-.cta-hours { font-size: 13px; opacity: .8; margin: 0; }
-.series-footer {
-  background: oklch(0.22 0.02 45);
-  color: oklch(0.7 0.01 45);
-  padding: 32px 24px;
-  text-align: center;
-  font-size: 13px;
+.hero h1 em {
+  font-style: normal;
+  color: var(--pink-600);
+  position: relative;
+  display: inline-block;
 }
-.series-footer nav {
+.hero h1 em::after {
+  content: "";
+  position: absolute;
+  bottom: 4px; left: 0; right: 0;
+  height: 7px;
+  background: linear-gradient(90deg, oklch(0.88 0.08 20 / 0.35), oklch(0.90 0.07 50 / 0.25));
+  border-radius: 100px;
+  z-index: -1;
+}
+.hero-sub {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--ink-soft);
+  line-height: 1.9;
+  margin-bottom: 48px;
+}
+.hero-cta {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 16px;
 }
-.series-footer a {
-  color: oklch(0.75 0.01 45);
+.btn-primary-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pink-600);
+  color: #fff;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 16px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 8px 28px oklch(0.56 0.150 25 / 0.38);
+  transition: transform .2s, box-shadow .2s, opacity .2s;
+}
+.btn-primary-hero:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px oklch(0.56 0.150 25 / 0.44);
+  opacity: .92;
+}
+.btn-ghost-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: oklch(0.99 0.005 50 / 0.82);
+  backdrop-filter: blur(8px);
+  color: var(--ink);
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 16px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  border: 1.5px solid var(--line);
+  transition: transform .2s, border-color .2s;
+}
+.btn-ghost-hero:hover {
+  transform: translateY(-2px);
+  border-color: var(--pink-300);
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-mute);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  z-index: 2;
+}
+.scroll-line {
+  width: 1px; height: 36px;
+  background: linear-gradient(to bottom, var(--pink-300), transparent);
+  animation: float3 2.2s ease-in-out infinite;
+}
+
+/* ===== SHARED ===== */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.sec-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--pink-500);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.sec-title {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 3.5vw, 36px);
+  color: var(--ink);
+  line-height: 1.45;
+  margin-bottom: 52px;
+}
+
+/* ===== FACILITIES ===== */
+.facilities {
+  padding: clamp(72px, 10vw, 120px) 0;
+  background: var(--bg);
+}
+.f-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.f-card {
+  border-radius: 28px;
+  background: var(--card);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  transition: transform .3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .3s;
+}
+.f-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 36px 80px oklch(0.7 0.06 20 / 0.16), 0 14px 30px oklch(0.7 0.06 20 / 0.10);
+}
+.f-top-bar {
+  height: 7px;
+  background: linear-gradient(90deg, var(--pink-300), var(--pink-600));
+}
+.f-top-bar.muted {
+  background: linear-gradient(90deg, oklch(0.86 0.015 20), oklch(0.80 0.020 25));
+}
+.f-body { padding: 36px 36px 32px; }
+.f-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 5px 14px;
+  margin-bottom: 22px;
+}
+.f-status.open {
+  background: oklch(0.93 0.06 145 / 0.18);
+  color: oklch(0.38 0.13 145);
+}
+.f-status.open::before {
+  content: "";
+  width: 7px; height: 7px;
+  background: oklch(0.48 0.14 145);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+.f-status.prep {
+  background: oklch(0.93 0.01 0 / 0.28);
+  color: oklch(0.5 0.01 0);
+}
+.f-name {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 900;
+  font-size: clamp(24px, 3vw, 32px);
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+.f-card.prep-card .f-name { color: oklch(0.45 0.015 45); }
+.f-address {
+  font-size: 13px;
+  color: var(--ink-mute);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.f-divider {
+  height: 1px;
+  background: var(--line-soft);
+  margin-bottom: 28px;
+}
+.f-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+.f-price-label { font-size: 13px; color: var(--ink-mute); }
+.f-price-num {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 900;
+  font-size: 42px;
+  color: var(--pink-600);
+  line-height: 1;
+}
+.f-price-unit { font-size: 15px; color: var(--ink-soft); font-weight: 600; }
+.f-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-bottom: 36px;
+}
+.f-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+.f-points li::before {
+  content: "✓";
+  color: var(--pink-500);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.f-btn {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  border-radius: 16px;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all .2s;
+}
+.f-btn.pink {
+  background: var(--pink-600);
+  color: #fff;
+  box-shadow: 0 4px 18px oklch(0.56 0.150 25 / 0.28);
+}
+.f-btn.pink:hover {
+  background: oklch(0.50 0.155 25);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px oklch(0.56 0.150 25 / 0.38);
+}
+.f-btn.outline {
+  background: transparent;
+  color: oklch(0.55 0.01 0);
+  border: 1.5px dashed oklch(0.78 0.012 30);
+}
+.prep-tel-box {
+  background: oklch(0.99 0.005 50);
+  border: 1.5px dashed oklch(0.83 0.015 30);
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+.prep-tel-box p { font-size: 14px; color: oklch(0.5 0.015 45); line-height: 1.8; margin-bottom: 10px; }
+.prep-tel {
+  display: block;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--pink-600);
   text-decoration: none;
 }
-.series-footer a:hover { color: #fff; }
+.prep-tel:hover { opacity: .8; }
+
+/* ===== FEATURES ===== */
+.features {
+  padding: clamp(72px, 10vw, 120px) 0;
+  background: var(--bg-warm);
+  position: relative;
+}
+.features::before,
+.features::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+}
+.features::before { top: 0; }
+.features::after { bottom: 0; }
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.feat-item {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: transform .2s, box-shadow .2s;
+}
+.feat-item:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.feat-icon {
+  width: 54px; height: 54px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: var(--pink-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+.feat-text h3 {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 7px;
+  line-height: 1.4;
+}
+.feat-text p {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+/* ===== STATS ===== */
+.stats {
+  background: var(--pink-600);
+  padding: clamp(52px, 8vw, 80px) 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.stat-item {
+  text-align: center;
+  padding: 24px 16px;
+  border-right: 1px solid oklch(0.65 0.14 25 / 0.45);
+  color: #fff;
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 900;
+  font-size: clamp(38px, 6vw, 58px);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.stat-num small { font-size: 0.45em; opacity: 0.85; }
+.stat-label { font-size: 13px; opacity: 0.88; line-height: 1.6; }
+
+/* ===== CTA ===== */
+.cta {
+  padding: clamp(80px, 12vw, 130px) 0;
+  background: var(--bg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 28% 50%, oklch(0.95 0.032 20 / 0.38), transparent 60%),
+    radial-gradient(ellipse 50% 45% at 76% 50%, oklch(0.96 0.026 55 / 0.32), transparent 60%);
+}
+.cta-inner { position: relative; z-index: 1; }
+.cta-title {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 900;
+  font-size: clamp(26px, 4vw, 44px);
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.cta-sub {
+  font-size: 16px;
+  color: var(--ink-soft);
+  margin-bottom: 52px;
+  line-height: 1.8;
+}
+.cta-card {
+  display: inline-block;
+  background: var(--card);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+  padding: 48px 72px;
+  margin-bottom: 36px;
+}
+.cta-tel-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--pink-500);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.cta-tel {
+  display: block;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 900;
+  font-size: clamp(38px, 6vw, 56px);
+  color: var(--pink-600);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  transition: opacity .15s;
+}
+.cta-tel:hover { opacity: .78; }
+.cta-hours { font-size: 13px; color: var(--ink-mute); }
+.cta-links {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cta-link {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--pink-600);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap .2s;
+}
+.cta-link:hover { gap: 10px; }
+
+/* ===== FOOTER ===== */
+.footer-upper {
+  background: oklch(0.965 0.012 40);
+  border-top: 1px solid var(--line);
+  padding: 52px 0 36px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+}
+.footer-brand {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--pink-600);
+  margin-bottom: 8px;
+}
+.footer-catch {
+  font-size: 12px;
+  color: var(--ink-mute);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.footer-addr { font-size: 12px; color: var(--ink-mute); line-height: 1.9; }
+.footer-col h4 {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col ul a {
+  font-size: 13px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color .15s;
+}
+.footer-col ul a:hover { color: var(--pink-600); }
+.footer-bottom {
+  background: oklch(0.22 0.02 45);
+  padding: 18px 24px;
+  text-align: center;
+  font-size: 12px;
+  color: oklch(0.6 0.01 45);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .f-grid, .feat-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-item { border-right: none; border-bottom: 1px solid oklch(0.65 0.14 25 / 0.4); }
+  .stat-item:last-child { border-bottom: none; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .cta-card { padding: 36px 28px; }
+  .header-btn { display: none; }
+  .orb1 { width: 240px; height: 240px; }
+  .orb2 { width: 180px; height: 180px; }
+  .orb3 { display: none; }
+  .f-body { padding: 28px 24px 24px; }
+}
 </style>
 </head>
 <body>
 
-<!-- ヘッダー -->
-<header class="series-header">
-  <div class="container">
-    <a href="./" class="series-brand">スマイルーム</a>
-    <a href="tel:0433107467" class="series-tel">📞 043-310-7467</a>
+<!-- HEADER -->
+<header class="top-header">
+  <div class="inner">
+    <a href="./" class="top-logo">
+      スマイルーム
+      <small>SMILE ROOM</small>
+    </a>
+    <div class="header-actions">
+      <a href="tel:0433107467" class="header-tel">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        043-310-7467
+      </a>
+      <a href="oyumino/contact.html" class="header-btn">見学予約</a>
+    </div>
   </div>
 </header>
 
-<!-- ヒーロー -->
-<section class="hero-series">
-  <div class="container">
-    <h1>介護を<span class="accent">自由に選べる</span>住まい。<br>あなたに合う施設が見つかります。</h1>
-    <p>千葉・市原エリアで2施設を運営する高齢者対応賃貸住宅「スマイルーム」系列</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-orb orb3"></div>
+  <div class="petals">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div>
   </div>
 
-  <!-- 施設カード -->
-  <div class="facilities-grid">
-
-    <!-- おゆみ野 -->
-    <div class="facility-card">
-      <div class="facility-card-body">
-        <span class="facility-tag">入居受付中</span>
-        <div class="facility-name">スマイルームおゆみ野</div>
-        <div class="facility-address">📍 千葉市緑区誉田町1-659-1</div>
-        <div class="facility-price">月額 <span>59,800円</span>〜</div>
-      </div>
-      <div class="facility-card-footer">
-        <a href="oyumino/" class="btn-facility primary">施設詳細を見る →</a>
-      </div>
+  <div class="hero-content">
+    <div class="hero-badge a1">
+      <span class="badge-dot"></span>
+      千葉・市原エリア &nbsp;2施設運営中
     </div>
-
-    <!-- ちはら台 -->
-    <div class="facility-card">
-      <div class="facility-card-body">
-        <span class="facility-tag coming">詳細ページ準備中</span>
-        <div class="facility-name">スマイルームちはら台</div>
-        <div class="facility-address">📍 市原市ちはら台エリア</div>
-        <div class="coming-overlay">
-          現在営業中です。<br>詳細はお電話でお気軽にどうぞ。
-        </div>
-      </div>
-      <div class="facility-card-footer">
-        <a href="chiharadai/" class="btn-facility secondary">詳細準備中</a>
-      </div>
+    <h1 class="a2">自分らしく、<em>安心して</em>。<br>新しい住まいの選択肢。</h1>
+    <p class="hero-sub a3">
+      「スマイルーム」は、介護施設ではなく高齢者対応賃貸住宅です。<br>
+      自由に介護サービスを選び、自分のペースで暮らせる場所を。
+    </p>
+    <div class="hero-cta a4">
+      <a href="oyumino/" class="btn-primary-hero">
+        おゆみ野を見る
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="chiharadai/" class="btn-ghost-hero">
+        ちはら台を見る
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
+  </div>
 
+  <div class="scroll-hint a4">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
   </div>
 </section>
 
-<!-- 共通アピール -->
-<section class="appeal-section">
-  <h2>スマイルーム系列 共通の強み</h2>
-  <div class="appeal-grid">
-    <div class="appeal-item">
-      <div class="appeal-icon">🏠</div>
-      <p>介護施設ではなく賃貸住宅。自分のペースで暮らせます</p>
+<!-- FACILITIES -->
+<section class="facilities">
+  <div class="wrap">
+    <div class="sec-label">OUR FACILITIES</div>
+    <div class="sec-title">2つの施設から、<br>あなたに合う場所を。</div>
+
+    <div class="f-grid">
+
+      <!-- おゆみ野 -->
+      <div class="f-card">
+        <div class="f-top-bar"></div>
+        <div class="f-body">
+          <div class="f-status open">入居受付中</div>
+          <div class="f-name">スマイルームおゆみ野</div>
+          <div class="f-address">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            千葉市緑区誉田町1-659-1
+          </div>
+          <div class="f-divider"></div>
+          <div class="f-price">
+            <span class="f-price-label">月額</span>
+            <span class="f-price-num">59,800</span>
+            <span class="f-price-unit">円〜</span>
+          </div>
+          <ul class="f-points">
+            <li>介護サービスは自由に選択・今の事業者を継続できます</li>
+            <li>車椅子対応バリアフリー設計・全室完備</li>
+            <li>見守りサポート・緊急時対応を24時間体制で</li>
+          </ul>
+          <a href="oyumino/" class="f-btn pink">施設詳細・見学予約 →</a>
+        </div>
+      </div>
+
+      <!-- ちはら台 -->
+      <div class="f-card prep-card">
+        <div class="f-top-bar muted"></div>
+        <div class="f-body">
+          <div class="f-status prep">詳細ページ準備中</div>
+          <div class="f-name">スマイルームちはら台</div>
+          <div class="f-address">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            市原市ちはら台エリア
+          </div>
+          <div class="f-divider"></div>
+          <div class="prep-tel-box">
+            <p>現在営業中です。<br>詳細はお電話でお気軽にどうぞ。</p>
+            <a href="tel:0433107467" class="prep-tel">043-310-7467</a>
+          </div>
+          <a href="chiharadai/" class="f-btn outline">詳細ページへ（準備中）</a>
+        </div>
+      </div>
+
     </div>
-    <div class="appeal-item">
-      <div class="appeal-icon">🤝</div>
-      <p>介護サービスは自由に選択。今の事業者を継続できます</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="wrap">
+    <div class="sec-label">WHY SMILE ROOM</div>
+    <div class="sec-title">スマイルーム系列が<br>選ばれる4つの理由</div>
+    <div class="feat-grid">
+      <div class="feat-item">
+        <div class="feat-icon">🏠</div>
+        <div class="feat-text">
+          <h3>介護施設ではなく、賃貸住宅</h3>
+          <p>自分のペース、自分のスタイルで暮らせます。施設のルールに縛られない自由な生活を。</p>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">🤝</div>
+        <div class="feat-text">
+          <h3>介護サービスは自由に選択</h3>
+          <p>今お使いの介護事業者をそのまま継続できます。慣れた担当者に引き続きお任せを。</p>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">👀</div>
+        <div class="feat-text">
+          <h3>24時間見守りサポート</h3>
+          <p>緊急時の対応体制を完備。ご家族も離れていても安心してお任せいただけます。</p>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">♿</div>
+        <div class="feat-text">
+          <h3>全室バリアフリー設計</h3>
+          <p>車椅子対応の浴室・廊下・エントランス。安全で快適な住環境を整えています。</p>
+        </div>
+      </div>
     </div>
-    <div class="appeal-item">
-      <div class="appeal-icon">👀</div>
-      <p>見守りサポート完備。ご家族も安心してお任せいただけます</p>
-    </div>
-    <div class="appeal-item">
-      <div class="appeal-icon">♿</div>
-      <p>車椅子対応。バリアフリー設計で安全に暮らせます</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">2<small>施設</small></div>
+        <div class="stat-label">千葉・市原エリアで<br>展開中</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">9-18<small>時</small></div>
+        <div class="stat-label">年中無休で<br>ご相談を受付</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">0<small>円</small></div>
+        <div class="stat-label">見学・ご相談は<br>完全無料</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-section">
-  <h2>どちらの施設もお気軽にご相談ください</h2>
-  <p>見学予約・資料請求・空室確認、まずはお電話を</p>
-  <a href="tel:0433107467" class="cta-tel-big">043-310-7467</a>
-  <p class="cta-hours">受付時間 9:00〜18:00（年中無休）</p>
+<section class="cta">
+  <div class="wrap cta-inner">
+    <div class="sec-label">CONTACT</div>
+    <div class="cta-title">まずは、お気軽にご相談ください。</div>
+    <p class="cta-sub">見学予約・空室確認・資料請求、どんなご質問もお電話一本で。</p>
+    <div class="cta-card">
+      <div class="cta-tel-label">お電話でのご相談</div>
+      <a href="tel:0433107467" class="cta-tel">043-310-7467</a>
+      <p class="cta-hours">受付時間 9:00〜18:00（年中無休）</p>
+    </div>
+    <div class="cta-links">
+      <a href="oyumino/contact.html" class="cta-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        見学予約・お問い合わせフォーム
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
 </section>
 
-<!-- フッター -->
-<footer class="series-footer">
-  <nav>
-    <a href="oyumino/">スマイルームおゆみ野</a>
-    <a href="chiharadai/">スマイルームちはら台</a>
-    <a href="oyumino/contact.html">お問い合わせ</a>
-  </nav>
-  <p>〒266-0005 千葉県千葉市緑区誉田町1-659-1</p>
-  <p>© 2026 株式会社カイゴマン All Rights Reserved.</p>
-</footer>
+<!-- FOOTER -->
+<div class="footer-upper">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-brand">スマイルーム</div>
+      <div class="footer-catch">高齢者対応賃貸住宅<br>千葉・市原エリア 2施設運営</div>
+      <div class="footer-addr">
+        〒266-0005 千葉県千葉市緑区誉田町1-659-1<br>
+        運営：株式会社カイゴマン<br>
+        TEL：043-310-7467
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>施設</h4>
+      <ul>
+        <li><a href="oyumino/">スマイルームおゆみ野</a></li>
+        <li><a href="chiharadai/">スマイルームちはら台</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>サポート</h4>
+      <ul>
+        <li><a href="oyumino/faq.html">よくある質問</a></li>
+        <li><a href="oyumino/contact.html">お問い合わせ</a></li>
+        <li><a href="oyumino/flow.html">入居の流れ</a></li>
+        <li><a href="oyumino/pricing.html">料金プラン</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="footer-bottom">
+  © 2026 株式会社カイゴマン All Rights Reserved.
+</div>
 
 </body>
 </html>
