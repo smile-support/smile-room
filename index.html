@@ -465,6 +465,7 @@
 
 /* ===== OVERVIEW MAP IMG ===== */
 .overview-map-img-wrap {
+  position: relative;
   margin-bottom: 32px;
   border-radius: var(--radius);
   overflow: hidden;
@@ -474,6 +475,13 @@
   display: block;
   width: 100%;
   height: auto;
+}
+.overview-map-pins {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 /* ===== MAP ===== */
@@ -874,6 +882,44 @@
   </div>
 </section>
 
+<!-- FEATURES -->
+<section class="features">
+  <div class="wrap">
+    <div class="sec-label">WHY スマイルーム</div>
+    <div class="sec-title">スマイルームが<br>選ばれる4つの理由</div>
+    <div class="feat-grid">
+      <div class="feat-item">
+        <div class="feat-icon">🏠</div>
+        <div class="feat-text">
+          <h3>介護施設ではなく、賃貸住宅</h3>
+          <p>自分のペース、自分のスタイルで暮らせます。施設のルールに縛られない自由な生活を。</p>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">🤝</div>
+        <div class="feat-text">
+          <h3>介護サービスは自由に選択</h3>
+          <p>今お使いの介護事業者をそのまま継続できます。慣れた担当者に引き続きお任せを。</p>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">👀</div>
+        <div class="feat-text">
+          <h3>24時間見守りサポート</h3>
+          <p>緊急時の対応体制を完備。ご家族も離れていても安心してお任せいただけます。</p>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">♿</div>
+        <div class="feat-text">
+          <h3>全室バリアフリー設計</h3>
+          <p>車椅子対応の浴室・廊下・エントランス。安全で快適な住環境を整えています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FACILITIES -->
 <section class="facilities">
   <div class="wrap">
@@ -961,7 +1007,45 @@
     <div class="sec-label">ACCESS</div>
     <div class="sec-title">施設へのアクセス</div>
     <div class="overview-map-img-wrap">
-      <img src="images/map-overview.png" alt="スマイルーム 2施設 全体マップ" class="overview-map-img">
+      <img src="images/map-overview.png" alt="スマイルーム 2施設 全体マップ" class="overview-map-img" loading="lazy">
+      <svg class="overview-map-pins"
+           viewBox="0 0 1604 824"
+           preserveAspectRatio="none"
+           aria-hidden="true">
+        <defs>
+          <filter id="map-pin-shadow-top" x="-30%" y="-80%" width="160%" height="260%">
+            <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.2"/>
+          </filter>
+        </defs>
+        <!-- おゆみ野: 推定ピクセル (701, 448) -->
+        <g transform="translate(701 448)">
+          <rect x="-152" y="-110" width="304" height="50" rx="10"
+                fill="white" filter="url(#map-pin-shadow-top)"/>
+          <text x="0" y="-85" text-anchor="middle" dominant-baseline="central"
+                font-family="'Zen Maru Gothic',sans-serif" font-size="28" font-weight="700"
+                fill="#9d174d">スマイルームおゆみ野</text>
+          <line x1="0" y1="-60" x2="0" y2="-48" stroke="#9d174d" stroke-width="5" stroke-linecap="round"/>
+          <g filter="url(#map-pin-shadow-top)">
+            <circle cx="0" cy="-30" r="18" fill="#9d174d"/>
+            <polygon points="0,0 -9,-12 9,-12" fill="#9d174d"/>
+          </g>
+          <circle cx="0" cy="-30" r="7" fill="white"/>
+        </g>
+        <!-- ちはら台: 推定ピクセル (830, 586) -->
+        <g transform="translate(830 586)">
+          <rect x="-152" y="-110" width="304" height="50" rx="10"
+                fill="white" filter="url(#map-pin-shadow-top)"/>
+          <text x="0" y="-85" text-anchor="middle" dominant-baseline="central"
+                font-family="'Zen Maru Gothic',sans-serif" font-size="28" font-weight="700"
+                fill="#166534">スマイルームちはら台</text>
+          <line x1="0" y1="-60" x2="0" y2="-48" stroke="#166534" stroke-width="5" stroke-linecap="round"/>
+          <g filter="url(#map-pin-shadow-top)">
+            <circle cx="0" cy="-30" r="18" fill="#166534"/>
+            <polygon points="0,0 -9,-12 9,-12" fill="#166534"/>
+          </g>
+          <circle cx="0" cy="-30" r="7" fill="white"/>
+        </g>
+      </svg>
     </div>
     <div class="map-grid">
 
@@ -1003,44 +1087,6 @@
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features">
-  <div class="wrap">
-    <div class="sec-label">WHY スマイルーム</div>
-    <div class="sec-title">スマイルームが<br>選ばれる4つの理由</div>
-    <div class="feat-grid">
-      <div class="feat-item">
-        <div class="feat-icon">🏠</div>
-        <div class="feat-text">
-          <h3>介護施設ではなく、賃貸住宅</h3>
-          <p>自分のペース、自分のスタイルで暮らせます。施設のルールに縛られない自由な生活を。</p>
-        </div>
-      </div>
-      <div class="feat-item">
-        <div class="feat-icon">🤝</div>
-        <div class="feat-text">
-          <h3>介護サービスは自由に選択</h3>
-          <p>今お使いの介護事業者をそのまま継続できます。慣れた担当者に引き続きお任せを。</p>
-        </div>
-      </div>
-      <div class="feat-item">
-        <div class="feat-icon">👀</div>
-        <div class="feat-text">
-          <h3>24時間見守りサポート</h3>
-          <p>緊急時の対応体制を完備。ご家族も離れていても安心してお任せいただけます。</p>
-        </div>
-      </div>
-      <div class="feat-item">
-        <div class="feat-icon">♿</div>
-        <div class="feat-text">
-          <h3>全室バリアフリー設計</h3>
-          <p>車椅子対応の浴室・廊下・エントランス。安全で快適な住環境を整えています。</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
