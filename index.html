@@ -463,18 +463,20 @@
 }
 .prep-tel:hover { opacity: .8; }
 
-/* ===== OVERVIEW MAP IMG ===== */
+/* ===== OVERVIEW MAP (iframe + SVG pins) ===== */
 .overview-map-img-wrap {
   position: relative;
   margin-bottom: 32px;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
+  height: 460px;
 }
-.overview-map-img {
+.overview-map-iframe {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  border: 0;
 }
 .overview-map-pins {
   position: absolute;
@@ -482,6 +484,7 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
+  overflow: visible;
 }
 
 /* ===== MAP ===== */
@@ -1006,45 +1009,22 @@
   <div class="wrap">
     <div class="sec-label">ACCESS</div>
     <div class="sec-title">施設へのアクセス</div>
-    <div class="overview-map-img-wrap">
-      <img src="images/map-overview.png" alt="スマイルーム 2施設 全体マップ" class="overview-map-img" loading="lazy">
-      <svg class="overview-map-pins"
-           viewBox="0 0 1604 824"
-           preserveAspectRatio="none"
-           aria-hidden="true">
+    <!-- Google Maps iframe + SVG pin overlay
+         CENTER/ZOOM must match the iframe URL for accurate positioning -->
+    <div class="overview-map-img-wrap" id="overview-gmap-wrap">
+      <iframe
+        class="overview-map-iframe"
+        src="https://maps.google.com/maps?ll=35.5475,140.1960&z=13&output=embed&hl=ja"
+        allowfullscreen
+        loading="lazy"
+        title="スマイルーム 2施設 周辺地図"
+      ></iframe>
+      <svg class="overview-map-pins" id="overview-gmap-pins" aria-hidden="true">
         <defs>
-          <filter id="map-pin-shadow-top" x="-30%" y="-80%" width="160%" height="260%">
-            <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.2"/>
+          <filter id="gmap-pin-sh" x="-30%" y="-80%" width="160%" height="260%">
+            <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.22"/>
           </filter>
         </defs>
-        <!-- おゆみ野: 推定ピクセル (701, 448) -->
-        <g transform="translate(701 448)">
-          <rect x="-152" y="-110" width="304" height="50" rx="10"
-                fill="white" filter="url(#map-pin-shadow-top)"/>
-          <text x="0" y="-85" text-anchor="middle" dominant-baseline="central"
-                font-family="'Zen Maru Gothic',sans-serif" font-size="28" font-weight="700"
-                fill="#9d174d">スマイルームおゆみ野</text>
-          <line x1="0" y1="-60" x2="0" y2="-48" stroke="#9d174d" stroke-width="5" stroke-linecap="round"/>
-          <g filter="url(#map-pin-shadow-top)">
-            <circle cx="0" cy="-30" r="18" fill="#9d174d"/>
-            <polygon points="0,0 -9,-12 9,-12" fill="#9d174d"/>
-          </g>
-          <circle cx="0" cy="-30" r="7" fill="white"/>
-        </g>
-        <!-- ちはら台: 推定ピクセル (830, 586) -->
-        <g transform="translate(830 586)">
-          <rect x="-152" y="-110" width="304" height="50" rx="10"
-                fill="white" filter="url(#map-pin-shadow-top)"/>
-          <text x="0" y="-85" text-anchor="middle" dominant-baseline="central"
-                font-family="'Zen Maru Gothic',sans-serif" font-size="28" font-weight="700"
-                fill="#166534">スマイルームちはら台</text>
-          <line x1="0" y1="-60" x2="0" y2="-48" stroke="#166534" stroke-width="5" stroke-linecap="round"/>
-          <g filter="url(#map-pin-shadow-top)">
-            <circle cx="0" cy="-30" r="18" fill="#166534"/>
-            <polygon points="0,0 -9,-12 9,-12" fill="#166534"/>
-          </g>
-          <circle cx="0" cy="-30" r="7" fill="white"/>
-        </g>
       </svg>
     </div>
     <div class="map-grid">
@@ -1176,6 +1156,75 @@
   © 2026 株式会社カイゴマン All Rights Reserved.
 </div>
 
+<script>
+/* SVG pin overlay for Google Maps iframe
+   Pins are calculated using Mercator projection — CENTER/ZOOM must match iframe URL */
+(function () {
+  var CENTER_LAT = 35.5475;
+  var CENTER_LNG = 140.1960;
+  var ZOOM = 13;
+  var FACILITIES = [
+    { lat: 35.553588, lng: 140.193096, name: 'スマイルームおゆみ野',  color: '#9d174d' },
+    { lat: 35.541296, lng: 140.198946, name: 'スマイルームちはら台', color: '#166534' }
+  ];
 
+  function mercator(lat, lng) {
+    var rad = lat * Math.PI / 180;
+    return {
+      x: (lng + 180) / 360,
+      y: (1 - Math.log(Math.tan(rad) + 1 / Math.cos(rad)) / Math.PI) / 2
+    };
+  }
+
+  function toPixel(lat, lng, W, H) {
+    var world = 256 * Math.pow(2, ZOOM);
+    var c = mercator(CENTER_LAT, CENTER_LNG);
+    var p = mercator(lat, lng);
+    return {
+      x: W / 2 + (p.x - c.x) * world,
+      y: H / 2 + (p.y - c.y) * world
+    };
+  }
+
+  function renderPins() {
+    var wrap = document.getElementById('overview-gmap-wrap');
+    var svg  = document.getElementById('overview-gmap-pins');
+    if (!wrap || !svg) return;
+    var W = wrap.offsetWidth, H = wrap.offsetHeight;
+    var ns = 'http://www.w3.org/2000/svg';
+
+    svg.querySelectorAll('.fp').forEach(function (g) { g.remove(); });
+
+    FACILITIES.forEach(function (f) {
+      var pos = toPixel(f.lat, f.lng, W, H);
+      var g = document.createElementNS(ns, 'g');
+      g.setAttribute('class', 'fp');
+      g.setAttribute('transform', 'translate(' + pos.x.toFixed(1) + ' ' + pos.y.toFixed(1) + ')');
+      g.innerHTML =
+        '<rect x="-112" y="-52" width="224" height="30" rx="6" fill="white" filter="url(#gmap-pin-sh)"/>' +
+        '<text y="-37" text-anchor="middle" dominant-baseline="central"' +
+        ' font-family="\'Zen Maru Gothic\',sans-serif" font-size="14" font-weight="700"' +
+        ' fill="' + f.color + '">' + f.name + '</text>' +
+        '<line x1="0" y1="-22" x2="0" y2="-12" stroke="' + f.color + '" stroke-width="3" stroke-linecap="round"/>' +
+        '<g filter="url(#gmap-pin-sh)">' +
+        '<circle cx="0" cy="-4" r="10" fill="' + f.color + '"/>' +
+        '<polygon points="0,6 -7,-3 7,-3" fill="' + f.color + '"/>' +
+        '</g>' +
+        '<circle cx="0" cy="-4" r="4" fill="white"/>';
+      svg.appendChild(g);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderPins);
+  } else {
+    renderPins();
+  }
+  window.addEventListener('resize', function () {
+    clearTimeout(window._gmapTimer);
+    window._gmapTimer = setTimeout(renderPins, 100);
+  });
+}());
+</script>
 </body>
 </html>
