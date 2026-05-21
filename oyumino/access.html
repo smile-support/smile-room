@@ -93,6 +93,26 @@
 @media (max-width: 700px) {
   .addr-row { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; }
 }
+
+.map-overview-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow);
+}
+.map-overview-wrap > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.map-pins-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
 </style>
 </head>
 <body data-breadcrumb='["アクセス・周辺"]'>
@@ -186,6 +206,68 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">AREA MAP <span class="jp">／ エリア全体図</span></span>
+    <h2 class="section-title" style="font-size:28px;">2施設が誉田・ちはら台エリアに展開。</h2>
+    <p class="section-lede">千葉市緑区誉田エリアと市原市ちはら台エリアに1施設ずつ運営しています。ご家族の状況に合わせてお選びいただけます。</p>
+
+    <div class="map-overview-wrap mt-8 reveal">
+      <img
+        src="../images/map-overview.png"
+        alt="スマイルーム系列 周辺エリア全体図（おゆみ野・ちはら台）"
+        loading="lazy"
+      >
+      <!--
+        SVG オーバーレイ: viewBox が画像ピクセル寸法 (1604×824) に一致し、
+        preserveAspectRatio="none" によって座標がそのまま画像上の位置に対応する。
+        ピン位置調整: transform="translate(X Y)" の X / Y を変更する。
+      -->
+      <svg class="map-pins-overlay"
+           viewBox="0 0 1604 824"
+           preserveAspectRatio="none"
+           aria-hidden="true">
+        <defs>
+          <filter id="map-pin-shadow" x="-30%" y="-80%" width="160%" height="260%">
+            <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.2"/>
+          </filter>
+        </defs>
+
+        <!-- おゆみ野: lat=35.553588 lng=140.193096 → 推定ピクセル (701, 448) -->
+        <g transform="translate(701 448)">
+          <rect x="-152" y="-110" width="304" height="50" rx="10"
+                fill="white" filter="url(#map-pin-shadow)"/>
+          <text x="0" y="-85" text-anchor="middle" dominant-baseline="central"
+                font-family="'Zen Maru Gothic',sans-serif" font-size="28" font-weight="700"
+                fill="#9d174d">スマイルームおゆみ野</text>
+          <line x1="0" y1="-60" x2="0" y2="-48" stroke="#9d174d" stroke-width="5" stroke-linecap="round"/>
+          <g filter="url(#map-pin-shadow)">
+            <circle cx="0" cy="-30" r="18" fill="#9d174d"/>
+            <polygon points="0,0 -9,-12 9,-12" fill="#9d174d"/>
+          </g>
+          <circle cx="0" cy="-30" r="7" fill="white"/>
+        </g>
+
+        <!-- ちはら台: lat=35.541296 lng=140.198946 → 推定ピクセル (830, 586) -->
+        <g transform="translate(830 586)">
+          <rect x="-152" y="-110" width="304" height="50" rx="10"
+                fill="white" filter="url(#map-pin-shadow)"/>
+          <text x="0" y="-85" text-anchor="middle" dominant-baseline="central"
+                font-family="'Zen Maru Gothic',sans-serif" font-size="28" font-weight="700"
+                fill="#166534">スマイルームちはら台</text>
+          <line x1="0" y1="-60" x2="0" y2="-48" stroke="#166534" stroke-width="5" stroke-linecap="round"/>
+          <g filter="url(#map-pin-shadow)">
+            <circle cx="0" cy="-30" r="18" fill="#166534"/>
+            <polygon points="0,0 -9,-12 9,-12" fill="#166534"/>
+          </g>
+          <circle cx="0" cy="-30" r="7" fill="white"/>
+        </g>
+      </svg>
+    </div>
+    <p style="font-size:12px;color:var(--ink-mute);margin-top:8px;text-align:right;">© Google Maps</p>
   </div>
 </section>
 
