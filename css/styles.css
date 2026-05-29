@@ -4,27 +4,27 @@
    ============================================ */
 
 :root {
-  /* テーマ: さくら (default) */
-  --bg: oklch(0.985 0.010 60);
-  --bg-warm: oklch(0.97 0.018 50);
-  --card: oklch(0.995 0.008 70);
-  --pink-50: oklch(0.965 0.020 20);
-  --pink-100: oklch(0.93 0.040 18);
-  --pink-200: oklch(0.88 0.060 18);
-  --pink-300: oklch(0.82 0.085 20);
-  --pink-400: oklch(0.74 0.110 22);
-  --pink-500: oklch(0.66 0.135 25);
-  --pink-600: oklch(0.56 0.150 25);
-  --accent: oklch(0.72 0.10 60);   /* peach */
-  --leaf: oklch(0.78 0.07 145);    /* soft green secondary */
-  --ink: oklch(0.26 0.020 45);
-  --ink-soft: oklch(0.42 0.020 45);
-  --ink-mute: oklch(0.48 0.015 45);
-  --line: oklch(0.91 0.025 20);
-  --line-soft: oklch(0.95 0.018 30);
-  --shadow-sm: 0 1px 2px oklch(0.7 0.05 20 / 0.08);
-  --shadow: 0 8px 24px oklch(0.7 0.06 20 / 0.10), 0 2px 6px oklch(0.7 0.06 20 / 0.06);
-  --shadow-lg: 0 24px 60px oklch(0.65 0.08 20 / 0.14), 0 8px 20px oklch(0.7 0.06 20 / 0.08);
+  /* テーマ: ダスティローズ（上品・落ち着き） */
+  --bg: oklch(0.983 0.006 50);
+  --bg-warm: oklch(0.968 0.012 40);
+  --card: oklch(0.995 0.005 50);
+  --pink-50: oklch(0.965 0.015 10);
+  --pink-100: oklch(0.930 0.030 12);
+  --pink-200: oklch(0.870 0.050 13);
+  --pink-300: oklch(0.790 0.070 14);
+  --pink-400: oklch(0.700 0.090 14);
+  --pink-500: oklch(0.600 0.105 14);
+  --pink-600: oklch(0.500 0.115 14);
+  --accent: oklch(0.72 0.08 45);   /* warm sand */
+  --leaf: oklch(0.72 0.08 150);    /* soft sage */
+  --ink: oklch(0.24 0.018 40);
+  --ink-soft: oklch(0.40 0.016 40);
+  --ink-mute: oklch(0.52 0.012 40);
+  --line: oklch(0.90 0.018 20);
+  --line-soft: oklch(0.94 0.012 30);
+  --shadow-sm: 0 1px 2px oklch(0.65 0.04 15 / 0.08);
+  --shadow: 0 8px 24px oklch(0.65 0.05 15 / 0.10), 0 2px 6px oklch(0.65 0.05 15 / 0.06);
+  --shadow-lg: 0 24px 60px oklch(0.60 0.07 15 / 0.13), 0 8px 20px oklch(0.65 0.05 15 / 0.08);
   --radius: 18px;
   --radius-lg: 28px;
   --radius-sm: 10px;
