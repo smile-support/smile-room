@@ -1,0 +1,12 @@
+# Claude Code / Superpowers のローカル作業ファイル（引き継ぎ不要）
+.claude/
+.superpowers/
+
+# ビルド生成物（再生成可能・サイズ大）
+*.pdf
+*.docx
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
