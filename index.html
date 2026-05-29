@@ -234,12 +234,12 @@
   padding: 16px 32px;
   border-radius: 100px;
   text-decoration: none;
-  box-shadow: 0 8px 28px oklch(0.56 0.150 25 / 0.38);
+  box-shadow: 0 8px 28px oklch(0.50 0.115 14 / 0.35);
   transition: transform .2s, box-shadow .2s, opacity .2s;
 }
 .btn-primary-hero:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 36px oklch(0.56 0.150 25 / 0.44);
+  box-shadow: 0 14px 36px oklch(0.50 0.115 14 / 0.42);
   opacity: .92;
 }
 .btn-ghost-hero {
@@ -406,9 +406,9 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 14px;
+  font-size: 15.5px;
   color: var(--ink-soft);
-  line-height: 1.65;
+  line-height: 1.85;
 }
 .f-points li::before {
   content: "✓";
@@ -432,12 +432,12 @@
 .f-btn.pink {
   background: var(--pink-600);
   color: #fff;
-  box-shadow: 0 4px 18px oklch(0.56 0.150 25 / 0.28);
+  box-shadow: 0 4px 18px oklch(0.50 0.115 14 / 0.25);
 }
 .f-btn.pink:hover {
-  background: oklch(0.50 0.155 25);
+  background: var(--pink-500);
   transform: translateY(-1px);
-  box-shadow: 0 8px 28px oklch(0.56 0.150 25 / 0.38);
+  box-shadow: 0 8px 28px oklch(0.50 0.115 14 / 0.35);
 }
 .f-btn.outline {
   background: transparent;
@@ -612,9 +612,9 @@
   line-height: 1.4;
 }
 .feat-text p {
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--ink-soft);
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 /* ===== STATS ===== */
@@ -629,7 +629,7 @@
 .stat-item {
   text-align: center;
   padding: 24px 16px;
-  border-right: 1px solid oklch(0.65 0.14 25 / 0.45);
+  border-right: 1px solid oklch(0.60 0.09 14 / 0.45);
   color: #fff;
 }
 .stat-item:last-child { border-right: none; }
@@ -820,7 +820,7 @@
 @media (max-width: 768px) {
   .f-grid, .feat-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr; }
-  .stat-item { border-right: none; border-bottom: 1px solid oklch(0.65 0.14 25 / 0.4); }
+  .stat-item { border-right: none; border-bottom: 1px solid oklch(0.60 0.09 14 / 0.4); }
   .stat-item:last-child { border-bottom: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .cta-card { padding: 36px 28px; }
