@@ -10,6 +10,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/styles.css">
 <style>
+/* ちはら台カラー：スモーキーブルーで上書き */
+:root {
+  --pink-50:  oklch(0.965 0.015 225);
+  --pink-100: oklch(0.930 0.028 225);
+  --pink-200: oklch(0.870 0.048 225);
+  --pink-300: oklch(0.790 0.062 225);
+  --pink-400: oklch(0.700 0.076 225);
+  --pink-500: oklch(0.590 0.088 225);
+  --pink-600: oklch(0.470 0.092 225);
+}
+
 .series-header {
   background: var(--card);
   border-bottom: 1px solid var(--line);
@@ -34,8 +45,8 @@
 .header-nav a:hover { color: var(--pink-600); }
 .coming-hero {
   background:
-    radial-gradient(60% 70% at 85% 15%, oklch(0.94 0.05 25), transparent 70%),
-    radial-gradient(50% 60% at 10% 90%, oklch(0.96 0.04 70), transparent 70%),
+    radial-gradient(60% 70% at 85% 15%, oklch(0.94 0.03 225), transparent 70%),
+    radial-gradient(50% 60% at 10% 90%, oklch(0.96 0.02 210), transparent 70%),
     var(--bg);
   padding: clamp(80px, 12vw, 140px) 24px;
   text-align: center;
@@ -71,7 +82,7 @@
   max-width: 480px;
   margin: 0 auto;
 }
-.coming-box p { margin: 0 0 24px; color: var(--ink-soft); font-size: 15px; line-height: 1.8; }
+.coming-box p { margin: 0 0 24px; color: var(--ink-soft); font-size: 16px; line-height: 1.9; }
 .tel-link {
   display: block;
   font-family: "Zen Maru Gothic", sans-serif;
@@ -90,7 +101,7 @@
   background: var(--pink-100);
   color: var(--pink-600);
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   text-decoration: none;
   transition: opacity .15s;
 }
