@@ -648,9 +648,6 @@ img { max-width: 100%; display: block; }
 .anchor-menu {
   background: var(--card);
   border-bottom: 1px solid var(--line-soft);
-  position: sticky;
-  top: 72px;
-  z-index: 40;
 }
 .anchor-menu .inner {
   display: flex;
