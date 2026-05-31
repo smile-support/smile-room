@@ -1139,3 +1139,34 @@ details[open] .faq-chevron { transform: rotate(180deg); }
 @media (max-width: 880px) {
   .header-reserve { display: none; }
 }
+
+/* ============= モバイル固定電話ボタン ============= */
+.mobile-tel-fab {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 16px;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 200;
+}
+.mobile-tel-fab a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pink-500);
+  color: white;
+  text-decoration: none;
+  border-radius: 100px;
+  padding: 12px 20px;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 20px oklch(0.6 0.14 25 / 0.35);
+  transition: transform .15s, box-shadow .15s;
+}
+.mobile-tel-fab a:hover { transform: translateY(-2px); box-shadow: 0 8px 28px oklch(0.6 0.14 25 / 0.4); }
+.mobile-tel-fab a svg { flex-shrink: 0; }
+@media (max-width: 880px) {
+  .mobile-tel-fab { display: block; }
+}
