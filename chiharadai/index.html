@@ -3,8 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>スマイルームちはら台｜市原市の高齢者向け賃貸住宅（営業中）</title>
-<meta name="description" content="千葉県市原市ちはら台東の高齢者対応賃貸住宅。スマイルームおゆみ野と同じ「介護施設ではなく、自分らしく暮らせる賃貸住宅」です。現在営業中・詳細ページ準備中。お問い合わせは0436-63-3618（9時〜18時・年中無休）へ。">
+<title>スマイルームちはら台｜市原市の高齢者向け賃貸住宅 月額10.3万円（食費込み）</title>
+<meta name="description" content="千葉県市原市ちはら台東の高齢者向け住宅。2026年1月オープン、入居一時金5万円・月額10.3万円（食費込み）。全室個室・24時間スタッフ常駐・自立から要介護5まで対応。誉田駅から車約9分。見学受付中、お電話0436-63-3618まで。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "スマイルームちはら台",
+  "description": "千葉県市原市ちはら台東の高齢者向け住宅。入居一時金5万円・月額10.3万円（食費込み）。全室個室・24時間スタッフ常駐。",
+  "telephone": "0436-63-3618",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ちはら台東8-19-7",
+    "addressLocality": "市原市",
+    "addressRegion": "千葉県",
+    "postalCode": "290-0141",
+    "addressCountry": "JP"
+  },
+  "priceRange": "月額10.3万円（食費込み）",
+  "openingHours": "Mo-Su 09:00-18:00"
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -13,7 +32,17 @@
     {
       "@type": "Question",
       "name": "スマイルームちはら台は今も入居できますか？",
-      "acceptedAnswer": { "@type": "Answer", "text": "はい、現在営業中です。空き状況は時期により変わりますので、お電話（0436-63-3618、9:00〜18:00・年中無休）でご確認ください。" }
+      "acceptedAnswer": { "@type": "Answer", "text": "はい、2026年1月にオープンし、現在入居受付中です。空き状況は時期により変わりますので、お電話（0436-63-3618、9:00〜18:00・年中無休）でご確認ください。" }
+    },
+    {
+      "@type": "Question",
+      "name": "費用はいくらかかりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "入居一時金は5万円、月額利用料は10.3万円（賃料4.1万円＋管理費・運営費1.9万円＋食費4.3万円）です。高額な入居一時金や敷金はありません。介護サービスをご利用の場合は、介護保険の自己負担分（1〜3割）を別途ご負担いただきます。" }
+    },
+    {
+      "@type": "Question",
+      "name": "どんな方が入居できますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "自立の方から要支援1〜2、要介護1〜5の方まで幅広くご入居いただけます。入居年齢・認知症・生活保護のご利用はご相談ください。身元保証人が必要です。お住まいの市区町村を問わずご入居いただけます。" }
     },
     {
       "@type": "Question",
@@ -28,7 +57,7 @@
     {
       "@type": "Question",
       "name": "場所はどこですか？",
-      "acceptedAnswer": { "@type": "Answer", "text": "〒290-0141 千葉県市原市ちはら台東八丁目19番地7 です。" }
+      "acceptedAnswer": { "@type": "Answer", "text": "〒290-0141 千葉県市原市ちはら台東八丁目19番地7 です。JR外房線 誉田駅から約1.5km（車約9分）、京成ちはら線 ちはら台駅から約2.7km。駐車スペースがあるためお車での見学・面会にも便利です。" }
     }
   ]
 }
@@ -134,6 +163,86 @@
   transition: opacity .15s;
 }
 .btn-top:hover { opacity: .8; }
+.info-section {
+  padding: clamp(48px, 8vw, 80px) 24px;
+  background: var(--card);
+}
+.info-section.alt { background: var(--bg); }
+.info-section .info-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.info-section h2 {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: clamp(20px, 3.5vw, 28px);
+  color: var(--ink);
+  text-align: center;
+  margin: 0 0 28px;
+}
+.price-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 640px) { .price-cards { grid-template-columns: 1fr; } }
+.price-card {
+  background: var(--bg);
+  border: 1.5px solid var(--pink-200);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  text-align: center;
+}
+.price-card .price-label {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--pink-600);
+  margin-bottom: 8px;
+}
+.price-card .price-num {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  color: var(--pink-600);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.price-card .price-num span { font-size: 18px; color: var(--ink-soft); margin-left: 2px; }
+.price-card p { margin: 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.8; text-align: left; }
+.info-note {
+  margin: 18px 0 0;
+  font-size: 13px;
+  color: var(--ink-mute);
+  text-align: center;
+}
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.spec-table th, .spec-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14.5px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.8;
+}
+.spec-table tr:last-child th, .spec-table tr:last-child td { border-bottom: 0; }
+.spec-table th {
+  width: 30%;
+  background: var(--pink-50);
+  color: var(--pink-600);
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+@media (max-width: 540px) {
+  .spec-table th { white-space: normal; width: 36%; }
+}
 .faq-section-ch {
   padding: clamp(48px, 8vw, 80px) 24px;
   background: var(--card);
@@ -211,22 +320,78 @@
 
 <!-- メインコンテンツ -->
 <section class="coming-hero">
-  <div class="coming-badge">現在営業中 · 詳細ページ準備中</div>
+  <div class="coming-badge">2026年1月オープン · 入居受付中</div>
   <h1>スマイルームちはら台</h1>
   <p class="address">📍 〒290-0141 千葉県市原市ちはら台東八丁目19番地7</p>
 
   <div class="coming-box">
     <p>
-      スマイルームちはら台は、千葉県市原市ちはら台東にある高齢者対応の賃貸住宅です。
-      「介護施設ではなく、自分らしく暮らせる賃貸住宅」というスマイルームの考え方はそのままに、ちはら台エリアで営業中です。
+      スマイルームちはら台は、千葉県市原市ちはら台東にある高齢者向け住宅です。
+      「介護施設ではなく、自分らしく暮らせる住まい」というスマイルームの考え方はそのままに、
+      2026年1月、ちはら台エリアにオープンしました。
     </p>
     <p>
-      居室の空き状況、月額費用、設備の詳細は、お電話でお気軽にお問い合わせください。
-      ご見学のご相談も受け付けています。
+      全室個室（介護用ベッド・エアコン・トイレ・洗面台付き）、スタッフ24時間常駐。
+      介護が必要になっても、在宅介護サービスを必要な分だけ自由に選べます。
+      空き状況・ご見学のご相談はお電話でお気軽にどうぞ。
     </p>
     <a href="tel:0436633618" class="tel-link">0436-63-3618</a>
     <p class="tel-hours">受付時間 9:00〜18:00（年中無休）</p>
     <a href="../" class="btn-top">← トップページへ戻る</a>
+  </div>
+</section>
+
+<!-- 料金 -->
+<section class="info-section">
+  <div class="info-inner">
+    <h2>ご入居の費用</h2>
+    <div class="price-cards">
+      <div class="price-card">
+        <div class="price-label">入居時費用</div>
+        <div class="price-num">5<span>万円</span></div>
+        <p>高額な入居一時金や敷金はありません。経済的な負担を抑えて新生活を始められます。</p>
+      </div>
+      <div class="price-card">
+        <div class="price-label">月額利用料（食費込み）</div>
+        <div class="price-num">10.3<span>万円</span></div>
+        <p>賃料 41,000円＋管理費・運営費 19,000円＋食費 43,000円。水道光熱費等の詳細はお問い合わせください。</p>
+      </div>
+    </div>
+    <p class="info-note">※ 介護サービス（訪問介護等）をご利用の場合は、介護保険の自己負担分（1〜3割）を別途ご負担いただきます。</p>
+  </div>
+</section>
+
+<!-- 施設概要 -->
+<section class="info-section alt">
+  <div class="info-inner">
+    <h2>施設概要</h2>
+    <table class="spec-table">
+      <tr><th>施設種別</th><td>高齢者向け住宅</td></tr>
+      <tr><th>開設</th><td>2026年1月</td></tr>
+      <tr><th>居室</th><td>全室個室 44室（定員46名）・広さ11.18〜16.77㎡・2人部屋あり（ご夫婦での入居可）</td></tr>
+      <tr><th>居室設備</th><td>介護用ベッド・エアコン・収納・トイレ・洗面台・ナースコール</td></tr>
+      <tr><th>浴室</th><td>手すり付き浴室・シャワーチェア完備（週3回以上の入浴）</td></tr>
+      <tr><th>スタッフ体制</th><td>スタッフ24時間常駐・夜間も定期巡回</td></tr>
+      <tr><th>お食事</th><td>管理栄養士監修の毎日のお食事。季節の行事食・おやつレクも好評です</td></tr>
+      <tr><th>暮らし</th><td>機能訓練・体操教室・音楽レクリエーション・誕生日会・理美容サービス。外出は自由です</td></tr>
+      <tr><th>医療連携</th><td>協力医療機関と連携し、定期的な健康チェック・往診に対応。訪問看護もご利用いただけます</td></tr>
+      <tr><th>入居条件</th><td>自立〜要支援1・2〜要介護1〜5。年齢・認知症・生活保護はご相談ください（身元保証人が必要です）</td></tr>
+      <tr><th>運営</th><td>株式会社カイゴマン</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- アクセス -->
+<section class="info-section">
+  <div class="info-inner">
+    <h2>アクセス</h2>
+    <p style="text-align:center;margin:0 0 20px;color:var(--ink-soft);">〒290-0141 千葉県市原市ちはら台東八丁目19番地7</p>
+    <table class="spec-table">
+      <tr><th>JR外房線 誉田駅</th><td>約1.5km（車約9分）</td></tr>
+      <tr><th>京成ちはら線 ちはら台駅</th><td>約2.7km</td></tr>
+      <tr><th>JR外房線 鎌取駅</th><td>約3.1km</td></tr>
+      <tr><th>お車</th><td>駐車スペースあり。ご見学・ご面会の際もご利用いただけます</td></tr>
+    </table>
   </div>
 </section>
 
@@ -237,7 +402,17 @@
 
     <details open>
       <summary>スマイルームちはら台は今も入居できますか？</summary>
-      <p>はい、現在営業中です。空き状況は時期により変わりますので、お電話（<a href="tel:0436633618">0436-63-3618</a>、9:00〜18:00・年中無休）でご確認ください。</p>
+      <p>はい、2026年1月にオープンし、現在入居受付中です。空き状況は時期により変わりますので、お電話（<a href="tel:0436633618">0436-63-3618</a>、9:00〜18:00・年中無休）でご確認ください。</p>
+    </details>
+
+    <details>
+      <summary>費用はいくらかかりますか？</summary>
+      <p>入居一時金は5万円、月額利用料は10.3万円（賃料4.1万円＋管理費・運営費1.9万円＋食費4.3万円）です。高額な入居一時金や敷金はありません。介護サービスをご利用の場合は、介護保険の自己負担分（1〜3割）を別途ご負担いただきます。</p>
+    </details>
+
+    <details>
+      <summary>どんな方が入居できますか？</summary>
+      <p>自立の方から要支援1〜2、要介護1〜5の方まで幅広くご入居いただけます。入居年齢・認知症・生活保護のご利用はご相談ください。身元保証人が必要です。お住まいの市区町村を問わずご入居いただけます。</p>
     </details>
 
     <details>
@@ -252,7 +427,7 @@
 
     <details>
       <summary>場所はどこですか？</summary>
-      <p>〒290-0141 千葉県市原市ちはら台東八丁目19番地7 です。</p>
+      <p>〒290-0141 千葉県市原市ちはら台東八丁目19番地7 です。JR外房線 誉田駅から約1.5km（車約9分）、京成ちはら線 ちはら台駅から約2.7km。駐車スペースがあるためお車での見学・面会にも便利です。</p>
     </details>
   </div>
 </section>
