@@ -125,16 +125,19 @@
 
 /* =================== 料金 =================== */
 .pricing { background: radial-gradient(60% 60% at 90% 0%, oklch(0.95 0.02 225), transparent 60%), var(--bg); }
-.pricing-featured { background: var(--card); border-radius: var(--radius-lg); padding: 40px; border: 2px solid var(--pink-400); margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; box-shadow: var(--shadow); }
-@media (max-width: 760px) { .pricing-featured { grid-template-columns: 1fr; gap: 24px; } }
-.pricing-breakdown { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; }
-.pb-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--line-soft); font-size: 15px; }
-.pb-row:last-child { border-bottom: 0; background: var(--pink-50); font-family: "Zen Maru Gothic"; font-weight: 700; color: var(--pink-600); font-size: 17px; }
-.pb-row .pb-label { color: var(--ink-soft); }
-.pb-row .pb-amt { font-family: "Zen Maru Gothic"; font-weight: 700; }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; margin-top: 44px; }
+@media (max-width: 880px) { .pricing-grid { grid-template-columns: 1fr; } }
+.plan { background: var(--card); border-radius: var(--radius-lg); padding: 32px 30px; border: 1px solid var(--line-soft); position: relative; }
+.plan.featured { border: 2px solid var(--pink-400); background: linear-gradient(180deg, oklch(0.985 0.014 225), var(--card)); box-shadow: var(--shadow); }
+.plan-badge { position: absolute; top: -12px; left: 28px; background: var(--pink-500); color: white; padding: 5px 14px; border-radius: 100px; font-size: 12px; font-weight: 700; font-family: "Zen Maru Gothic"; }
+.plan-name { font-family: "Zen Maru Gothic"; font-size: 14px; letter-spacing: 0.1em; color: var(--pink-600); margin-bottom: 4px; }
+.plan-title { font-size: 22px; margin-bottom: 18px; }
 .plan-price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 6px; }
-.plan-price .num { font-family: "Zen Maru Gothic"; font-size: 56px; font-weight: 700; color: var(--pink-600); letter-spacing: 0.01em; }
+.plan-price .num { font-family: "Zen Maru Gothic"; font-size: 44px; font-weight: 700; color: var(--pink-600); letter-spacing: 0.01em; }
 .plan-price .unit { font-size: 16px; color: var(--ink-soft); font-weight: 700; }
+.plan-price .from { font-size: 13px; color: var(--ink-mute); }
+.plan-note { font-size: 12.5px; color: var(--ink-mute); margin-bottom: 22px; }
+.plan-note--allin { display: inline-flex; align-items: center; gap: 5px; background: oklch(0.94 0.04 225); color: oklch(0.35 0.06 225); border-radius: 100px; padding: 4px 12px; font-size: 12px; font-weight: 700; font-family: "Zen Maru Gothic", sans-serif; border: 1px solid oklch(0.82 0.06 225); margin-bottom: 22px; }
 .plan-list { list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 10px; }
 .plan-list li { display: flex; gap: 10px; font-size: 14px; align-items: flex-start; }
 .plan-list li::before { content: ""; width: 18px; height: 18px; background: var(--pink-100); color: var(--pink-600); border-radius: 50%; flex-shrink: 0; margin-top: 3px; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23335c7a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>"); background-repeat: no-repeat; background-position: center; }
@@ -404,38 +407,65 @@
       <p class="section-lede">賃料・管理費・運営費・食費がすべて含まれた103,000円の定額制。入居一時金は5万円と、経済的負担を抑えた設計です。</p>
     </div>
 
-    <div class="pricing-featured reveal">
-      <div>
-        <div class="plan-name" style="font-family:'Zen Maru Gothic';font-size:14px;letter-spacing:0.1em;color:var(--pink-600);margin-bottom:4px;">月額利用料（食費込み）</div>
-        <div class="plan-title" style="font-size:22px;margin-bottom:18px;">スタンダードプラン</div>
+    <div class="pricing-grid">
+      <div class="plan reveal">
+        <div class="plan-name">月額利用料</div>
+        <div class="plan-title">食費込みプラン</div>
         <div class="plan-price">
-          <span class="num">103,000</span><span class="unit">円</span><span style="font-size:13px;color:var(--ink-mute);">/ 月</span>
+          <span class="num">103,000</span><span class="unit">円</span><span class="from">/ 月</span>
         </div>
-        <p style="font-size:13px;color:var(--ink-mute);margin-bottom:22px;">食費・賃料・管理費・運営費すべて含む</p>
+        <div class="plan-note plan-note--allin">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          賃料・管理費・食費（3食）すべて込み
+        </div>
         <ul class="plan-list">
           <li>個室（11.18〜16.77㎡）・介護用ベッド付き</li>
           <li>専用トイレ・洗面台・エアコン・ナースコール</li>
           <li>管理栄養士監修の毎日のお食事（3食）</li>
           <li>24時間スタッフ常駐・夜間定期巡回</li>
-          <li>体操教室・音楽レクリエーション・誕生日会</li>
-          <li>理美容サービス・機能訓練</li>
         </ul>
-        <a class="btn btn-primary" href="pricing.html">料金の詳細を見る</a>
+        <a class="btn btn-secondary" href="pricing.html" style="width:100%;">プランの詳細を見る</a>
       </div>
-      <div class="pricing-breakdown">
-        <div class="pb-row"><span class="pb-label">賃料</span><span class="pb-amt">41,000円</span></div>
-        <div class="pb-row"><span class="pb-label">管理費・運営費</span><span class="pb-amt">19,000円</span></div>
-        <div class="pb-row"><span class="pb-label">食費（3食）</span><span class="pb-amt">43,000円</span></div>
-        <div class="pb-row"><span>月額合計</span><span>103,000円</span></div>
+
+      <div class="plan featured reveal">
+        <div class="plan-badge">内訳</div>
+        <div class="plan-name">月額の内訳</div>
+        <div class="plan-title">費用の内訳</div>
+        <div class="plan-price">
+          <span class="num">103,000</span><span class="unit">円</span><span class="from">/ 月</span>
+        </div>
+        <div class="plan-note">賃料＋管理費＋食費の合計</div>
+        <ul class="plan-list">
+          <li>賃料：41,000円／月</li>
+          <li>管理費・運営費：19,000円／月</li>
+          <li>食費（3食）：43,000円／月</li>
+          <li>入居一時金：50,000円（一回のみ）</li>
+        </ul>
+        <a class="btn btn-primary" href="pricing.html" style="width:100%;">料金の詳細を見る</a>
+      </div>
+
+      <div class="plan reveal">
+        <div class="plan-name">介護サービス</div>
+        <div class="plan-title">必要な分だけ選べる</div>
+        <div class="plan-price">
+          <span class="num" style="font-size:32px;">介護保険</span>
+        </div>
+        <div class="plan-note">自己負担1〜3割のみ</div>
+        <ul class="plan-list">
+          <li>外部事業者から自由にお選び</li>
+          <li>訪問介護・通所介護（デイ）</li>
+          <li>訪問看護・リハビリなど</li>
+          <li>追加の施設料金は発生しません</li>
+        </ul>
+        <a class="btn btn-secondary" href="pricing.html" style="width:100%;">サービスの詳細を見る</a>
       </div>
     </div>
 
     <div class="card mt-6 reveal" style="display:flex;gap:18px;align-items:center;background:var(--card);border:1px dashed var(--pink-200);">
       <div style="font-size:32px;line-height:1;color:var(--pink-500);font-family:'Zen Maru Gothic';">i</div>
       <p style="margin:0;font-size:14.5px;">
-        ※ 入居時に入居一時金<strong>5万円</strong>（一回のみ）が必要です。高額な入居一時金や敷金はありません。
-        介護サービス（訪問介護・デイサービス等）は、必要に応じて<strong>外部事業者から自由にお選びいただけます</strong>。
-        介護保険の自己負担分のみのご負担です。
+        ※ 介護サービス（訪問介護・デイサービス等）は、必要に応じて<strong>外部事業者から自由にお選びいただけます</strong>。
+        介護保険の自己負担分のみのご負担で、追加料金は発生しません。
       </p>
     </div>
   </div>
