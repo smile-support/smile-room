@@ -114,7 +114,12 @@
 
 <section class="section">
   <div class="container">
-    <div class="faq-cats" id="faq-cats">
+    <div class="reveal" style="max-width:720px;">
+      <span class="eyebrow">よくある質問</span>
+      <h2 class="section-title">よくあるご質問</h2>
+    </div>
+
+    <div class="faq-cats" id="faq-cats-ch">
       <button class="faq-cat-btn active" data-cat="all">すべて</button>
       <button class="faq-cat-btn" data-cat="cost">料金・費用</button>
       <button class="faq-cat-btn" data-cat="care">介護サービス</button>
@@ -123,98 +128,102 @@
       <button class="faq-cat-btn" data-cat="compare">施設比較</button>
     </div>
 
-    <div class="faq-list" id="faq-list">
+    <div class="faq-accordion reveal" id="faq-accordion-ch">
 
-      <details class="faq-item reveal" data-cat="visit">
-        <summary>
-          <span class="faq-q-mark">Q</span>
-          入居条件はありますか？
-          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <details class="faq-item" data-cat="visit">
+        <summary class="faq-question">
+          <span class="faq-q-mark" aria-hidden="true">Q</span>
+          <span class="faq-question-text">入居条件はありますか？</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">おおむね60歳以上の方を対象としています。自立・要支援・要介護どの段階でも入居していただけます。医療依存度が高い方（気管切開・胃ろう等）はご相談ください。認知症の方もご相談に応じます。</div>
+        <p class="faq-answer">おおむね60歳以上の方を対象としています。自立・要支援・要介護どの段階でも入居していただけます。医療依存度が高い方（気管切開・胃ろう等）はご相談ください。認知症の方もご相談に応じます。</p>
       </details>
 
-      <details class="faq-item reveal" data-cat="cost">
-        <summary>
-          <span class="faq-q-mark">Q</span>
-          月額103,000円に含まれるものを教えてください
-          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <details class="faq-item" data-cat="cost">
+        <summary class="faq-question">
+          <span class="faq-q-mark" aria-hidden="true">Q</span>
+          <span class="faq-question-text">月額103,000円に含まれるものを教えてください</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">賃料（41,000円）・管理費・運営費（19,000円）・食費（43,000円）がすべて含まれています。3食・おやつ・生活サポート・24時間スタッフ常駐・週3回以上の入浴補助・機能訓練・レクリエーション・共有スペース利用がすべて含まれます。水道光熱費は別途かかります。</div>
+        <p class="faq-answer">賃料（41,000円）・管理費・運営費（19,000円）・食費（43,000円）がすべて含まれています。3食・おやつ・生活サポート・24時間スタッフ常駐・週3回以上の入浴補助・機能訓練・レクリエーション・共有スペース利用がすべて含まれます。水道光熱費は別途かかります。</p>
       </details>
 
-      <details class="faq-item reveal" data-cat="cost">
-        <summary>
-          <span class="faq-q-mark">Q</span>
-          入居一時金はいくらですか？ 返金はありますか？
-          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <details class="faq-item" data-cat="cost">
+        <summary class="faq-question">
+          <span class="faq-q-mark" aria-hidden="true">Q</span>
+          <span class="faq-question-text">入居一時金はいくらですか？ 返金はありますか？</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">入居一時金は50,000円（一回のみ）です。高額な入居一時金・敷金・礼金・更新料はかかりません。返金規定については入居時にご説明いたします。詳しくは<a href="contact.html">お問い合わせ</a>ください。</div>
+        <p class="faq-answer">入居一時金は50,000円（一回のみ）です。高額な入居一時金・敷金・礼金・更新料はかかりません。返金規定については入居時にご説明いたします。詳しくは<a href="contact.html">お問い合わせ</a>ください。</p>
       </details>
 
-      <details class="faq-item reveal" data-cat="care">
-        <summary>
-          <span class="faq-q-mark">Q</span>
-          介護サービスはどのように使いますか？
-          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <details class="faq-item" data-cat="care">
+        <summary class="faq-question">
+          <span class="faq-q-mark" aria-hidden="true">Q</span>
+          <span class="faq-question-text">介護サービスはどのように使いますか？</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">スマイルームは「住宅型有料老人ホーム」のため、介護サービスは外部の事業者からお選びいただきます。訪問介護・通所介護（デイサービス）・訪問看護など、お体の状態に合わせて必要なサービスを介護保険を使って自己負担1〜3割でご利用いただけます。</div>
+        <p class="faq-answer">スマイルームは「住宅型有料老人ホーム」のため、介護サービスは外部の事業者からお選びいただきます。訪問介護・通所介護（デイサービス）・訪問看護など、お体の状態に合わせて必要なサービスを介護保険を使って自己負担1〜3割でご利用いただけます。</p>
       </details>
 
-      <details class="faq-item reveal" data-cat="care">
-        <summary>
-          <span class="faq-q-mark">Q</span>
-          夜間に体調が悪くなったらどうなりますか？
-          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <details class="faq-item" data-cat="care">
+        <summary class="faq-question">
+          <span class="faq-q-mark" aria-hidden="true">Q</span>
+          <span class="faq-question-text">夜間に体調が悪くなったらどうなりますか？</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">24時間スタッフが常駐しており、夜間も定期巡回を行います。ナースコールでいつでも呼んでいただけます。緊急時は協力医療機関と連携し、必要に応じて救急対応を行います。</div>
+        <p class="faq-answer">24時間スタッフが常駐しており、夜間も定期巡回を行います。ナースコールでいつでも呼んでいただけます。緊急時は協力医療機関と連携し、必要に応じて救急対応を行います。</p>
       </details>
 
-      <details class="faq-item reveal" data-cat="life">
-        <summary>
-          <span class="faq-q-mark">Q</span>
-          食事のアレルギーや食形態の調整はできますか？
-          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <details class="faq-item" data-cat="life">
+        <summary class="faq-question">
+          <span class="faq-q-mark" aria-hidden="true">Q</span>
+          <span class="faq-question-text">食事のアレルギーや食形態の調整はできますか？</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">アレルギーや食形態（刻み食・ソフト食・ミキサー食など）にも対応しています。管理栄養士が個別にご相談させていただきますので、入居前に遠慮なくお申し出ください。</div>
+        <p class="faq-answer">アレルギーや食形態（刻み食・ソフト食・ミキサー食など）にも対応しています。管理栄養士が個別にご相談させていただきますので、入居前に遠慮なくお申し出ください。</p>
       </details>
 
-      <details class="faq-item reveal" data-cat="life">
-        <summary>
-          <span class="faq-q-mark">Q</span>
-          面会はいつでもできますか？
-          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <details class="faq-item" data-cat="life">
+        <summary class="faq-question">
+          <span class="faq-q-mark" aria-hidden="true">Q</span>
+          <span class="faq-question-text">面会はいつでもできますか？</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">原則としていつでもご面会いただけます。夜間（22時以降）の面会は事前にご連絡ください。ご家族と一緒にお食事いただくことも可能です（要事前確認）。</div>
+        <p class="faq-answer">原則としていつでもご面会いただけます。夜間（22時以降）の面会は事前にご連絡ください。ご家族と一緒にお食事いただくことも可能です（要事前確認）。</p>
       </details>
 
-      <details class="faq-item reveal" data-cat="life">
-        <summary>
-          <span class="faq-q-mark">Q</span>
-          ペットは一緒に住めますか？
-          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <details class="faq-item" data-cat="life">
+        <summary class="faq-question">
+          <span class="faq-q-mark" aria-hidden="true">Q</span>
+          <span class="faq-question-text">ペットは一緒に住めますか？</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">現在、ペットの同居はお断りしております。ご不明な点はお問い合わせください。</div>
+        <p class="faq-answer">現在、ペットの同居はお断りしております。ご不明な点はお問い合わせください。</p>
       </details>
 
-      <details class="faq-item reveal" data-cat="visit">
-        <summary>
-          <span class="faq-q-mark">Q</span>
-          見学は事前予約が必要ですか？費用はかかりますか？
-          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <details class="faq-item" data-cat="visit">
+        <summary class="faq-question">
+          <span class="faq-q-mark" aria-hidden="true">Q</span>
+          <span class="faq-question-text">見学は事前予約が必要ですか？費用はかかりますか？</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">見学は無料で随時受け付けています。事前にお電話またはフォームからご予約いただくとスムーズです。ご家族でのご来訪も歓迎しています。所要時間は約60〜90分が目安です。</div>
+        <p class="faq-answer">見学は無料で随時受け付けています。事前にお電話またはフォームからご予約いただくとスムーズです。ご家族でのご来訪も歓迎しています。所要時間は約60〜90分が目安です。</p>
       </details>
 
-      <details class="faq-item reveal" data-cat="compare">
-        <summary>
-          <span class="faq-q-mark">Q</span>
-          おゆみ野とちはら台の違いを教えてください
-          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      <details class="faq-item" data-cat="compare">
+        <summary class="faq-question">
+          <span class="faq-q-mark" aria-hidden="true">Q</span>
+          <span class="faq-question-text">おゆみ野とちはら台の違いを教えてください</span>
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="faq-answer">最大の違いは料金体系・食事・入居条件です。<strong>ちはら台</strong>は月額103,000円（食費込み・定額制）で自立〜要介護5対応、<strong>おゆみ野</strong>は月額102,000円〜（食事は月ごとに選択可）で要介護1〜4対応です。設備面ではちはら台が全室介護用ベッド付き、おゆみ野はリフト付き個浴があります。どちらが適しているかはお気軽にご相談ください。</div>
+        <p class="faq-answer">最大の違いは料金体系・食事・入居条件です。<strong>ちはら台</strong>は月額103,000円（食費込み・定額制）で自立〜要介護5対応、<strong>おゆみ野</strong>は月額102,000円〜（食事は月ごとに選択可）で要介護1〜4対応です。設備面ではちはら台が全室介護用ベッド付き、おゆみ野はリフト付き個浴があります。どちらが適しているかはお気軽にご相談ください。</p>
       </details>
 
+    </div>
+
+    <div class="text-center mt-6 reveal">
+      <a class="btn btn-secondary" href="contact.html">その他のご質問はお気軽にどうぞ</a>
     </div>
   </div>
 </section>
@@ -237,8 +246,8 @@
 <script src="shared-ch.js?v=2"></script>
 <script>
 (function () {
-  var btns = document.querySelectorAll(".faq-cat-btn");
-  var items = document.querySelectorAll("#faq-list .faq-item");
+  var btns = document.querySelectorAll("#faq-cats-ch .faq-cat-btn");
+  var items = document.querySelectorAll("#faq-accordion-ch .faq-item");
   btns.forEach(function (btn) {
     btn.addEventListener("click", function () {
       btns.forEach(function (b) { b.classList.remove("active"); });
