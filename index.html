@@ -588,10 +588,14 @@
 .compare-table thead th.th-pink {
   color: #fff;
   background: oklch(0.55 0.130 14);
+  border-right: 2px solid oklch(0.80 0.015 50);
 }
 .compare-table thead th.th-blue {
   color: #fff;
   background: oklch(0.470 0.092 225);
+}
+.compare-table tbody td:nth-child(2) {
+  border-right: 2px solid var(--line-soft);
 }
 .compare-table tbody tr:last-child td { border-bottom: none; }
 .compare-table .val-pink {
