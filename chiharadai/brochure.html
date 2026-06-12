@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>資料ダウンロード｜スマイルームちはら台</title>
+<meta name="description" content="スマイルームちはら台の施設案内資料をダウンロードいただけます。料金・設備・入居条件など詳しい情報をまとめています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+.brochure-hero {
+  padding: clamp(60px,8vw,100px) 0 clamp(48px,7vw,80px);
+  background: radial-gradient(60% 70% at 80% 10%, oklch(0.94 0.05 25), transparent 70%), var(--bg);
+}
+.brochure-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-soft);
+  padding: 48px 52px;
+  max-width: 640px;
+  margin: 48px auto 0;
+  box-shadow: var(--shadow-lg);
+}
+.form-group { margin-bottom: 22px; }
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin-bottom: 7px;
+  letter-spacing: 0.06em;
+}
+.form-group label .req {
+  color: var(--pink-600);
+  margin-left: 4px;
+  font-size: 11px;
+}
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: "Noto Sans JP", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  transition: border-color .15s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--pink-400);
+}
+.form-group textarea { height: 100px; resize: vertical; }
+.form-submit {
+  background: var(--pink-600);
+  color: #fff;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 18px 40px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+  box-shadow: 0 6px 20px oklch(0.50 0.115 14 / 0.3);
+  transition: opacity .2s, transform .2s;
+}
+.form-submit:hover { opacity: .88; transform: translateY(-2px); }
+.brochure-note {
+  font-size: 13px;
+  color: var(--ink-mute);
+  text-align: center;
+  margin-top: 16px;
+  line-height: 1.7;
+}
+.brochure-thanks {
+  display: none;
+  text-align: center;
+  padding: 40px 0;
+}
+.brochure-thanks h3 {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 24px;
+  color: var(--pink-600);
+  margin-bottom: 12px;
+}
+@media (max-width: 600px) { .brochure-card { padding: 32px 20px; } }
+</style>
+</head>
+<body data-breadcrumb='["資料ダウンロード"]'>
+<div data-site-header></div>
+
+<section class="brochure-hero">
+  <div class="container">
+    <div class="reveal" style="max-width:640px;margin:0 auto;text-align:center;">
+      <span class="eyebrow">BROCHURE <span class="jp">／ 資料ダウンロード</span></span>
+      <h1 class="section-title" style="margin-bottom:16px;">施設案内資料を<br>無料でお送りします。</h1>
+      <p class="section-lede">料金・設備・入居条件など、詳しい内容をまとめた資料をご用意しています。<br>お名前とメールアドレスをご入力ください。</p>
+    </div>
+
+    <div class="brochure-card reveal">
+      <form id="brochure-form" onsubmit="brochureSubmit(event)">
+        <div class="form-group">
+          <label>お名前<span class="req">必須</span></label>
+          <input type="text" name="name" placeholder="山田 花子" required>
+        </div>
+        <div class="form-group">
+          <label>メールアドレス<span class="req">必須</span></label>
+          <input type="email" name="email" placeholder="example@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>お電話番号</label>
+          <input type="tel" name="tel" placeholder="090-0000-0000">
+        </div>
+        <div class="form-group">
+          <label>ご関心の理由</label>
+          <select name="reason">
+            <option value="">-- 選択してください --</option>
+            <option>本人の住まいを探している</option>
+            <option>家族の住まいを探している</option>
+            <option>ケアマネジャーとして情報収集</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>ご質問・ご要望</label>
+          <textarea name="message" placeholder="例：空室状況を教えてください"></textarea>
+        </div>
+        <button type="submit" class="form-submit">資料を請求する</button>
+        <p class="brochure-note">送信後、担当者よりメールにてご連絡いたします。<br>営業時間内（9:00〜18:00）にご対応します。</p>
+      </form>
+
+      <div class="brochure-thanks" id="brochure-thanks">
+        <h3>ありがとうございます！</h3>
+        <p style="color:var(--ink-soft);line-height:1.8;margin-bottom:24px;">
+          資料請求を受け付けました。<br>
+          担当者より、メールにてご連絡いたします。<br>
+          お急ぎの場合は <a href="tel:0436633618" style="color:var(--pink-600);font-weight:700;">0436-63-3618</a> にお電話ください。
+        </p>
+        <a href="index.html" class="btn btn-secondary">ちはら台トップページへ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script>
+function brochureSubmit(e) {
+  e.preventDefault();
+  document.getElementById('brochure-form').style.display = 'none';
+  document.getElementById('brochure-thanks').style.display = 'block';
+}
+</script>
+<script src="shared-ch.js"></script>
+</body>
+</html>
