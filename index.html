@@ -487,6 +487,104 @@
   overflow: visible;
 }
 
+/* ===== COMPARE ===== */
+.compare-section {
+  padding: clamp(64px, 9vw, 100px) 0;
+  background: var(--bg-warm);
+  border-top: 1px solid var(--line-soft);
+}
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 48px;
+}
+.compare-card {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+}
+.compare-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.compare-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.compare-card-title {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+}
+.compare-who {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  display: inline-block;
+}
+.compare-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.compare-list li {
+  font-size: 15px;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.7;
+}
+.compare-list li::before {
+  content: "✓";
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.compare-table-wrap {
+  overflow-x: auto;
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.compare-table th, .compare-table td {
+  padding: 13px 16px;
+  text-align: center;
+  border-bottom: 1px solid var(--line-soft);
+}
+.compare-table th:first-child, .compare-table td:first-child {
+  text-align: left;
+  color: var(--ink-soft);
+  font-weight: 600;
+  width: 30%;
+}
+.compare-table thead th {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding-bottom: 16px;
+}
+.compare-table thead th.th-pink { color: oklch(0.50 0.115 14); background: oklch(0.97 0.018 15 / 0.5); }
+.compare-table thead th.th-blue { color: oklch(0.470 0.092 225); background: oklch(0.96 0.018 225 / 0.5); }
+.compare-table tbody tr:last-child td { border-bottom: none; }
+.compare-table .val-pink { color: oklch(0.50 0.115 14); font-weight: 700; }
+.compare-table .val-blue { color: oklch(0.470 0.092 225); font-weight: 700; }
+@media (max-width: 768px) {
+  .compare-grid { grid-template-columns: 1fr; }
+}
+
 /* ===== MAP ===== */
 .map-section {
   padding: clamp(64px, 9vw, 100px) 0;
@@ -755,7 +853,7 @@
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 48px;
 }
 .footer-brand {
@@ -862,10 +960,11 @@
       <span class="badge-dot"></span>
       千葉・市原エリア &nbsp;2施設運営中
     </div>
-    <h1 class="a2">自分らしく、<br><em>安心して</em>。<br>新しい住まいの<br>選択肢。</h1>
+    <h1 class="a2">介護施設じゃない、<br><em>住まい</em>がある。</h1>
     <p class="hero-sub a3">
-      「スマイルーム」は、介護施設ではなく高齢者対応賃貸住宅です。<br>
-      自由に介護サービスを選び、自分のペースで暮らせる場所を。
+      スマイルームは高齢者対応の賃貸住宅です。<br>
+      24時間の見守りと定額制の安心感を持ちながら、<br>
+      自分らしいペースで暮らせる場所を。
     </p>
     <div class="hero-cta a4">
       <a href="oyumino/" class="btn-primary-hero">
@@ -1007,6 +1106,96 @@
   </div>
 </section>
 
+<!-- COMPARE -->
+<section class="compare-section">
+  <div class="wrap">
+    <div class="sec-label">COMPARE</div>
+    <div class="sec-title">どちらが合っていますか？<br>2施設かんたん比較</div>
+
+    <div class="compare-grid">
+      <!-- おゆみ野 -->
+      <div class="compare-card">
+        <div class="compare-card-head">
+          <span class="compare-dot" style="background:var(--pink-500);"></span>
+          <span class="compare-card-title">スマイルームおゆみ野</span>
+        </div>
+        <div class="compare-who" style="background:oklch(0.97 0.018 15 / 0.6);color:oklch(0.50 0.115 14);">こんな方におすすめ</div>
+        <ul class="compare-list" style="--chk:var(--pink-500);">
+          <li style="--chk:var(--pink-500);" >食事を月ごとに自由に選びたい方</li>
+          <li>千葉市緑区（誉田・鎌取）エリア在住の方</li>
+          <li>要介護1〜4の方</li>
+          <li>リフト付き個浴を希望する方</li>
+          <li>A/Bタイプから部屋サイズを選びたい方</li>
+        </ul>
+      </div>
+      <!-- ちはら台 -->
+      <div class="compare-card">
+        <div class="compare-card-head">
+          <span class="compare-dot" style="background:oklch(0.470 0.092 225);"></span>
+          <span class="compare-card-title">スマイルームちはら台</span>
+        </div>
+        <div class="compare-who" style="background:oklch(0.96 0.018 225 / 0.6);color:oklch(0.470 0.092 225);">こんな方におすすめ</div>
+        <ul class="compare-list">
+          <li style="--chk:oklch(0.470 0.092 225);">3食込みで月額を固定したい方</li>
+          <li>市原市（ちはら台・誉田）エリア在住の方</li>
+          <li>自立〜要介護5の方（幅広く対応）</li>
+          <li>介護用ベッド付きの部屋を希望する方</li>
+          <li>定員が多く選択肢が豊富な施設を探す方</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="th-pink">おゆみ野</th>
+            <th class="th-blue">ちはら台</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>月額</td>
+            <td class="val-pink">102,000〜105,000円</td>
+            <td class="val-blue">103,000円</td>
+          </tr>
+          <tr>
+            <td>食事</td>
+            <td>月ごとに選択可</td>
+            <td>3食込み（定額）</td>
+          </tr>
+          <tr>
+            <td>入居一時金</td>
+            <td>50,000円</td>
+            <td>50,000円</td>
+          </tr>
+          <tr>
+            <td>定員</td>
+            <td>31名（30室）</td>
+            <td>46名（44室）</td>
+          </tr>
+          <tr>
+            <td>居室面積</td>
+            <td>11.18〜18.84㎡</td>
+            <td>11.18〜16.77㎡</td>
+          </tr>
+          <tr>
+            <td>入居条件</td>
+            <td>要介護1〜4</td>
+            <td>自立〜要介護5</td>
+          </tr>
+          <tr>
+            <td>浴室</td>
+            <td>リフト付き個浴・一般個浴</td>
+            <td>個浴</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 <!-- MAP -->
 <section class="map-section">
   <div class="wrap">
@@ -1079,12 +1268,12 @@
   <div class="wrap">
     <div class="stats-grid">
       <div class="stat-item">
-        <div class="stat-num">2<small>施設</small></div>
-        <div class="stat-label">千葉・市原エリアで<br>展開中</div>
+        <div class="stat-num">77<small>室</small></div>
+        <div class="stat-label">2施設合計の総定員<br>おゆみ野31室＋ちはら台46室</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">9-18<small>時</small></div>
-        <div class="stat-label">年中無休で<br>ご相談を受付</div>
+        <div class="stat-num">24<small>h</small></div>
+        <div class="stat-label">スタッフが常駐<br>緊急時も安心の体制</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">0<small>円</small></div>
@@ -1147,10 +1336,19 @@
     <div class="footer-col">
       <h4>サポート</h4>
       <ul>
+        <li><a href="oyumino/pricing.html">料金プラン</a></li>
+        <li><a href="oyumino/flow.html">入居の流れ</a></li>
         <li><a href="oyumino/faq.html">よくある質問</a></li>
         <li><a href="oyumino/contact.html">お問い合わせ</a></li>
-        <li><a href="oyumino/flow.html">入居の流れ</a></li>
-        <li><a href="oyumino/pricing.html">料金プラン</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>ちはら台</h4>
+      <ul>
+        <li><a href="chiharadai/pricing.html">料金プラン</a></li>
+        <li><a href="chiharadai/flow.html">入居の流れ</a></li>
+        <li><a href="chiharadai/faq.html">よくある質問</a></li>
+        <li><a href="chiharadai/contact.html">お問い合わせ</a></li>
       </ul>
     </div>
   </div>
