@@ -11,6 +11,7 @@
     { href: "faq.html", label: "よくある質問" },
     { href: "news.html", label: "お知らせ" },
     { href: "contact.html", label: "お問い合わせ" },
+    { href: "brochure.html", label: "資料ダウンロード" },
   ];
 
   function currentPage() {
@@ -80,7 +81,7 @@
                 <li><a href="flow.html">入居までの流れ</a></li>
                 <li><a href="faq.html">よくある質問</a></li>
                 <li><a href="contact.html">見学のご予約</a></li>
-                <li><a href="contact.html">資料請求</a></li>
+                <li><a href="brochure.html">資料ダウンロード</a></li>
               </ul>
             </div>
             <div>
