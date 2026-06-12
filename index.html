@@ -988,6 +988,103 @@
   .orb3 { display: none; }
   .f-body { padding: 28px 24px 24px; }
 }
+
+/* ===== QUIZ ===== */
+.quiz-section {
+  padding: clamp(64px, 9vw, 100px) 0;
+  background: var(--bg);
+}
+.quiz-card {
+  background: var(--card);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+  padding: 48px 44px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.quiz-q {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 2.5vw, 22px);
+  color: var(--ink);
+  margin-bottom: 28px;
+  text-align: center;
+}
+.quiz-opts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.quiz-btn {
+  background: var(--bg-warm, oklch(0.98 0.008 40));
+  border: 1.5px solid var(--line, oklch(0.88 0.015 40));
+  border-radius: 16px;
+  padding: 16px 22px;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+  transition: all .2s;
+  line-height: 1.5;
+}
+.quiz-btn span { display: block; font-size: 13px; font-weight: 500; color: var(--ink-soft, oklch(0.55 0.02 40)); margin-top: 3px; }
+.quiz-btn:hover {
+  background: var(--pink-50, oklch(0.98 0.01 15));
+  border-color: var(--pink-300, oklch(0.78 0.07 15));
+  transform: translateX(4px);
+}
+.quiz-result {
+  text-align: center;
+}
+.quiz-result-inner {
+  padding: 32px 0 24px;
+}
+.quiz-result-inner .result-label {
+  font-size: 13px;
+  color: var(--ink-mute, oklch(0.65 0.015 40));
+  margin-bottom: 8px;
+  letter-spacing: 0.1em;
+}
+.quiz-result-inner .result-name {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+.quiz-result-inner .result-desc {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+.quiz-result-inner .result-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 36px;
+  border-radius: 100px;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.quiz-result-inner .result-btn:hover { opacity: .88; }
+.quiz-reset {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: var(--ink-mute);
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 12px;
+}
+@media (max-width: 600px) {
+  .quiz-card { padding: 32px 20px; }
+}
 </style>
 </head>
 <body>
@@ -1175,6 +1272,48 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz-section">
+  <div class="wrap">
+    <div class="sec-label">FIND YOUR FIT</div>
+    <div class="sec-title" style="margin-bottom:28px;">3つの質問で<br>あなたに合う施設を見つけよう</div>
+
+    <div class="quiz-card" id="quiz">
+      <div class="quiz-step" id="q1">
+        <div class="quiz-q">Q1. 今のお住まいのエリアは？</div>
+        <div class="quiz-opts">
+          <button class="quiz-btn" onclick="quizNext('q1','oyumino')">千葉市緑区・若葉区<br><span>誉田・鎌取エリア</span></button>
+          <button class="quiz-btn" onclick="quizNext('q1','chiharadai')">市原市・千葉市中央区<br><span>ちはら台・五井エリア</span></button>
+          <button class="quiz-btn" onclick="quizNext('q1','both')">どちらでもない・わからない</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" id="q2" style="display:none;">
+        <div class="quiz-q">Q2. 介護認定の状況は？</div>
+        <div class="quiz-opts">
+          <button class="quiz-btn" onclick="quizNext('q2','oyumino')">要介護1〜4の認定あり</button>
+          <button class="quiz-btn" onclick="quizNext('q2','chiharadai')">自立・要支援、または要介護5</button>
+          <button class="quiz-btn" onclick="quizNext('q2','both')">まだ認定を受けていない</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" id="q3" style="display:none;">
+        <div class="quiz-q">Q3. 食事へのご希望は？</div>
+        <div class="quiz-opts">
+          <button class="quiz-btn" onclick="quizNext('q3','oyumino')">月ごとに自由に選びたい</button>
+          <button class="quiz-btn" onclick="quizNext('q3','chiharadai')">3食込みで月額を固定したい</button>
+          <button class="quiz-btn" onclick="quizNext('q3','both')">どちらでもよい</button>
+        </div>
+      </div>
+
+      <div class="quiz-result" id="qresult" style="display:none;">
+        <div class="quiz-result-inner" id="qresult-inner"></div>
+        <button class="quiz-reset" onclick="quizReset()">もう一度やり直す</button>
+      </div>
     </div>
   </div>
 </section>
@@ -1557,6 +1696,53 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+})();
+
+/* 施設診断 */
+(function() {
+  var scores = { oyumino: 0, chiharadai: 0 };
+  var currentStep = 'q1';
+  var steps = ['q1', 'q2', 'q3'];
+
+  window.quizNext = function(step, choice) {
+    if (choice === 'oyumino') scores.oyumino++;
+    else if (choice === 'chiharadai') scores.chiharadai++;
+    else { scores.oyumino += 0.5; scores.chiharadai += 0.5; }
+
+    document.getElementById(step).style.display = 'none';
+    var nextIdx = steps.indexOf(step) + 1;
+    if (nextIdx < steps.length) {
+      currentStep = steps[nextIdx];
+      document.getElementById(currentStep).style.display = 'block';
+    } else {
+      showResult();
+    }
+  };
+
+  window.quizReset = function() {
+    scores = { oyumino: 0, chiharadai: 0 };
+    currentStep = 'q1';
+    steps.forEach(function(s) { document.getElementById(s).style.display = 'none'; });
+    document.getElementById('qresult').style.display = 'none';
+    document.getElementById('q1').style.display = 'block';
+  };
+
+  function showResult() {
+    var isOyumino = scores.oyumino >= scores.chiharadai;
+    var name = isOyumino ? 'スマイルームおゆみ野' : 'スマイルームちはら台';
+    var color = isOyumino ? 'var(--pink-600)' : 'oklch(0.470 0.092 225)';
+    var href = isOyumino ? 'oyumino/' : 'chiharadai/';
+    var desc = isOyumino
+      ? '千葉市緑区エリアで、食事を月ごとに自由に選べる住まいです。リフト付き個浴と充実した設備で、要介護1〜4の方にとくにおすすめです。'
+      : '市原市エリアで、3食込み月額定額のシンプルな暮らし。自立〜要介護5まで幅広く対応し、定員46名の充実した空間です。';
+    var inner = document.getElementById('qresult-inner');
+    inner.innerHTML =
+      '<div class="result-label">あなたにおすすめの施設</div>' +
+      '<div class="result-name" style="color:' + color + ';">' + name + '</div>' +
+      '<div class="result-desc">' + desc + '</div>' +
+      '<a href="' + href + '" class="result-btn" style="background:' + color + ';">詳しく見る →</a>';
+    document.getElementById('qresult').style.display = 'block';
+  }
 })();
 </script>
 </body>
