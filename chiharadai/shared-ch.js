@@ -89,8 +89,7 @@
               <ul>
                 <li>株式会社 カイゴマン</li>
                 <li><a href="news.html">お知らせ・ブログ</a></li>
-                <li><a href="#">プライバシーポリシー</a></li>
-                <li><a href="#">サイトマップ</a></li>
+                <li><a href="../privacy.html">プライバシーポリシー</a></li>
               </ul>
             </div>
             <div>
