@@ -66,23 +66,21 @@
 <style>
 .faq-cats {
   display: flex; gap: 10px; flex-wrap: wrap;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
 }
 .faq-cat-btn {
-  background: var(--card);
-  border: 1.5px solid var(--line);
   padding: 8px 18px;
   border-radius: 100px;
-  font-family: "Zen Maru Gothic";
   font-size: 14px;
+  border: 1.5px solid var(--line);
+  background: var(--card);
   cursor: pointer;
-  transition: all .2s;
+  font-family: "Zen Maru Gothic", sans-serif;
+  transition: all .15s;
   color: var(--ink-soft);
 }
 .faq-cat-btn:hover { border-color: var(--pink-300); color: var(--pink-600); }
-.faq-cat-btn.active {
-  background: var(--pink-500); color: white; border-color: var(--pink-500);
-}
+.faq-cat-btn.active { background: var(--pink-500); color: white; border-color: var(--pink-500); }
 
 .faq-section { margin-bottom: 50px; }
 .faq-section h2 {
@@ -227,9 +225,17 @@
       <span class="eyebrow">よくある質問</span>
       <h2 class="section-title">よくあるご質問</h2>
     </div>
+    <div class="faq-cats" id="faq-cats-oy">
+      <button class="faq-cat-btn active" data-cat="all">すべて</button>
+      <button class="faq-cat-btn" data-cat="cost">料金・費用</button>
+      <button class="faq-cat-btn" data-cat="care">介護サービス</button>
+      <button class="faq-cat-btn" data-cat="life">生活・食事</button>
+      <button class="faq-cat-btn" data-cat="visit">見学・入居</button>
+      <button class="faq-cat-btn" data-cat="compare">施設比較</button>
+    </div>
     <div class="faq-accordion reveal">
 
-      <details open>
+      <details class="faq-item" data-cat="compare" open>
         <summary class="faq-question">
           <span class="faq-q-mark" aria-hidden="true">Q</span>
           <span class="faq-question-text">介護施設との違いは何ですか？</span>
@@ -238,7 +244,7 @@
         <p class="faq-answer">スマイルームおゆみ野は「賃貸住宅」です。介護施設のような決められた集団生活ではなく、ご自身のペースで自由に暮らせます。介護が必要なときは外部の事業者を自由にお選びいただけます。</p>
       </details>
 
-      <details>
+      <details class="faq-item" data-cat="care">
         <summary class="faq-question">
           <span class="faq-q-mark" aria-hidden="true">Q</span>
           <span class="faq-question-text">要介護でも入居できますか？</span>
@@ -247,7 +253,7 @@
         <p class="faq-answer">要介護1〜4の方が対象です。認知症の方もご相談いただけます。要介護の方には外部の訪問介護サービスをご活用いただいています。お一人おひとりの状況をうかがって、最適な暮らし方をご提案します。</p>
       </details>
 
-      <details>
+      <details class="faq-item" data-cat="life">
         <summary class="faq-question">
           <span class="faq-q-mark" aria-hidden="true">Q</span>
           <span class="faq-question-text">家族はいつでも面会できますか？</span>
@@ -256,7 +262,7 @@
         <p class="faq-answer">はい、ご家族の面会は時間を気にせず自由にお越しいただけます。ご家族と一緒に食堂でお食事をしたり、お部屋でゆっくりお過ごしいただくこともできます。</p>
       </details>
 
-      <details>
+      <details class="faq-item" data-cat="life">
         <summary class="faq-question">
           <span class="faq-q-mark" aria-hidden="true">Q</span>
           <span class="faq-question-text">家具や荷物を持ち込めますか？</span>
@@ -265,7 +271,7 @@
         <p class="faq-answer">もちろんです。ベッド・タンス・テレビなど、これまで使われていた家具を持ち込んでいただけます。慣れ親しんだ環境のまま、新しい住まいでお過ごしいただけます。</p>
       </details>
 
-      <details>
+      <details class="faq-item" data-cat="cost">
         <summary class="faq-question">
           <span class="faq-q-mark" aria-hidden="true">Q</span>
           <span class="faq-question-text">月額費用以外にかかる費用はありますか？</span>
@@ -274,7 +280,7 @@
         <p class="faq-answer">月額家賃には管理費・共益費・24時間見守りサポートが含まれています。食事プランは任意でご利用いただけます。介護サービスは介護保険の自己負担分（1〜3割）のみご負担いただきます。</p>
       </details>
 
-      <details>
+      <details class="faq-item" data-cat="life">
         <summary class="faq-question">
           <span class="faq-q-mark" aria-hidden="true">Q</span>
           <span class="faq-question-text">ペットは飼えますか？</span>
@@ -283,7 +289,7 @@
         <p class="faq-answer">ペットの飼育については、種類・頭数によって個別にご相談ください。詳しくはお問い合わせください。</p>
       </details>
 
-      <details>
+      <details class="faq-item" data-cat="compare">
         <summary class="faq-question">
           <span class="faq-q-mark" aria-hidden="true">Q</span>
           <span class="faq-question-text">サービス付き高齢者向け住宅（サ高住）とは何が違いますか？</span>
@@ -292,7 +298,7 @@
         <p class="faq-answer">位置づけが近い住まいですが、スマイルームおゆみ野は一般の賃貸住宅に高齢者向けの設備と見守りサポートを組み合わせた住まいです。月額102,000円〜（家賃・管理費・食費込み）というわかりやすい定額制で、介護サービスは外部の事業者を必要な分だけ自由に選べます。</p>
       </details>
 
-      <details>
+      <details class="faq-item" data-cat="care">
         <summary class="faq-question">
           <span class="faq-q-mark" aria-hidden="true">Q</span>
           <span class="faq-question-text">夜間に体調が急変したらどうなりますか？</span>
@@ -301,7 +307,7 @@
         <p class="faq-answer">見守りスタッフが24時間常駐しており、夜間の急な体調変化にも対応できる体制です。おゆみ野中央病院・千葉南病院など複数の医療機関が車5〜8分圏内にあり、緊急時にも連携して対応します。</p>
       </details>
 
-      <details>
+      <details class="faq-item" data-cat="visit">
         <summary class="faq-question">
           <span class="faq-q-mark" aria-hidden="true">Q</span>
           <span class="faq-question-text">入居までの流れを教えてください。</span>
@@ -310,7 +316,7 @@
         <p class="faq-answer">まずはお電話またはフォームからお問い合わせのうえ、見学にお越しください。実際の居室や設備をご覧いただき、ご本人・ご家族のご状況をうかがってから、お申し込み・ご契約・お引越しという流れです。ご家族とご一緒の見学も歓迎です。</p>
       </details>
 
-      <details>
+      <details class="faq-item" data-cat="life">
         <summary class="faq-question">
           <span class="faq-q-mark" aria-hidden="true">Q</span>
           <span class="faq-question-text">食事は必ず頼まないといけませんか？</span>
@@ -319,7 +325,7 @@
         <p class="faq-answer">食事は月ごとに選択できます。月額102,000円〜には食費が含まれており、利用しない月は費用を抑えることができます。アレルギーや食形態（刻み食・ソフト食など）にも個別に対応しますので、お気軽にご相談ください。</p>
       </details>
 
-      <details>
+      <details class="faq-item" data-cat="care">
         <summary class="faq-question">
           <span class="faq-q-mark" aria-hidden="true">Q</span>
           <span class="faq-question-text">お風呂に不安があっても入浴できますか？</span>
@@ -337,5 +343,21 @@
 
 <div data-site-footer></div>
 <script src="../js/shared.js"></script>
+<script>
+(function () {
+  var btns = document.querySelectorAll("#faq-cats-oy .faq-cat-btn");
+  var items = document.querySelectorAll(".faq-accordion .faq-item");
+  btns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      btns.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      var cat = btn.dataset.cat;
+      items.forEach(function (item) {
+        item.style.display = (cat === "all" || item.dataset.cat === cat) ? "" : "none";
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
