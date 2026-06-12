@@ -86,6 +86,71 @@
 .option h4 { font-size: 16px; margin-bottom: 4px; }
 .option .price { font-family: "Zen Maru Gothic"; color: var(--pink-600); font-weight: 700; font-size: 18px; margin-bottom: 8px; }
 .option p { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
+
+.sim-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-soft);
+  padding: 40px 44px;
+  max-width: 760px;
+  margin-top: 40px;
+}
+.sim-row { margin-bottom: 28px; }
+.sim-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+.sim-opts { display: flex; gap: 10px; flex-wrap: wrap; }
+.sim-opt {
+  background: var(--bg-warm);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  transition: all .2s;
+  color: var(--ink);
+}
+.sim-opt small { font-size: 12px; font-weight: 500; color: var(--ink-mute); }
+.sim-opt.active {
+  background: var(--pink-50, oklch(0.98 0.01 15));
+  border-color: var(--pink-400, oklch(0.72 0.10 15));
+  color: var(--pink-600);
+}
+.sim-opt.active small { color: var(--pink-500); }
+.sim-result {
+  border-top: 1px dashed var(--line);
+  padding-top: 28px;
+  text-align: center;
+}
+.sim-result-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--pink-500);
+  margin-bottom: 8px;
+}
+.sim-result-num {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: clamp(42px, 7vw, 64px);
+  font-weight: 900;
+  color: var(--pink-600);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.sim-result-num span { font-size: .35em; }
+.sim-result-note { font-size: 12px; color: var(--ink-mute); line-height: 1.7; }
+@media (max-width: 600px) { .sim-card { padding: 28px 20px; } }
 </style>
 </head>
 <body data-breadcrumb='["料金プラン"]'>
@@ -301,7 +366,71 @@
   </div>
 </section>
 
+<!-- ========== シミュレーター ========== -->
+<section class="section" id="simulator" style="background:var(--bg-warm);">
+  <div class="container">
+    <div class="reveal" style="max-width:720px;">
+      <span class="eyebrow">SIMULATOR <span class="jp">／ 月額かんたんシミュレーター</span></span>
+      <h2 class="section-title">毎月いくらかかる？<br>かんたん3ステップで確認。</h2>
+    </div>
+
+    <div class="sim-card reveal">
+      <div class="sim-row">
+        <label class="sim-label">居室タイプ</label>
+        <div class="sim-opts" id="sim-type">
+          <button class="sim-opt active" data-val="102000" onclick="simSelect(this,'sim-type')">Aタイプ<small>102,000円</small></button>
+          <button class="sim-opt" data-val="105000" onclick="simSelect(this,'sim-type')">Bタイプ<small>105,000円</small></button>
+        </div>
+      </div>
+
+      <div class="sim-row">
+        <label class="sim-label">お食事</label>
+        <div class="sim-opts" id="sim-meal">
+          <button class="sim-opt active" data-val="0" onclick="simSelect(this,'sim-meal')">込み（月額に含む）<small>+0円</small></button>
+          <button class="sim-opt" data-val="-43000" onclick="simSelect(this,'sim-meal')">食事なし<small>-43,000円</small></button>
+        </div>
+      </div>
+
+      <div class="sim-row">
+        <label class="sim-label">介護サービス（目安）</label>
+        <div class="sim-opts" id="sim-care">
+          <button class="sim-opt active" data-val="0" onclick="simSelect(this,'sim-care')">利用しない<small>+0円</small></button>
+          <button class="sim-opt" data-val="15000" onclick="simSelect(this,'sim-care')">軽め（週2〜3回）<small>+約15,000円</small></button>
+          <button class="sim-opt" data-val="30000" onclick="simSelect(this,'sim-care')">しっかり（毎日）<small>+約30,000円</small></button>
+        </div>
+      </div>
+
+      <div class="sim-result">
+        <div class="sim-result-label">概算月額（税込）</div>
+        <div class="sim-result-num" id="sim-total">102,000<span>円</span></div>
+        <div class="sim-result-note">※ 介護サービスは介護保険自己負担分（1〜3割）の目安です。実際の金額はケアマネージャーにご確認ください。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div data-site-footer></div>
+<script>
+function simSelect(btn, groupId) {
+  var group = document.getElementById(groupId);
+  group.querySelectorAll('.sim-opt').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  simCalc();
+}
+function simCalc() {
+  var base = parseInt(document.querySelector('#sim-type .sim-opt.active').dataset.val, 10);
+  var meal = parseInt(document.querySelector('#sim-meal .sim-opt.active').dataset.val, 10);
+  var care = parseInt(document.querySelector('#sim-care .sim-opt.active').dataset.val, 10);
+  var total = base + meal + care;
+  var elem = document.getElementById('sim-total');
+  elem.textContent = total.toLocaleString();
+  if (!elem.querySelector('span')) {
+    var span = document.createElement('span');
+    span.textContent = '円';
+    elem.appendChild(span);
+  }
+}
+</script>
 <script src="../js/shared.js"></script>
 <script>
 (function () {
