@@ -33,25 +33,23 @@
   --pink-500: oklch(0.590 0.088 225);
   --pink-600: oklch(0.470 0.092 225);
 }
-.worries-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 52px; }
-@media (max-width: 800px) { .worries-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 500px) { .worries-grid { grid-template-columns: 1fr; } }
-.worry { background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 20px; display: flex; gap: 12px; align-items: flex-start; }
-.worry-q { width: 28px; height: 28px; border-radius: 50%; background: var(--pink-100); color: var(--pink-600); font-family: "Zen Maru Gothic"; font-weight: 700; font-size: 14px; display: grid; place-items: center; flex-shrink: 0; }
-.worry p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.65; }
-.faq-cats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
-.faq-cat-btn { padding: 8px 18px; border-radius: 100px; font-size: 14px; border: 1.5px solid var(--line); background: var(--card); cursor: pointer; font-family: inherit; transition: all .15s; }
-.faq-cat-btn.active, .faq-cat-btn:hover { background: var(--pink-50); border-color: var(--pink-400); color: var(--pink-600); }
-.faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 840px; }
-details.faq-item { background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; transition: border-color .15s; }
-details.faq-item[open] { border-color: var(--pink-300); }
-details.faq-item summary { display: flex; align-items: center; gap: 14px; padding: 18px 22px; cursor: pointer; list-style: none; font-size: 16px; font-weight: 600; line-height: 1.5; }
-details.faq-item summary::-webkit-details-marker { display: none; }
-.faq-q-mark { width: 28px; height: 28px; border-radius: 50%; background: var(--pink-100); color: var(--pink-600); font-family: "Zen Maru Gothic"; font-weight: 700; font-size: 14px; display: grid; place-items: center; flex-shrink: 0; }
-.faq-arrow { margin-left: auto; transition: transform .2s; color: var(--ink-mute); flex-shrink: 0; }
-details.faq-item[open] .faq-arrow { transform: rotate(180deg); }
-.faq-answer { padding: 0 22px 20px 64px; font-size: 14.5px; color: var(--ink-soft); line-height: 1.8; }
-.faq-answer a { color: var(--pink-600); text-decoration: underline; }
+.faq-cats {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.faq-cat-btn {
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 14px;
+  border: 1.5px solid var(--line);
+  background: var(--card);
+  cursor: pointer;
+  font-family: "Zen Maru Gothic", sans-serif;
+  transition: all .15s;
+  color: var(--ink-soft);
+}
+.faq-cat-btn:hover { border-color: var(--pink-300); color: var(--pink-600); }
+.faq-cat-btn.active { background: var(--pink-500); color: white; border-color: var(--pink-500); }
 </style>
 </head>
 <body data-breadcrumb='["よくある質問"]'>
@@ -68,15 +66,48 @@ details.faq-item[open] .faq-arrow { transform: rotate(180deg); }
 
 <section class="section" style="background:var(--bg-warm);">
   <div class="container">
-    <span class="eyebrow">こんなお悩みありませんか？</span>
-    <h2 class="section-title" style="font-size:28px;">みなさんの「？」を解消します</h2>
+    <div class="reveal" style="max-width:720px;">
+      <span class="eyebrow">よくある心配・不安</span>
+      <h2 class="section-title">気になること、<br>正直に答えます。</h2>
+      <p class="section-lede">「施設に入れること」への後ろめたさや費用への不安。よくある心配に、誠実にお答えします。</p>
+    </div>
     <div class="worries-grid">
-      <div class="worry reveal"><div class="worry-q">?</div><p>月額以外にどんな費用がかかるの？</p></div>
-      <div class="worry reveal" data-delay="1"><div class="worry-q">?</div><p>介護が必要になったらどうなる？</p></div>
-      <div class="worry reveal" data-delay="2"><div class="worry-q">?</div><p>食事のアレルギーに対応してもらえる？</p></div>
-      <div class="worry reveal"><div class="worry-q">?</div><p>一人暮らしと比べてどんなメリットがある？</p></div>
-      <div class="worry reveal" data-delay="1"><div class="worry-q">?</div><p>夜間に体調が悪くなったら？</p></div>
-      <div class="worry reveal" data-delay="2"><div class="worry-q">?</div><p>おゆみ野とちはら台、どちらが向いている？</p></div>
+      <div class="worry-card reveal">
+        <div class="worry-title">
+          <div class="worry-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          「施設に入れること」への罪悪感
+        </div>
+        <p class="worry-body">「住み替え」であって「預ける」ではありません。ご家族が安心して離れて暮らせることで、ご本人もゆとりを感じて笑顔が増えるケースがほとんどです。罪悪感よりも、「一緒に選んだ新しい家」という感覚を大切にしてください。</p>
+      </div>
+      <div class="worry-card reveal">
+        <div class="worry-title">
+          <div class="worry-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          費用が将来も続けられるか不安
+        </div>
+        <p class="worry-body">月額103,000円（食費・管理費・運営費込み）の定額制です。自立〜要介護5まで対応しており、介護保険サービスは自己負担1〜3割でご利用いただけます。具体的な費用シミュレーションは<a href="pricing.html" style="color:var(--pink-600);">料金ページ</a>でご確認ください。</p>
+      </div>
+      <div class="worry-card reveal">
+        <div class="worry-title">
+          <div class="worry-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          馴染めるか、孤独にならないか
+        </div>
+        <p class="worry-body">全室個室なのでプライバシーは守られます。無理に交流する必要はありません。ただ、食堂やラウンジで顔を合わせるうちに自然と顔見知りができるという声が多いです。「ひとりでいたいときはひとりでいられる」が大切にしていることです。</p>
+      </div>
+      <div class="worry-card reveal">
+        <div class="worry-title">
+          <div class="worry-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          状態が悪化したら退去させられるのでは
+        </div>
+        <p class="worry-body">外部の訪問介護・デイサービスを柔軟に組み合わせることで、多くの場合、住み続けることができます。自立〜要介護5まで幅広く対応しており、状況が変わっても個別にご相談させていただきます。「急に追い出される」ようなことはありませんのでご安心ください。</p>
+      </div>
     </div>
   </div>
 </section>
