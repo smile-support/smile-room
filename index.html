@@ -963,6 +963,17 @@
 .f-station-icon { flex-shrink: 0; font-style: normal; }
 
 
+/* ===== REVEAL ANIMATION ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .f-grid, .feat-grid { grid-template-columns: 1fr; }
@@ -1333,15 +1344,15 @@
   <div class="wrap">
     <div class="stats-grid">
       <div class="stat-item">
-        <div class="stat-num">77<small>室</small></div>
+        <div class="stat-num"><span class="stat-num-val" data-target="77">77</span><small>室</small></div>
         <div class="stat-label">2施設合計の総定員<br>おゆみ野31室＋ちはら台46室</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">24<small>h</small></div>
+        <div class="stat-num"><span class="stat-num-val" data-target="24">24</span><small>h</small></div>
         <div class="stat-label">スタッフが常駐<br>緊急時も安心の体制</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">0<small>円</small></div>
+        <div class="stat-num"><span class="stat-num-val" data-target="0">0</span><small>円</small></div>
         <div class="stat-label">見学・ご相談は<br>完全無料</div>
       </div>
     </div>
@@ -1506,6 +1517,46 @@
       document.getElementById('header-tel-chiharadai').style.display = 'flex';
     }
   });
+})();
+
+/* カウントアップアニメーション */
+(function() {
+  function countUp(el, target, duration) {
+    var start = 0;
+    var step = target / (duration / 16);
+    var current = 0;
+    var timer = setInterval(function() {
+      current += step;
+      if (current >= target) { current = target; clearInterval(timer); }
+      el.textContent = Math.floor(current).toLocaleString();
+    }, 16);
+  }
+
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      io.unobserve(e.target);
+      var numEl = e.target.querySelector('.stat-num-val');
+      if (!numEl) return;
+      var val = parseInt(numEl.dataset.target, 10);
+      countUp(numEl, val, 1200);
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-item').forEach(function(el) { io.observe(el); });
+})();
+
+/* スクロールフェードイン（トップページ） */
+(function() {
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (!e.isIntersecting) return;
+      var delay = e.target.dataset.delay ? parseInt(e.target.dataset.delay) * 100 : 0;
+      setTimeout(function() { e.target.classList.add('in'); }, delay);
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
 })();
 </script>
 </body>
