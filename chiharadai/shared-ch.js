@@ -30,7 +30,7 @@
     <header class="site-header">
       <div class="container">
         <a href="index.html" class="brand" aria-label="スマイルームちはら台 トップへ">
-          <span style="font-family:'Zen Maru Gothic',sans-serif;font-size:18px;font-weight:700;color:var(--pink-600);">スマイルームちはら台</span>
+          <img src="../images/logo-chiharadai.jpg" alt="スマイルームちはら台" class="brand-logo" style="height:64px;width:139px;display:block;object-fit:contain;flex-shrink:0;">
         </a>
         <nav class="site-nav" aria-label="メインナビゲーション">${navHtml}</nav>
         <div class="header-right">
@@ -57,7 +57,9 @@
           <div class="footer-grid">
             <div>
               <div class="footer-brand">
-                <span style="font-family:'Zen Maru Gothic',sans-serif;font-size:20px;font-weight:700;color:oklch(0.75 0.04 225);">スマイルームちはら台</span>
+                <a href="index.html" class="footer-logo-wrap" aria-label="スマイルームちはら台 トップへ">
+                  <img src="../images/logo-chiharadai.jpg" alt="スマイルームちはら台" class="brand-logo" style="height:64px;width:139px;display:block;object-fit:contain;flex-shrink:0;">
+                </a>
               </div>
               <p style="color:oklch(0.8 0.01 225);margin:6px 0;">自分らしく暮らせる、<br>あたらしい住まいのかたち。</p>
               <p style="font-size:12.5px;color:oklch(0.7 0.01 225);margin:0;">〒290-0141<br>千葉県市原市ちはら台東八丁目19番地7</p>

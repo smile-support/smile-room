@@ -3,8 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>スマイルーム｜高齢者対応賃貸住宅 千葉・市原</title>
-<meta name="description" content="千葉市・市原市の高齢者対応賃貸住宅「スマイルーム」。おゆみ野・ちはら台の2施設を運営。介護施設ではなく、自分らしく暮らせる住まいです。">
+<link rel="icon" type="image/png" href="images/logo.png">
+<title>スマイルーム｜千葉市緑区・市原市の高齢者対応賃貸住宅（おゆみ野・ちはら台）</title>
+<meta name="description" content="千葉市緑区おゆみ野・市原市ちはら台の高齢者対応賃貸住宅「スマイルーム」。月額10.2万円〜（食費込み）・入居一時金5万円。介護施設ではなく、介護サービスを自由に選べる自分らしい住まい。見学・ご相談は無料です。">
+<link rel="canonical" href="https://smile-room-group.github.io/smile-room/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="スマイルーム">
+<meta property="og:title" content="スマイルーム｜千葉市緑区・市原市の高齢者対応賃貸住宅">
+<meta property="og:description" content="おゆみ野・ちはら台の2施設を運営。月額10.2万円〜（食費込み）。介護サービスを自由に選べる、自分らしく暮らせる住まいです。">
+<meta property="og:url" content="https://smile-room-group.github.io/smile-room/">
+<meta property="og:image" content="https://smile-room-group.github.io/smile-room/images/exterior.jpg">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://smile-room-group.github.io/smile-room/#org",
+      "name": "株式会社カイゴマン",
+      "url": "https://smile-room-group.github.io/smile-room/",
+      "logo": "https://smile-room-group.github.io/smile-room/images/logo.png"
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "スマイルームおゆみ野",
+      "description": "千葉市緑区誉田町の高齢者対応賃貸住宅。全室個室・24時間見守り・介護サービスは外部から自由選択。",
+      "url": "https://smile-room-group.github.io/smile-room/oyumino/",
+      "telephone": "+81-43-310-7467",
+      "priceRange": "月額102,000円〜105,000円（食費込み）",
+      "parentOrganization": { "@id": "https://smile-room-group.github.io/smile-room/#org" },
+      "address": {
+        "@type": "PostalAddress",
+        "postalCode": "266-0005",
+        "addressRegion": "千葉県",
+        "addressLocality": "千葉市緑区",
+        "streetAddress": "誉田町1-659-1"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 35.553588, "longitude": 140.193096 }
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "スマイルームちはら台",
+      "description": "市原市ちはら台東の高齢者対応賃貸住宅。賃料・管理費・食費込みの定額制。自立〜要介護5まで対応。",
+      "url": "https://smile-room-group.github.io/smile-room/chiharadai/",
+      "telephone": "+81-436-63-3618",
+      "priceRange": "月額103,000円（食費込み）",
+      "parentOrganization": { "@id": "https://smile-room-group.github.io/smile-room/#org" },
+      "address": {
+        "@type": "PostalAddress",
+        "postalCode": "290-0141",
+        "addressRegion": "千葉県",
+        "addressLocality": "市原市",
+        "streetAddress": "ちはら台東八丁目19番地7"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 35.541296, "longitude": 140.198946 }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
@@ -293,12 +351,28 @@
 /* ===== SHARED ===== */
 .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 .sec-label {
-  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.14em;
   color: var(--pink-500);
-  text-transform: uppercase;
   margin-bottom: 12px;
+}
+.sec-label::before {
+  content: "";
+  width: 26px;
+  height: 1.5px;
+  background: var(--pink-400);
+  border-radius: 2px;
+}
+.cta .sec-label::after {
+  content: "";
+  width: 26px;
+  height: 1.5px;
+  background: var(--pink-400);
+  border-radius: 2px;
 }
 .sec-title {
   font-family: "Zen Maru Gothic", sans-serif;
@@ -982,109 +1056,14 @@
   .stat-item:last-child { border-bottom: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .cta-card { padding: 36px 28px; }
-  .header-btn { display: none; }
+  .header-btn { font-size: 12px; padding: 8px 14px; }
+  .compare-table { min-width: 560px; }
   .orb1 { width: 240px; height: 240px; }
   .orb2 { width: 180px; height: 180px; }
   .orb3 { display: none; }
   .f-body { padding: 28px 24px 24px; }
 }
 
-/* ===== QUIZ ===== */
-.quiz-section {
-  padding: clamp(64px, 9vw, 100px) 0;
-  background: var(--bg);
-}
-.quiz-card {
-  background: var(--card);
-  border-radius: 28px;
-  box-shadow: var(--shadow-lg);
-  padding: 48px 44px;
-  max-width: 680px;
-  margin: 0 auto;
-}
-.quiz-q {
-  font-family: "Zen Maru Gothic", sans-serif;
-  font-weight: 700;
-  font-size: clamp(18px, 2.5vw, 22px);
-  color: var(--ink);
-  margin-bottom: 28px;
-  text-align: center;
-}
-.quiz-opts {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.quiz-btn {
-  background: var(--bg-warm, oklch(0.98 0.008 40));
-  border: 1.5px solid var(--line, oklch(0.88 0.015 40));
-  border-radius: 16px;
-  padding: 16px 22px;
-  font-family: "Zen Maru Gothic", sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--ink);
-  cursor: pointer;
-  text-align: left;
-  transition: all .2s;
-  line-height: 1.5;
-}
-.quiz-btn span { display: block; font-size: 13px; font-weight: 500; color: var(--ink-soft, oklch(0.55 0.02 40)); margin-top: 3px; }
-.quiz-btn:hover {
-  background: var(--pink-50, oklch(0.98 0.01 15));
-  border-color: var(--pink-300, oklch(0.78 0.07 15));
-  transform: translateX(4px);
-}
-.quiz-result {
-  text-align: center;
-}
-.quiz-result-inner {
-  padding: 32px 0 24px;
-}
-.quiz-result-inner .result-label {
-  font-size: 13px;
-  color: var(--ink-mute, oklch(0.65 0.015 40));
-  margin-bottom: 8px;
-  letter-spacing: 0.1em;
-}
-.quiz-result-inner .result-name {
-  font-family: "Zen Maru Gothic", sans-serif;
-  font-size: clamp(22px, 3vw, 28px);
-  font-weight: 900;
-  margin-bottom: 12px;
-}
-.quiz-result-inner .result-desc {
-  font-size: 15px;
-  color: var(--ink-soft);
-  line-height: 1.8;
-  margin-bottom: 28px;
-}
-.quiz-result-inner .result-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 36px;
-  border-radius: 100px;
-  font-family: "Zen Maru Gothic", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: #fff;
-  text-decoration: none;
-  transition: opacity .2s;
-}
-.quiz-result-inner .result-btn:hover { opacity: .88; }
-.quiz-reset {
-  background: none;
-  border: none;
-  font-size: 13px;
-  color: var(--ink-mute);
-  cursor: pointer;
-  text-decoration: underline;
-  margin-top: 12px;
-}
-@media (max-width: 600px) {
-  .quiz-card { padding: 32px 20px; }
-}
 </style>
 </head>
 <body>
@@ -1143,7 +1122,7 @@
   </div>
 
   <div class="scroll-hint a4">
-    <span>SCROLL</span>
+    <span>スクロール</span>
     <div class="scroll-line"></div>
   </div>
 </section>
@@ -1151,8 +1130,8 @@
 <!-- FEATURES -->
 <section class="features">
   <div class="wrap">
-    <div class="sec-label">WHY スマイルーム</div>
-    <div class="sec-title">スマイルームが<br>選ばれる4つの理由</div>
+    <p class="sec-label">スマイルームの特長</p>
+    <h2 class="sec-title">スマイルームが<br>選ばれる4つの理由</h2>
     <div class="feat-grid">
       <div class="feat-item reveal">
         <div class="feat-icon">🏠</div>
@@ -1189,8 +1168,8 @@
 <!-- FACILITIES -->
 <section class="facilities">
   <div class="wrap">
-    <div class="sec-label">OUR FACILITIES</div>
-    <div class="sec-title">2つの施設から、<br>あなたに合う場所を。</div>
+    <p class="sec-label">施設のご案内</p>
+    <h2 class="sec-title">2つの施設から、<br>あなたに合う場所を。</h2>
 
     <div class="f-grid">
 
@@ -1276,53 +1255,11 @@
   </div>
 </section>
 
-<!-- QUIZ -->
-<section class="quiz-section">
-  <div class="wrap">
-    <div class="sec-label">FIND YOUR FIT</div>
-    <div class="sec-title" style="margin-bottom:28px;">3つの質問で<br>あなたに合う施設を見つけよう</div>
-
-    <div class="quiz-card" id="quiz">
-      <div class="quiz-step" id="q1">
-        <div class="quiz-q">Q1. 今のお住まいのエリアは？</div>
-        <div class="quiz-opts">
-          <button class="quiz-btn" onclick="quizNext('q1','oyumino')">千葉市緑区・若葉区<br><span>誉田・鎌取エリア</span></button>
-          <button class="quiz-btn" onclick="quizNext('q1','chiharadai')">市原市・千葉市中央区<br><span>ちはら台・五井エリア</span></button>
-          <button class="quiz-btn" onclick="quizNext('q1','both')">どちらでもない・わからない</button>
-        </div>
-      </div>
-
-      <div class="quiz-step" id="q2" style="display:none;">
-        <div class="quiz-q">Q2. 介護認定の状況は？</div>
-        <div class="quiz-opts">
-          <button class="quiz-btn" onclick="quizNext('q2','oyumino')">要介護1〜4の認定あり</button>
-          <button class="quiz-btn" onclick="quizNext('q2','chiharadai')">自立・要支援、または要介護5</button>
-          <button class="quiz-btn" onclick="quizNext('q2','both')">まだ認定を受けていない</button>
-        </div>
-      </div>
-
-      <div class="quiz-step" id="q3" style="display:none;">
-        <div class="quiz-q">Q3. 食事へのご希望は？</div>
-        <div class="quiz-opts">
-          <button class="quiz-btn" onclick="quizNext('q3','oyumino')">月ごとに自由に選びたい</button>
-          <button class="quiz-btn" onclick="quizNext('q3','chiharadai')">3食込みで月額を固定したい</button>
-          <button class="quiz-btn" onclick="quizNext('q3','both')">どちらでもよい</button>
-        </div>
-      </div>
-
-      <div class="quiz-result" id="qresult" style="display:none;">
-        <div class="quiz-result-inner" id="qresult-inner"></div>
-        <button class="quiz-reset" onclick="quizReset()">もう一度やり直す</button>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- COMPARE -->
 <section class="compare-section">
   <div class="wrap">
-    <div class="sec-label">COMPARE</div>
-    <div class="sec-title">どちらが合っていますか？<br>2施設かんたん比較</div>
+    <p class="sec-label">2つの施設をくらべる</p>
+    <h2 class="sec-title">どちらが合っていますか？<br>2施設かんたん比較</h2>
 
     <div class="compare-grid">
       <!-- おゆみ野 -->
@@ -1414,8 +1351,8 @@
 <!-- MAP -->
 <section class="map-section">
   <div class="wrap">
-    <div class="sec-label">ACCESS</div>
-    <div class="sec-title">施設へのアクセス</div>
+    <p class="sec-label">アクセス・地図</p>
+    <h2 class="sec-title">施設へのアクセス</h2>
     <!-- Google Maps iframe + SVG pin overlay
          CENTER/ZOOM must match the iframe URL for accurate positioning -->
     <div class="overview-map-img-wrap" id="overview-gmap-wrap">
@@ -1501,8 +1438,8 @@
 <!-- CTA -->
 <section class="cta">
   <div class="wrap cta-inner">
-    <div class="sec-label">CONTACT</div>
-    <div class="cta-title">まずは、お気軽にご相談ください。</div>
+    <p class="sec-label" style="justify-content:center;">お問い合わせ</p>
+    <h2 class="cta-title">まずは、お気軽にご相談ください。</h2>
     <p class="cta-sub">見学予約・空室確認・資料請求、どんなご質問もお電話一本で。</p>
     <div class="cta-card">
       <div class="cta-tel-label">お電話でのご相談</div>
@@ -1553,7 +1490,7 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>サポート</h4>
+      <h4>おゆみ野</h4>
       <ul>
         <li><a href="oyumino/pricing.html">料金プラン</a></li>
         <li><a href="oyumino/flow.html">入居の流れ</a></li>
@@ -1698,52 +1635,6 @@
   document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
 })();
 
-/* 施設診断 */
-(function() {
-  var scores = { oyumino: 0, chiharadai: 0 };
-  var currentStep = 'q1';
-  var steps = ['q1', 'q2', 'q3'];
-
-  window.quizNext = function(step, choice) {
-    if (choice === 'oyumino') scores.oyumino++;
-    else if (choice === 'chiharadai') scores.chiharadai++;
-    else { scores.oyumino += 0.5; scores.chiharadai += 0.5; }
-
-    document.getElementById(step).style.display = 'none';
-    var nextIdx = steps.indexOf(step) + 1;
-    if (nextIdx < steps.length) {
-      currentStep = steps[nextIdx];
-      document.getElementById(currentStep).style.display = 'block';
-    } else {
-      showResult();
-    }
-  };
-
-  window.quizReset = function() {
-    scores = { oyumino: 0, chiharadai: 0 };
-    currentStep = 'q1';
-    steps.forEach(function(s) { document.getElementById(s).style.display = 'none'; });
-    document.getElementById('qresult').style.display = 'none';
-    document.getElementById('q1').style.display = 'block';
-  };
-
-  function showResult() {
-    var isOyumino = scores.oyumino >= scores.chiharadai;
-    var name = isOyumino ? 'スマイルームおゆみ野' : 'スマイルームちはら台';
-    var color = isOyumino ? 'var(--pink-600)' : 'oklch(0.470 0.092 225)';
-    var href = isOyumino ? 'oyumino/' : 'chiharadai/';
-    var desc = isOyumino
-      ? '千葉市緑区エリアで、食事を月ごとに自由に選べる住まいです。リフト付き個浴と充実した設備で、要介護1〜4の方にとくにおすすめです。'
-      : '市原市エリアで、3食込み月額定額のシンプルな暮らし。自立〜要介護5まで幅広く対応し、定員46名の充実した空間です。';
-    var inner = document.getElementById('qresult-inner');
-    inner.innerHTML =
-      '<div class="result-label">あなたにおすすめの施設</div>' +
-      '<div class="result-name" style="color:' + color + ';">' + name + '</div>' +
-      '<div class="result-desc">' + desc + '</div>' +
-      '<a href="' + href + '" class="result-btn" style="background:' + color + ';">詳しく見る →</a>';
-    document.getElementById('qresult').style.display = 'block';
-  }
-})();
 </script>
 </body>
 </html>

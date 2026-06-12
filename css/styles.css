@@ -214,12 +214,13 @@ img { max-width: 100%; display: block; }
 }
 .brand-logo {
   height: 72px;
-  width: auto;
+  width: 156px;
   display: block;
   object-fit: contain;
+  flex-shrink: 0;
 }
 @media (max-width: 880px) {
-  .brand-logo { height: 56px; }
+  .brand-logo { height: 56px; width: 122px; }
 }
 
 .site-nav {
@@ -608,8 +609,9 @@ img { max-width: 100%; display: block; }
   color: var(--pink-600);
   font-family: "Zen Maru Gothic", sans-serif;
   font-weight: 700;
-  font-size: 16px;
-  padding: 12px;
+  font-size: clamp(13px, 3.6vw, 16px);
+  white-space: nowrap;
+  padding: 12px 8px;
   border-radius: 12px;
   text-decoration: none;
   border: 1.5px solid var(--pink-200);
@@ -624,8 +626,9 @@ img { max-width: 100%; display: block; }
   color: white;
   font-family: "Zen Maru Gothic", sans-serif;
   font-weight: 700;
-  font-size: 15px;
-  padding: 12px;
+  font-size: clamp(13px, 3.4vw, 15px);
+  white-space: nowrap;
+  padding: 12px 8px;
   border-radius: 12px;
   text-decoration: none;
 }
