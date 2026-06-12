@@ -366,6 +366,15 @@
   background: oklch(0.93 0.01 0 / 0.28);
   color: oklch(0.5 0.01 0);
 }
+.f-vacancy {
+  background: oklch(0.93 0.06 145 / 0.22);
+  color: oklch(0.35 0.13 145);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 100px;
+  margin-left: 6px;
+}
 .f-name {
   font-family: "Zen Maru Gothic", sans-serif;
   font-weight: 900;
@@ -1081,7 +1090,10 @@
       <div class="f-card">
         <div class="f-top-bar"></div>
         <div class="f-body">
-          <div class="f-status open">入居受付中</div>
+          <div class="f-status open">
+            <span>入居受付中</span>
+            <span class="f-vacancy">空室あり</span>
+          </div>
           <div class="f-name">スマイルームおゆみ野</div>
           <div class="f-address">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1117,7 +1129,10 @@
       <div class="f-card">
         <div class="f-top-bar muted"></div>
         <div class="f-body">
-          <div class="f-status open">入居受付中</div>
+          <div class="f-status open">
+            <span>入居受付中</span>
+            <span class="f-vacancy">空室あり</span>
+          </div>
           <div class="f-name">スマイルームちはら台</div>
           <div class="f-address">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1198,7 +1213,10 @@
           <tr>
             <th></th>
             <th class="th-pink">おゆみ野</th>
-            <th class="th-blue">ちはら台</th>
+            <th class="th-blue">
+              ちはら台
+              <span style="display:block;font-size:11px;font-weight:600;margin-top:4px;background:oklch(0.93 0.06 145);color:oklch(0.35 0.13 145);border-radius:100px;padding:2px 10px;">✓ 対象が広い</span>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -1368,9 +1386,13 @@
       <div class="footer-brand">スマイルーム</div>
       <div class="footer-catch">高齢者対応賃貸住宅<br>千葉・市原エリア 2施設運営</div>
       <div class="footer-addr">
-        〒266-0005 千葉県千葉市緑区誉田町1-659-1<br>
         運営：株式会社カイゴマン<br>
-        TEL：<a href="tel:0433107467" style="color:inherit;">043-310-7467</a>
+        <strong style="font-size:13px;color:var(--pink-600);">おゆみ野</strong>
+        〒266-0005 千葉県千葉市緑区誉田町1-659-1<br>
+        TEL：<a href="tel:0433107467" style="color:inherit;">043-310-7467</a><br>
+        <strong style="font-size:13px;color:oklch(0.470 0.092 225);">ちはら台</strong>
+        〒290-0141 千葉県市原市ちはら台東八丁目19番地7<br>
+        TEL：<a href="tel:0436633618" style="color:inherit;">0436-63-3618</a>
       </div>
     </div>
     <div class="footer-col">
