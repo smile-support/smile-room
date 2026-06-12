@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>料金プラン｜スマイルームちはら台 月額103,000円（食費込み）</title>
+<meta name="description" content="スマイルームちはら台の月額料金のご案内。月額103,000円（食費・賃料・管理費すべて込み）、入居一時金5万円。介護サービスは外部から必要な分だけ選べて自己負担1〜3割のみ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+:root {
+  --pink-50:  oklch(0.965 0.015 225);
+  --pink-100: oklch(0.930 0.028 225);
+  --pink-200: oklch(0.870 0.048 225);
+  --pink-300: oklch(0.790 0.062 225);
+  --pink-400: oklch(0.700 0.076 225);
+  --pink-500: oklch(0.590 0.088 225);
+  --pink-600: oklch(0.470 0.092 225);
+}
+.price-hero-num { font-family: "Zen Maru Gothic"; font-size: clamp(56px, 9vw, 110px); font-weight: 700; color: var(--pink-600); line-height: 1; letter-spacing: -0.02em; display: inline-flex; align-items: baseline; gap: 4px; }
+.price-hero-num .yen { font-size: 0.4em; }
+.price-table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line-soft); }
+.price-table th, .price-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--line-soft); font-size: 15px; }
+.price-table th { background: var(--pink-50); font-family: "Zen Maru Gothic"; font-weight: 700; color: var(--pink-600); width: 36%; }
+.price-table tr:last-child td, .price-table tr:last-child th { border-bottom: 0; }
+.price-table .amt { font-family: "Zen Maru Gothic"; font-weight: 700; }
+.price-table .note { font-size: 12.5px; color: var(--ink-mute); }
+.price-table tfoot td { background: var(--pink-50); font-family: "Zen Maru Gothic"; font-weight: 700; color: var(--pink-600); font-size: 18px; }
+.option-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
+@media (max-width: 760px) { .option-grid { grid-template-columns: 1fr; } }
+.option { background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 22px; }
+.option h4 { font-size: 16px; margin-bottom: 4px; }
+.option .price { font-family: "Zen Maru Gothic"; color: var(--pink-600); font-weight: 700; font-size: 18px; margin-bottom: 8px; }
+.option p { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
+.plan-list { list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 10px; }
+.plan-list li { display: flex; gap: 10px; font-size: 14px; align-items: flex-start; }
+.plan-list li::before { content: ""; width: 18px; height: 18px; background: var(--pink-100); border-radius: 50%; flex-shrink: 0; margin-top: 3px; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23335c7a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>"); background-repeat: no-repeat; background-position: center; }
+
+/* シミュレーター */
+.simulator-wrap { background: var(--card); border-radius: var(--radius-lg); padding: 36px; border: 1px solid var(--line-soft); margin-top: 40px; }
+.sim-steps { display: flex; flex-direction: column; gap: 28px; margin-bottom: 28px; }
+.sim-step-label { font-family: "Zen Maru Gothic"; font-weight: 700; font-size: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.step-num { display: inline-grid; place-items: center; width: 26px; height: 26px; background: var(--pink-500); color: white; border-radius: 50%; font-size: 13px; flex-shrink: 0; }
+.sim-options { display: flex; gap: 10px; flex-wrap: wrap; }
+.sim-option { padding: 10px 16px; border: 1.5px solid var(--line); border-radius: 100px; cursor: pointer; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; background: white; transition: all .15s; }
+.sim-option:has(input:checked) { background: var(--pink-50); border-color: var(--pink-400); color: var(--pink-600); }
+.sim-result { background: var(--pink-50); border-radius: var(--radius); padding: 24px; border: 1px solid var(--pink-200); }
+.sim-result-rows { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.sim-result-row { display: flex; justify-content: space-between; font-size: 14px; }
+.sim-result-row.total { font-family: "Zen Maru Gothic"; font-weight: 700; font-size: 15px; border-top: 1px dashed var(--pink-300); padding-top: 8px; }
+.sim-total-num { font-family: "Zen Maru Gothic"; font-weight: 700; font-size: clamp(36px, 6vw, 54px); color: var(--pink-600); line-height: 1; margin-bottom: 8px; }
+.sim-total-num span { font-size: 0.4em; color: var(--ink-soft); }
+.sim-note { font-size: 12px; color: var(--ink-mute); margin: 0; }
+</style>
+</head>
+<body data-breadcrumb='["料金プラン"]'>
+<div data-site-header></div>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">ホーム</a><span>›</span>料金プラン</nav>
+    <span class="eyebrow">PRICING <span class="jp">／ 月額費用・料金プラン</span></span>
+    <h1 class="section-title" style="font-size:clamp(32px,5vw,48px);margin-bottom:8px;">食事込みで、わかりやすい定額制</h1>
+    <p style="font-size:17px;color:var(--ink-soft);max-width:680px;">賃料・管理費・運営費・食費がすべて含まれた103,000円。介護サービスは必要な分だけ、外部からご自身でお選びいただけます。</p>
+    <div style="margin-top:36px;display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;">
+      <div>
+        <small style="font-size:13px;letter-spacing:0.1em;color:var(--ink-mute);display:block;">月額利用料（食費込み）</small>
+        <span class="price-hero-num">103,000<span class="yen">円</span></span>
+      </div>
+      <span class="tag" style="font-size:14px;padding:8px 14px;">食費・賃料・管理費すべて込み</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title" style="font-size:28px;margin-bottom:30px;">月額料金の内訳</h2>
+    <table class="price-table">
+      <tbody>
+        <tr>
+          <th>賃料</th>
+          <td><span class="amt">41,000円</span> <span class="note">/ 月</span></td>
+        </tr>
+        <tr>
+          <th>管理費・運営費</th>
+          <td><span class="amt">19,000円</span> <span class="note">/ 月（24時間スタッフ常駐・生活サポート込み）</span></td>
+        </tr>
+        <tr>
+          <th>食費</th>
+          <td><span class="amt">43,000円</span> <span class="note">/ 月（管理栄養士監修の3食・行事食・おやつ込み）</span></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>月額合計</td>
+          <td>103,000円（食費込み）</td>
+        </tr>
+      </tfoot>
+    </table>
+    <p class="mt-3" style="font-size:13.5px;color:var(--ink-mute);">※ 入居時に入居一時金50,000円（一回のみ）が必要です。高額な入居一時金・敷金・礼金・更新料はかかりません。</p>
+    <p style="font-size:13.5px;color:var(--ink-mute);">※ 水道光熱費は管理費に含まれません。詳細はお問い合わせください。</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-warm);">
+  <div class="container">
+    <h2 class="section-title" style="font-size:28px;margin-bottom:30px;">月額に含まれるサービス</h2>
+    <ul class="plan-list" style="max-width:640px;">
+      <li>全室個室（11.18〜16.77㎡）・介護用ベッド・エアコン・トイレ・洗面台・ナースコール</li>
+      <li>管理栄養士監修の毎日のお食事（朝・昼・夕の3食）</li>
+      <li>季節の行事食・おやつレクリエーション</li>
+      <li>24時間スタッフ常駐・夜間定期巡回</li>
+      <li>機能訓練・体操教室・音楽レクリエーション</li>
+      <li>誕生日会・季節のイベント</li>
+      <li>理美容サービス（月1〜2回）</li>
+      <li>手すり付き浴室・シャワーチェア利用（週3回以上）</li>
+      <li>共有食堂・ラウンジ・共有スペース利用</li>
+    </ul>
+
+    <!-- シミュレーター -->
+    <div class="simulator-wrap reveal" id="simulator">
+      <h3 class="section-title" style="font-size:22px;margin-bottom:28px;">月額費用をシミュレーションする</h3>
+      <div class="sim-steps">
+        <div>
+          <div class="sim-step-label"><span class="step-num">1</span> 基本月額</div>
+          <div class="sim-options">
+            <label class="sim-option">
+              <input type="radio" name="sim-base" value="103000" checked> 月額103,000円（食費込み）
+            </label>
+          </div>
+        </div>
+        <div>
+          <div class="sim-step-label"><span class="step-num">2</span> 介護サービスの目安</div>
+          <div class="sim-options">
+            <label class="sim-option"><input type="radio" name="sim-care" value="0" checked> 今は必要ない</label>
+            <label class="sim-option"><input type="radio" name="sim-care" value="15000"> 週1〜2回程度（約+15,000円）</label>
+            <label class="sim-option"><input type="radio" name="sim-care" value="30000"> 週3〜4回程度（約+30,000円）</label>
+            <label class="sim-option"><input type="radio" name="sim-care" value="50000"> 毎日（約+50,000円）</label>
+          </div>
+        </div>
+      </div>
+      <div class="sim-result">
+        <div class="sim-result-rows">
+          <div class="sim-result-row"><span>月額（食費込み）</span><span>103,000円</span></div>
+          <div class="sim-result-row" id="sim-row-care" style="display:none;"><span>介護サービス目安</span><span id="sim-val-care"></span></div>
+          <div class="sim-result-row total"><span>月額の目安</span><span></span></div>
+        </div>
+        <div class="sim-total-num" id="sim-total">103,000<span>円／月〜</span></div>
+        <p class="sim-note">※ 介護サービスは介護保険適用後の自己負担目安です。実際の金額はご相談ください。</p>
+        <a class="btn btn-primary" href="contact.html" style="margin-top:18px;display:inline-flex;">詳しく相談する →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">OPTIONS <span class="jp">／ オプションサービス</span></span>
+    <h2 class="section-title" style="font-size:28px;">必要なものを、必要な分だけ。</h2>
+    <p class="section-lede">介護サービスはご本人の状況に合わせて外部から自由にお選びいただけます。</p>
+    <div class="option-grid">
+      <div class="option">
+        <h4>外部介護サービス</h4>
+        <div class="price">介護保険適用</div>
+        <p>訪問介護・通所介護・訪問看護など、外部事業者から自由にお選びいただけます。自己負担分のみのご負担です。</p>
+      </div>
+      <div class="option">
+        <h4>居室清掃</h4>
+        <div class="price">要相談</div>
+        <p>週1回のお部屋のお掃除サービス。お気軽にご相談ください。</p>
+      </div>
+      <div class="option">
+        <h4>通院サポート</h4>
+        <div class="price">要相談</div>
+        <p>近隣の医療機関への通院に、必要に応じてスタッフが付き添います。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-block">
+      <div>
+        <h2>料金について、もっと詳しく。</h2>
+        <p style="margin:0;color:var(--ink-soft);">お一人おひとりのご状況に合わせた見積もりをご案内します。お気軽にお問い合わせください。</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="contact.html">見学・お見積り依頼</a>
+        <div class="cta-tel">
+          <small>お電話でのお問い合わせ</small>
+          <a class="num" href="tel:0436633618">0436-63-3618</a>
+          <div class="hours">受付時間 9:00 - 18:00（年中無休）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="shared-ch.js"></script>
+<script>
+(function () {
+  function fmt(n) { return n.toLocaleString("ja-JP"); }
+  function calc() {
+    var care = parseInt(document.querySelector('[name="sim-care"]:checked').value);
+    document.getElementById("sim-row-care").style.display = care > 0 ? "" : "none";
+    document.getElementById("sim-val-care").textContent = "約" + fmt(care) + "円";
+    document.getElementById("sim-total").innerHTML = fmt(103000 + care) + '<span>円／月〜</span>';
+  }
+  document.querySelectorAll('[name="sim-care"]').forEach(function(el) { el.addEventListener("change", calc); });
+  calc();
+})();
+</script>
+</body>
+</html>

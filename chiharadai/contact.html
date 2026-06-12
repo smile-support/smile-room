@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お問い合わせ・見学予約｜スマイルームちはら台</title>
+<meta name="description" content="スマイルームちはら台への見学予約・資料請求・お問い合わせはこちら。電話（0436-63-3618）またはフォームから承ります。見学は無料で随時受付中。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+:root {
+  --pink-50:  oklch(0.965 0.015 225);
+  --pink-100: oklch(0.930 0.028 225);
+  --pink-200: oklch(0.870 0.048 225);
+  --pink-300: oklch(0.790 0.062 225);
+  --pink-400: oklch(0.700 0.076 225);
+  --pink-500: oklch(0.590 0.088 225);
+  --pink-600: oklch(0.470 0.092 225);
+}
+.contact-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px; }
+@media (max-width: 800px) { .contact-options { grid-template-columns: 1fr; } }
+.contact-opt { background: var(--card); border: 2px solid var(--line-soft); border-radius: var(--radius-lg); padding: 30px 24px; text-align: center; transition: border-color .2s; }
+.contact-opt.primary { border-color: var(--pink-300); background: var(--pink-50); }
+.contact-opt-ico { width: 52px; height: 52px; border-radius: 16px; background: var(--pink-50); color: var(--pink-600); display: grid; place-items: center; margin: 0 auto 14px; }
+.contact-opt.primary .contact-opt-ico { background: var(--pink-100); }
+.contact-opt h3 { font-size: 17px; margin-bottom: 8px; }
+.contact-opt .contact-opt-num { font-family: "Zen Maru Gothic"; font-weight: 700; font-size: 26px; color: var(--pink-600); display: block; margin-bottom: 4px; }
+.contact-opt p { font-size: 13px; color: var(--ink-soft); margin: 0; line-height: 1.7; }
+.form-card { background: var(--card); border-radius: var(--radius-lg); border: 1px solid var(--line-soft); padding: 40px; max-width: 740px; margin: 0 auto; }
+.form-row { margin-bottom: 24px; }
+.form-row label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.form-row label .req { color: var(--pink-600); font-size: 12px; margin-left: 4px; }
+.form-row input, .form-row textarea, .form-row select { width: 100%; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: var(--radius); font-size: 15px; font-family: inherit; background: var(--bg); transition: border-color .15s; }
+.form-row input:focus, .form-row textarea:focus, .form-row select:focus { border-color: var(--pink-400); outline: none; background: white; }
+.form-row textarea { min-height: 120px; resize: vertical; }
+.radio-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.radio-item { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.radio-item input[type="radio"] { accent-color: var(--pink-500); width: 18px; height: 18px; cursor: pointer; }
+.radio-item span { font-size: 14.5px; }
+.form-note { font-size: 12.5px; color: var(--ink-mute); line-height: 1.7; margin-top: 20px; }
+.form-submit { display: flex; justify-content: center; margin-top: 32px; }
+.form-submit .btn { padding: 18px 56px; font-size: 17px; }
+.sent-msg { display: none; background: var(--pink-50); border: 2px solid var(--pink-200); border-radius: var(--radius); padding: 24px; text-align: center; margin-top: 20px; }
+.sent-msg h3 { color: var(--pink-600); margin-bottom: 8px; }
+</style>
+</head>
+<body data-breadcrumb='["お問い合わせ・見学予約"]'>
+<div data-site-header></div>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">ホーム</a><span>›</span>お問い合わせ・見学予約</nav>
+    <span class="eyebrow">CONTACT <span class="jp">／ お問い合わせ・見学予約</span></span>
+    <h1 class="section-title" style="font-size:clamp(32px,5vw,48px);margin-bottom:8px;">まずは、お気軽にご相談ください。</h1>
+    <p style="font-size:17px;color:var(--ink-soft);max-width:680px;">見学のご予約・資料請求・料金のご相談など、どんなことでもお気軽にどうぞ。専任スタッフがていねいにご対応いたします。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-options reveal">
+      <div class="contact-opt primary">
+        <div class="contact-opt-ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h3>お電話でのご相談</h3>
+        <a href="tel:0436633618" class="contact-opt-num">0436-63-3618</a>
+        <p>受付時間 9:00 - 18:00<br>年中無休でお受けします。<br>見学予約もお電話で受付中です。</p>
+      </div>
+      <div class="contact-opt">
+        <div class="contact-opt-ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h3>フォームからのご相談</h3>
+        <span class="contact-opt-num" style="font-size:18px;">24時間受付</span>
+        <p>下記のフォームからいつでもお問い合わせいただけます。<br>1営業日以内にご連絡します。</p>
+      </div>
+      <div class="contact-opt">
+        <div class="contact-opt-ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>施設の見学</h3>
+        <span class="contact-opt-num" style="font-size:18px;">無料・随時受付</span>
+        <p>見学は無料で随時受け付けています。<br>ご家族でのご見学も歓迎しています。<br>所要時間の目安は約60〜90分です。</p>
+      </div>
+    </div>
+
+    <div class="form-card reveal">
+      <h2 class="section-title" style="font-size:24px;margin-bottom:28px;">お問い合わせフォーム</h2>
+      <form id="contact-form" novalidate>
+        <div class="form-row">
+          <label>お問い合わせ種別 <span class="req">必須</span></label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="type" value="見学予約" checked><span>見学予約</span></label>
+            <label class="radio-item"><input type="radio" name="type" value="資料請求"><span>資料請求</span></label>
+            <label class="radio-item"><input type="radio" name="type" value="料金のご相談"><span>料金のご相談</span></label>
+            <label class="radio-item"><input type="radio" name="type" value="入居についての相談"><span>入居についての相談</span></label>
+            <label class="radio-item"><input type="radio" name="type" value="その他"><span>その他</span></label>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+          <div class="form-row">
+            <label for="name">お名前 <span class="req">必須</span></label>
+            <input type="text" id="name" name="name" placeholder="山田 花子" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="kana">ふりがな</label>
+            <input type="text" id="kana" name="kana" placeholder="やまだ はなこ" autocomplete="off">
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+          <div class="form-row">
+            <label for="tel">電話番号 <span class="req">必須</span></label>
+            <input type="tel" id="tel" name="tel" placeholder="090-0000-0000" required autocomplete="tel">
+          </div>
+          <div class="form-row">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" placeholder="example@mail.com" autocomplete="email">
+          </div>
+        </div>
+        <div class="form-row">
+          <label>ご入居をお考えの方</label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="who" value="本人"><span>本人</span></label>
+            <label class="radio-item"><input type="radio" name="who" value="配偶者" checked><span>配偶者</span></label>
+            <label class="radio-item"><input type="radio" name="who" value="親" checked><span>親</span></label>
+            <label class="radio-item"><input type="radio" name="who" value="その他家族"><span>その他家族</span></label>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="timing">ご希望の入居時期</label>
+          <select id="timing" name="timing">
+            <option value="">— 選択してください —</option>
+            <option>すぐにでも</option>
+            <option>1〜3ヶ月以内</option>
+            <option>3〜6ヶ月以内</option>
+            <option>半年〜1年以内</option>
+            <option>まだ検討中</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="message">ご質問・ご要望など</label>
+          <textarea id="message" name="message" placeholder="見学希望日・介護度・ご質問など、なんでもお気軽にどうぞ。"></textarea>
+        </div>
+        <p class="form-note">ご入力いただいた個人情報は、お問い合わせへの回答・見学案内のみに使用します。第三者への提供は行いません。</p>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            送信する
+          </button>
+        </div>
+      </form>
+      <div class="sent-msg" id="sent-msg">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--pink-500)" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <h3>お問い合わせを受け付けました</h3>
+        <p style="color:var(--ink-soft);font-size:14px;">1営業日以内にご連絡いたします。お急ぎの方はお電話（0436-63-3618）でもお問い合わせいただけます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="shared-ch.js"></script>
+<script>
+(function () {
+  var form = document.getElementById("contact-form");
+  var sentMsg = document.getElementById("sent-msg");
+  if (!form) return;
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = document.getElementById("name").value.trim();
+    var tel = document.getElementById("tel").value.trim();
+    if (!name) { alert("お名前を入力してください。"); return; }
+    if (!tel) { alert("電話番号を入力してください。"); return; }
+    form.style.display = "none";
+    sentMsg.style.display = "block";
+  });
+})();
+</script>
+</body>
+</html>

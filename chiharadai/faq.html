@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>よくある質問｜スマイルームちはら台</title>
+<meta name="description" content="スマイルームちはら台に関するよくある質問。入居条件・料金・介護サービス・食事・面会・おゆみ野との違いなどをQ&A形式でご案内します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"入居条件はありますか？","acceptedAnswer":{"@type":"Answer","text":"おおむね60歳以上で、自立または要支援・要介護の方が対象です。医療依存度が高い場合はご相談ください。"}},
+    {"@type":"Question","name":"月額103,000円に含まれるものは何ですか？","acceptedAnswer":{"@type":"Answer","text":"賃料・管理費・運営費・食費（3食）がすべて含まれます。水道光熱費は別途かかります。"}},
+    {"@type":"Question","name":"介護サービスは受けられますか？","acceptedAnswer":{"@type":"Answer","text":"外部の介護サービス事業者を自由にお選びいただけます。介護保険適用で自己負担1〜3割でご利用いただけます。"}},
+    {"@type":"Question","name":"面会はいつでもできますか？","acceptedAnswer":{"@type":"Answer","text":"基本的にいつでもご面会いただけます。夜間（22時以降）は事前にご連絡ください。"}},
+    {"@type":"Question","name":"おゆみ野との違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"ちはら台は食費込み月額103,000円の定額制です。おゆみ野は食事オプション選択制で59,800円〜です。"}}
+  ]
+}
+</script>
+<style>
+:root {
+  --pink-50:  oklch(0.965 0.015 225);
+  --pink-100: oklch(0.930 0.028 225);
+  --pink-200: oklch(0.870 0.048 225);
+  --pink-300: oklch(0.790 0.062 225);
+  --pink-400: oklch(0.700 0.076 225);
+  --pink-500: oklch(0.590 0.088 225);
+  --pink-600: oklch(0.470 0.092 225);
+}
+.worries-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 52px; }
+@media (max-width: 800px) { .worries-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 500px) { .worries-grid { grid-template-columns: 1fr; } }
+.worry { background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 20px; display: flex; gap: 12px; align-items: flex-start; }
+.worry-q { width: 28px; height: 28px; border-radius: 50%; background: var(--pink-100); color: var(--pink-600); font-family: "Zen Maru Gothic"; font-weight: 700; font-size: 14px; display: grid; place-items: center; flex-shrink: 0; }
+.worry p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.65; }
+.faq-cats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+.faq-cat-btn { padding: 8px 18px; border-radius: 100px; font-size: 14px; border: 1.5px solid var(--line); background: var(--card); cursor: pointer; font-family: inherit; transition: all .15s; }
+.faq-cat-btn.active, .faq-cat-btn:hover { background: var(--pink-50); border-color: var(--pink-400); color: var(--pink-600); }
+.faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 840px; }
+details.faq-item { background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; transition: border-color .15s; }
+details.faq-item[open] { border-color: var(--pink-300); }
+details.faq-item summary { display: flex; align-items: center; gap: 14px; padding: 18px 22px; cursor: pointer; list-style: none; font-size: 16px; font-weight: 600; line-height: 1.5; }
+details.faq-item summary::-webkit-details-marker { display: none; }
+.faq-q-mark { width: 28px; height: 28px; border-radius: 50%; background: var(--pink-100); color: var(--pink-600); font-family: "Zen Maru Gothic"; font-weight: 700; font-size: 14px; display: grid; place-items: center; flex-shrink: 0; }
+.faq-arrow { margin-left: auto; transition: transform .2s; color: var(--ink-mute); flex-shrink: 0; }
+details.faq-item[open] .faq-arrow { transform: rotate(180deg); }
+.faq-answer { padding: 0 22px 20px 64px; font-size: 14.5px; color: var(--ink-soft); line-height: 1.8; }
+.faq-answer a { color: var(--pink-600); text-decoration: underline; }
+</style>
+</head>
+<body data-breadcrumb='["よくある質問"]'>
+<div data-site-header></div>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">ホーム</a><span>›</span>よくある質問</nav>
+    <span class="eyebrow">FAQ <span class="jp">／ よくある質問</span></span>
+    <h1 class="section-title" style="font-size:clamp(32px,5vw,48px);margin-bottom:8px;">疑問・不安にすべてお答えします。</h1>
+    <p style="font-size:17px;color:var(--ink-soft);max-width:680px;">入居前のよくあるご質問をまとめました。解決しない場合はお電話・フォームからいつでもご相談ください。</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-warm);">
+  <div class="container">
+    <span class="eyebrow">WORRIES <span class="jp">／ こんなお悩みありませんか？</span></span>
+    <h2 class="section-title" style="font-size:28px;">みなさんの「？」を解消します</h2>
+    <div class="worries-grid">
+      <div class="worry reveal"><div class="worry-q">?</div><p>月額以外にどんな費用がかかるの？</p></div>
+      <div class="worry reveal" data-delay="1"><div class="worry-q">?</div><p>介護が必要になったらどうなる？</p></div>
+      <div class="worry reveal" data-delay="2"><div class="worry-q">?</div><p>食事のアレルギーに対応してもらえる？</p></div>
+      <div class="worry reveal"><div class="worry-q">?</div><p>一人暮らしと比べてどんなメリットがある？</p></div>
+      <div class="worry reveal" data-delay="1"><div class="worry-q">?</div><p>夜間に体調が悪くなったら？</p></div>
+      <div class="worry reveal" data-delay="2"><div class="worry-q">?</div><p>おゆみ野とちはら台、どちらが向いている？</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="faq-cats" id="faq-cats">
+      <button class="faq-cat-btn active" data-cat="all">すべて</button>
+      <button class="faq-cat-btn" data-cat="cost">料金・費用</button>
+      <button class="faq-cat-btn" data-cat="care">介護サービス</button>
+      <button class="faq-cat-btn" data-cat="life">生活・食事</button>
+      <button class="faq-cat-btn" data-cat="visit">見学・入居</button>
+      <button class="faq-cat-btn" data-cat="compare">施設比較</button>
+    </div>
+
+    <div class="faq-list" id="faq-list">
+
+      <details class="faq-item reveal" data-cat="visit">
+        <summary>
+          <span class="faq-q-mark">Q</span>
+          入居条件はありますか？
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">おおむね60歳以上の方を対象としています。自立・要支援・要介護どの段階でも入居していただけます。医療依存度が高い方（気管切開・胃ろう等）はご相談ください。認知症の方もご相談に応じます。</div>
+      </details>
+
+      <details class="faq-item reveal" data-cat="cost">
+        <summary>
+          <span class="faq-q-mark">Q</span>
+          月額103,000円に含まれるものを教えてください
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">賃料（41,000円）・管理費・運営費（19,000円）・食費（43,000円）がすべて含まれています。3食・おやつ・生活サポート・24時間スタッフ常駐・週3回以上の入浴補助・機能訓練・レクリエーション・共有スペース利用がすべて含まれます。水道光熱費は別途かかります。</div>
+      </details>
+
+      <details class="faq-item reveal" data-cat="cost">
+        <summary>
+          <span class="faq-q-mark">Q</span>
+          入居一時金はいくらですか？ 返金はありますか？
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">入居一時金は50,000円（一回のみ）です。高額な入居一時金・敷金・礼金・更新料はかかりません。返金規定については入居時にご説明いたします。詳しくは<a href="contact.html">お問い合わせ</a>ください。</div>
+      </details>
+
+      <details class="faq-item reveal" data-cat="care">
+        <summary>
+          <span class="faq-q-mark">Q</span>
+          介護サービスはどのように使いますか？
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">スマイルームは「住宅型有料老人ホーム」のため、介護サービスは外部の事業者からお選びいただきます。訪問介護・通所介護（デイサービス）・訪問看護など、お体の状態に合わせて必要なサービスを介護保険を使って自己負担1〜3割でご利用いただけます。</div>
+      </details>
+
+      <details class="faq-item reveal" data-cat="care">
+        <summary>
+          <span class="faq-q-mark">Q</span>
+          夜間に体調が悪くなったらどうなりますか？
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">24時間スタッフが常駐しており、夜間も定期巡回を行います。ナースコールでいつでも呼んでいただけます。緊急時は協力医療機関と連携し、必要に応じて救急対応を行います。</div>
+      </details>
+
+      <details class="faq-item reveal" data-cat="life">
+        <summary>
+          <span class="faq-q-mark">Q</span>
+          食事のアレルギーや食形態の調整はできますか？
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">アレルギーや食形態（刻み食・ソフト食・ミキサー食など）にも対応しています。管理栄養士が個別にご相談させていただきますので、入居前に遠慮なくお申し出ください。</div>
+      </details>
+
+      <details class="faq-item reveal" data-cat="life">
+        <summary>
+          <span class="faq-q-mark">Q</span>
+          面会はいつでもできますか？
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">原則としていつでもご面会いただけます。夜間（22時以降）の面会は事前にご連絡ください。ご家族と一緒にお食事いただくことも可能です（要事前確認）。</div>
+      </details>
+
+      <details class="faq-item reveal" data-cat="life">
+        <summary>
+          <span class="faq-q-mark">Q</span>
+          ペットは一緒に住めますか？
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">現在、ペットの同居はお断りしております。ご不明な点はお問い合わせください。</div>
+      </details>
+
+      <details class="faq-item reveal" data-cat="visit">
+        <summary>
+          <span class="faq-q-mark">Q</span>
+          見学は事前予約が必要ですか？費用はかかりますか？
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">見学は無料で随時受け付けています。事前にお電話またはフォームからご予約いただくとスムーズです。ご家族でのご来訪も歓迎しています。所要時間は約60〜90分が目安です。</div>
+      </details>
+
+      <details class="faq-item reveal" data-cat="compare">
+        <summary>
+          <span class="faq-q-mark">Q</span>
+          おゆみ野とちはら台の違いを教えてください
+          <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">最大の違いは料金体系と食事です。<strong>ちはら台</strong>は月額103,000円（食費込み・定額制）、<strong>おゆみ野</strong>は月額59,800円〜（食事は別途オプション）。設備面ではちはら台の方が全室に介護用ベッドが備え付けです。どちらの施設が適しているかは、お体の状態やご要望に合わせてご相談します。</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-warm);">
+  <div class="container" style="max-width:640px;text-align:center;">
+    <h2 class="section-title" style="font-size:28px;">解決しない場合はご相談ください</h2>
+    <p style="color:var(--ink-soft);margin-bottom:28px;">専任スタッフが丁寧にお答えします。どんな小さなことでもお気軽に。</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a class="btn btn-primary" href="contact.html">フォームで相談する</a>
+      <a class="btn btn-secondary" href="tel:0436633618">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0436-63-3618
+      </a>
+    </div>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="shared-ch.js"></script>
+<script>
+(function () {
+  var btns = document.querySelectorAll(".faq-cat-btn");
+  var items = document.querySelectorAll("#faq-list .faq-item");
+  btns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      btns.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      var cat = btn.dataset.cat;
+      items.forEach(function (item) {
+        item.style.display = (cat === "all" || item.dataset.cat === cat) ? "" : "none";
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

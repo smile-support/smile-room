@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一日の過ごし方｜スマイルームちはら台（市原市）</title>
+<meta name="description" content="スマイルームちはら台での一日のスケジュール。朝食から夜間巡回まで、食事・入浴・レクリエーション・外出など、自分らしいペースで生活できる環境です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+:root {
+  --pink-50:  oklch(0.965 0.015 225);
+  --pink-100: oklch(0.930 0.028 225);
+  --pink-200: oklch(0.870 0.048 225);
+  --pink-300: oklch(0.790 0.062 225);
+  --pink-400: oklch(0.700 0.076 225);
+  --pink-500: oklch(0.590 0.088 225);
+  --pink-600: oklch(0.470 0.092 225);
+}
+.day-timeline { display: flex; flex-direction: column; gap: 0; max-width: 740px; margin: 0 auto; }
+.day-item { display: grid; grid-template-columns: 90px 1fr; gap: 0 24px; align-items: stretch; }
+.day-time { font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 500; color: var(--pink-600); padding-top: 6px; text-align: right; }
+.day-body { border-left: 2px solid var(--pink-100); padding: 0 0 32px 28px; position: relative; }
+.day-body::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--pink-400); position: absolute; left: -7px; top: 8px; }
+.day-title { font-family: "Zen Maru Gothic"; font-weight: 700; font-size: 18px; margin-bottom: 6px; }
+.day-desc { font-size: 14.5px; color: var(--ink-soft); line-height: 1.75; margin: 0; }
+.day-tag { display: inline-block; font-size: 11.5px; padding: 2px 9px; border-radius: 100px; background: var(--pink-100); color: var(--pink-600); font-weight: 600; margin-bottom: 6px; }
+.day-quote { background: var(--pink-50); border-left: 4px solid var(--pink-300); padding: 20px 24px; border-radius: 0 var(--radius) var(--radius) 0; margin: 28px 0; font-style: italic; color: var(--ink-soft); font-size: 15px; line-height: 1.8; }
+.events-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 30px; }
+@media (max-width: 800px) { .events-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .events-grid { grid-template-columns: 1fr; } }
+.event-card { background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 22px 20px; text-align: center; }
+.event-ico { font-size: 32px; margin-bottom: 10px; }
+.event-season { font-size: 11.5px; font-weight: 600; color: var(--pink-600); letter-spacing: 0.08em; margin-bottom: 4px; }
+.event-card h4 { font-size: 15px; margin-bottom: 6px; }
+.event-card p { font-size: 13px; color: var(--ink-soft); margin: 0; line-height: 1.7; }
+</style>
+</head>
+<body data-breadcrumb='["一日の過ごし方"]'>
+<div data-site-header></div>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">ホーム</a><span>›</span>一日の過ごし方</nav>
+    <span class="eyebrow">DAILY LIFE <span class="jp">／ 一日の過ごし方</span></span>
+    <h1 class="section-title" style="font-size:clamp(32px,5vw,48px);margin-bottom:8px;">自分のペースで、<br>豊かな毎日を。</h1>
+    <p style="font-size:17px;color:var(--ink-soft);max-width:680px;">スマイルームちはら台では、決まったスケジュールに縛られず、お一人おひとりのリズムに合わせた暮らしを大切にしています。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">SCHEDULE <span class="jp">／ 一日の流れ（例）</span></span>
+    <h2 class="section-title" style="font-size:28px;">ある一日のスケジュール</h2>
+    <p class="section-lede">これはあくまで一例です。起床・就寝・外出の時間はご自身のペースに合わせていただけます。</p>
+
+    <div class="day-timeline mt-6">
+      <div class="day-item reveal">
+        <div class="day-time">7:00</div>
+        <div class="day-body">
+          <div class="day-tag">朝のひととき</div>
+          <div class="day-title">起床・洗顔・身支度</div>
+          <p class="day-desc">スタッフによる朝のあいさつ。必要な方にはお手伝いをします。起きる時間はご自身のペースで。</p>
+        </div>
+      </div>
+      <div class="day-item reveal">
+        <div class="day-time">8:00</div>
+        <div class="day-body">
+          <div class="day-tag">お食事</div>
+          <div class="day-title">朝食（共有食堂にて）</div>
+          <p class="day-desc">管理栄養士監修の朝ご飯を共有食堂でお召し上がりいただきます。お部屋でお召し上がりいただくことも可能です。</p>
+        </div>
+      </div>
+      <div class="day-item reveal">
+        <div class="day-time">10:00</div>
+        <div class="day-body">
+          <div class="day-tag">午前の活動</div>
+          <div class="day-title">レクリエーション・体操・機能訓練</div>
+          <p class="day-desc">毎日の体操や機能訓練、読書・テレビ・趣味など。希望する方は外部の通所サービスへ送迎も対応します。</p>
+        </div>
+      </div>
+      <div class="day-item reveal">
+        <div class="day-time">12:00</div>
+        <div class="day-body">
+          <div class="day-tag">お食事</div>
+          <div class="day-title">昼食</div>
+          <p class="day-desc">温かい昼ご飯を食堂でご用意します。季節に合わせた献立で、楽しいお食事タイムを。</p>
+        </div>
+      </div>
+      <div class="day-item reveal">
+        <div class="day-time">14:00</div>
+        <div class="day-body">
+          <div class="day-tag">くつろぎのひとときを</div>
+          <div class="day-title">入浴・お昼寝・趣味活動</div>
+          <p class="day-desc">手すり付き浴室・シャワーチェアを使った安全な入浴。週3回以上の入浴をお手伝いします。午後はゆっくりとお過ごしください。</p>
+        </div>
+      </div>
+      <div class="day-item reveal">
+        <div class="day-time">15:00</div>
+        <div class="day-body">
+          <div class="day-tag">おやつタイム</div>
+          <div class="day-title">おやつ・アクティビティ</div>
+          <p class="day-desc">季節の和菓子やケーキなどのおやつとお茶をご用意します。お誕生日の方には特別なケーキも。</p>
+        </div>
+      </div>
+      <div class="day-item reveal">
+        <div class="day-time">17:30</div>
+        <div class="day-body">
+          <div class="day-tag">お食事</div>
+          <div class="day-title">夕食</div>
+          <p class="day-desc">温かい夕食を食堂でご用意します。ご家族が面会でいらした際は一緒にお食事いただくことも可能です（要事前確認）。</p>
+        </div>
+      </div>
+      <div class="day-item reveal">
+        <div class="day-time">19:00</div>
+        <div class="day-body">
+          <div class="day-tag">夜のくつろぎ</div>
+          <div class="day-title">入浴・就寝準備</div>
+          <p class="day-desc">夜間の入浴もご希望に応じて対応します。就寝時間もご自身のペースで。夜間もスタッフが常駐し、定期巡回を行います。</p>
+        </div>
+      </div>
+      <div class="day-item reveal">
+        <div class="day-time">22:00</div>
+        <div class="day-body">
+          <div class="day-tag">夜間</div>
+          <div class="day-title">夜間定期巡回・見守り</div>
+          <p class="day-desc">夜間もスタッフが常駐。定期的に居室を巡回し、お体の様子を確認します。ナースコールでいつでも呼んでいただけます。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-quote reveal">
+      「毎朝の体操が楽しみになりました。スタッフさんがいつも声をかけてくれるので、一日が充実していますよ。」<br>
+      <small style="font-size:13px;">— ご入居者 Aさん（80代男性）</small>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-warm);">
+  <div class="container">
+    <span class="eyebrow">EVENTS <span class="jp">／ 季節のイベント</span></span>
+    <h2 class="section-title" style="font-size:28px;">一年を彩るイベント</h2>
+    <p class="section-lede">毎月のお誕生日会から季節の行事まで、生活に彩りと楽しみをお届けします。</p>
+    <div class="events-grid">
+      <div class="event-card reveal">
+        <div class="event-ico">🌸</div>
+        <div class="event-season">SPRING</div>
+        <h4>春のイベント</h4>
+        <p>お花見・端午の節句・母の日・父の日</p>
+      </div>
+      <div class="event-card reveal" data-delay="1">
+        <div class="event-ico">🌻</div>
+        <div class="event-season">SUMMER</div>
+        <h4>夏のイベント</h4>
+        <p>七夕・夏祭り・スイカ割り・お盆飾り</p>
+      </div>
+      <div class="event-card reveal" data-delay="2">
+        <div class="event-ico">🍁</div>
+        <div class="event-season">AUTUMN</div>
+        <h4>秋のイベント</h4>
+        <p>敬老会・紅葉狩り・ハロウィン・芋煮会</p>
+      </div>
+      <div class="event-card reveal" data-delay="3">
+        <div class="event-ico">⛄</div>
+        <div class="event-season">WINTER</div>
+        <h4>冬のイベント</h4>
+        <p>クリスマス会・年越しそば・正月飾り・節分</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-block">
+      <div>
+        <h2>実際の暮らしを、見学で体感してください。</h2>
+        <p style="margin:0;color:var(--ink-soft);">どんな一日を過ごしているか、実際にご見学いただけます。ご家族での見学も歓迎しています。</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="contact.html">見学を予約する</a>
+        <div class="cta-tel">
+          <small>お電話でのお問い合わせ</small>
+          <a class="num" href="tel:0436633618">0436-63-3618</a>
+          <div class="hours">受付時間 9:00 - 18:00（年中無休）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-site-footer></div>
+<script src="shared-ch.js"></script>
+</body>
+</html>
